@@ -105,7 +105,7 @@
 
       // TODO 5: Declare an isCorrect function that compares a guess to the right answer
       // isCorrect(guess) should return true if the guess matches the fact's answer
-      const isCorrect = (guess) => guess === fact.answer
+      const isCorrect = (guess) => guess === fact.answer.toString();
 
       // TODO 6A: Use a for loop to add a click event listener to each of the optionButtons
       for (let button of optionButtons) {
@@ -125,7 +125,7 @@
           // and add the "correct"/"incorrect" class as appropriate
           clickedButton = e.target;
 
-          if (clickedButton.value === fact.answer.toString()) {
+          if (isCorrect(clickedButton.value)) {
             clickedButton.classList.add("correct");
           } else {
             clickedButton.classList.add("incorrect");
