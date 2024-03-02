@@ -125,7 +125,15 @@
   function getBreedFromURL(url) {
     // The string method .split(char) may come in handy
     // Try to use destructuring as much as you can
+    const breed = url.split("/")[4];
+    const splitBreed = breed.split("-");
 
+    if (splitBreed.length > 1) {
+      let [a, b] = splitBreed;
+      return `${b} ${a}`;
+    } else {
+      return breed;
+    }
   }
 
   // TODO 3
@@ -133,7 +141,11 @@
   // then parse the response as a JSON object,
   // finally return the "message" property of its body
   async function fetchMessage(url) {
+    const response = await fetch(url);
+    const dataResponse = await response.json();
+    const { message } = dataResponse;
 
+    return message;
   }
 
 
