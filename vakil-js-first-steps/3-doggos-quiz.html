@@ -170,7 +170,16 @@
     // Create a button element whose name, value, and textContent properties are the value of that choice,
     // attach a "click" event listener with the buttonHandler function,
     // and append the button as a child of the options element
+    for (choice of choicesArray) {
+      const buttonElement = document.createElement("button");
 
+      buttonElement.name = choice;
+      buttonElement.value = choice;
+      buttonElement.textContent = choice;
+      buttonElement.addEventListener("click", buttonHandler);
+
+      options.appendChild(buttonElement);
+    }
   }
 
 
