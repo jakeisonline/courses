@@ -31,7 +31,7 @@ const Router = {
         pageElement.textContent = "Your Order";
         break;
       default:
-        if (route.startWith("/product/")) {
+        if (route.startsWith("/product/")) {
           pageElement = document.createElement("details-page");
           pageElement.textContent = "Details";
           const paramId = route.substring(route.lastIndexOf("/")+1);
