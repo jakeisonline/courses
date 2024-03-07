@@ -30,7 +30,7 @@ const isValidName = (name) => {
   return true;
 };
 
-let hoursAttended = (attended, length) => {
+const hoursAttended = (attended, length) => {
   const isValidType = (v) => {
     return typeof v === "number" || typeof v === "string";
   };
