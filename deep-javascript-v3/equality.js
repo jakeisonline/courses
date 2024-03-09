@@ -8,23 +8,34 @@ const findAll = (v, a) => {
     } else if (v == null && i == null) {
       matches.push(i);
     } else if (typeof v == "boolean") {
-      if (v == i) { matches.push(i) }
-    } else if (typeof v == "string" && v.trim() != "" && typeof i == "number" && !Object.is(-0, i)) {
-      if (v == i) { matches.push(i); }
+      if (v == i) {
+        matches.push(i);
+      }
     } else if (
-        typeof v == "number" &&
-        !Object.is(v, -0) &&
-        !Object.is(v, NaN) &&
-        !Object.is(v, Infinity) &&
-        !Object.is(v, -Infinity) &&
-        typeof i == "string" &&
-        i.trim() != ""
-      ) {
-      if (v == i) { matches.push(i); }
+      typeof v == "string" &&
+      v.trim() != "" &&
+      typeof i == "number" &&
+      !Object.is(-0, i)
+    ) {
+      if (v == i) {
+        matches.push(i);
+      }
+    } else if (
+      typeof v == "number" &&
+      !Object.is(v, -0) &&
+      !Object.is(v, NaN) &&
+      !Object.is(v, Infinity) &&
+      !Object.is(v, -Infinity) &&
+      typeof i == "string" &&
+      i.trim() != ""
+    ) {
+      if (v == i) {
+        matches.push(i);
+      }
     }
   });
   return matches;
-}
+};
 
 // tests:
 var myObj = { a: 2 };
