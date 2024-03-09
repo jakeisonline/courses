@@ -1,6 +1,8 @@
-/* TODO: In this exercise, you will define some validation functions that check
-user inputs (such as from DOM elements). You'll need to properly handle the
-coercions of the various value types.
+/* # Working With Coercion
+
+In this exercise, you will define some validation functions that check user inputs (such as from DOM elements). You'll need to properly handle the coercions of the various value types.
+
+## Instructions
 
 1. Define an `isValidName(..)` validator that takes one parameter, `name`. The validator returns `true` if all the following match the parameter (`false` otherwise):
 
