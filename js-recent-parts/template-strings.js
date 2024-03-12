@@ -1,4 +1,4 @@
-/* TEMPLATE LITERALS
+/* # Template Literals
 
 Build your own tag function, called `upper`. Use it to drop in `name`,
 `twitter`, `topic` into the string, ensuring those values are uppercased while
