@@ -6,11 +6,10 @@ keeping the rest of the string lower case.
 */
 
 function upper(strings, ...values) {
-  console.log(strings);
   const upperValues = values.map((v) => v.toUpperCase());
   let returnString = "";
 
-  for (let i = 1; i < strings.length; i++) {
+  for (let i = 0; i < strings.length; i++) {
     if (i > 0) {
       returnString += upperValues[i - 1];
     }
@@ -18,7 +17,6 @@ function upper(strings, ...values) {
     returnString += strings[i];
   }
 
-  console.log(returnString);
   return returnString;
 
 }
