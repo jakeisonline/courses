@@ -70,7 +70,7 @@ destructorParams([1, 2, 3, , , 6, 7, 8]);
 
 
 // Deconstructors can be used on objects, too
-function data() {
+function objectDestructor() {
   return { a: 1, b: { c: 3, d: 4 }, g: 7, h: 8 };
 }
 
@@ -79,7 +79,7 @@ data = {
   b: { c, d } = {}, // We can have null protection here, too
   e = 5,
   ...rest
-} = data();
+} = objectDestructor();
 
 console.log(a === 1);
 console.log(c === 3);
