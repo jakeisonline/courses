@@ -1,6 +1,6 @@
 /* # Destructuring
 
-Create a function similar to underscore.js `extend`, which uses destructuring and restructuring to make a handleResponse util function, and includes the following defaults.
+Create a function similar to underscore.js `extend`, which uses destructuring and restructuring to make a handleResponse util function, and includes the following defaults...
 */
 
 var defaults = {
@@ -32,8 +32,8 @@ function handleResponse({
     slides: {
       start: start,
       end: end,
+    },
     ...rest
-    }
   });
 }
 
