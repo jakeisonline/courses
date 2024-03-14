@@ -16,11 +16,6 @@ async function loadFiles(files) {
   for (request of requests) {
     console.log(await request);
   }
-
-  // for (file of files) {
-  //   const result = await getFile(file);
-  //   console.log(result);
-  // }
 }
 
 loadFiles(["file1", "file2", "file3"]);
