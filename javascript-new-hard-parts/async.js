@@ -111,11 +111,9 @@ const fakeAPICall = (i) => {
 };
 
 function getAllData() {
-  const one = fakeAPICall(0);
-  const two = fakeAPICall(1);
-  const three = fakeAPICall(2);
-
-  Promise.all([one, two, three]).then(console.log);
+  Promise.all([fakeAPICall(0), fakeAPICall(1), fakeAPICall(2)]).then(
+    console.log
+  );
 }
 
 getAllData();
