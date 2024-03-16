@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import Pet from "./pet";
+import Pet from "./Pet";
 
 const App = () => {
   return (
