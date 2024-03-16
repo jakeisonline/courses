@@ -156,22 +156,48 @@ for (let word of helloWorld) { console.log(word); } // -> should log 'Hello' and
 
 // CHALLENGE 7
 
-function valueAndPrevIndex(array) {}
+/* Build a function that walks through an array and returns the element
+concatenated with the string "was found after index x", where x is the previous
+index.
 
-// const returnedSentence = valueAndPrevIndex([4, 5, 6]);
-// console.log(returnedSentence.sentence());
-// console.log(returnedSentence.sentence());
-// console.log(returnedSentence.sentence());
+Note: if it is the first element it should say that it is the first*/
+
+function valueAndPrevIndex(array) {
+  let i = 0;
+
+  return {
+    sentence: () => {
+      let foundSentence =
+        i < 1
+          ? `${array[i]} is the first element.`
+          : `${array[i]} was found after index ${i - 1}`;
+      i++;
+
+      return foundSentence;
+    }
+  }
+}
+
+const returnedSentence = valueAndPrevIndex([4, 5, 6]);
+console.log(returnedSentence.sentence());
+console.log(returnedSentence.sentence());
+console.log(returnedSentence.sentence());
 
 //CHALLENGE 8
 
-function* createConversation(string) {}
+/* Write a function that will console.log "hello there", or "gibberish", every three seconds depending on if the word passed into the function is 'english'.
+Do not use any type of loop constructor and only make the call to createConversation once. */
 
-// console.log(createConversation("english").next());
+function* createConversation(string) {
+  setInterval(() => {
+    let sentence = (string === "english") ? "hello there" : "gibberish";
 
-//CHALLENGE 9
-function waitForVerb(noun) {}
+    if (string == "english") {
+      console.log(sentence);
+    }
+  }, 3000);
+}
 
-async function f(noun) {}
+console.log(createConversation("english").next());
 
-f("dog");
+// This works, but I'm not sure it's what was really asked...
