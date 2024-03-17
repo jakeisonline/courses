@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import fetchPet from "./fetchPet"
+import fetchPet from "./fetchPet";
 import Carousel from "./Carousel";
 
 const Details = () => {
@@ -29,7 +29,7 @@ const Details = () => {
         </h2>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Details;

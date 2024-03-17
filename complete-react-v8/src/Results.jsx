@@ -6,7 +6,7 @@ const Results = ({ pets }) => {
       {!pets.length ? (
         <h1>No pets found.</h1>
       ) : (
-        pets.map(pet => (
+        pets.map((pet) => (
           <Pet
             animal={pet.animal}
             name={pet.name}
@@ -19,7 +19,7 @@ const Results = ({ pets }) => {
         ))
       )}
     </div>
-  )
-}
+  );
+};
 
 export default Results;
