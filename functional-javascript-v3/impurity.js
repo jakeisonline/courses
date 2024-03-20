@@ -70,7 +70,6 @@ function getStudentsByName(students) {
 // modify/move this function
 function getStudentsByID(currentStudents) {
 	let originalStudents = [ ...students ];
-	students = [ ...currentStudents ];
 	let newStudents = sortStudentsByID();
 	students = originalStudents;
 
