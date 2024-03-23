@@ -24,25 +24,6 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Muli:wght@400;600;700&family=Poppins:wght@400;600&display=auto">
   <link rel="stylesheet" href="/assets/css/main.css">
-
-  <script src="/assets/js/banner.js"></script>
-  <script src="/assets/js/util/perf.js"></script>
-
-  <script>
-    // Configuration of inline chat widget Chatty.
-    // Options:
-    //   open @Boolean True if chat is open on load. False if closed.
-    window._chatty = { open: true };
-    (function () {
-      var s = document.createElement('script');
-      s.src =
-        window.location.href.replace('3000', '3001') +
-        '/assets/vendor/chatty/chatty.js';
-      var fs = document.getElementsByTagName('script')[0];
-      fs.parentNode.insertBefore(s, fs);
-    })();
-  </script>
-
 </head>
 
 <body class=" index">
@@ -111,7 +92,7 @@
         <h2>How It Works</h2>
         <div class="video">
           <div class="vimeo">
-            <iframe src="https://www.youtube.com/embed/NhTcdbd-zYA" frameborder="0"
+            <iframe src="" data-src="https://www.youtube.com/embed/NhTcdbd-zYA" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen=""></iframe>
           </div>
@@ -175,7 +156,7 @@
         <div class="callout flex">
           <div class="picture">
             <a href="/assets/images/callouts/callout-distribution-2400.png" target="_blank">
-              <img src="/assets/images/callouts/callout-distribution-2400.png"
+              <img src="" data-src="/assets/images/callouts/callout-distribution-2400.png"
                 alt="Chart page views and the distribution user load time" />
             </a>
           </div>
@@ -192,7 +173,7 @@
         <div class="callout left flex">
           <div class="picture">
             <a href="/assets/images/callouts/callout-breakdown-2400.png" target="_blank">
-              <img src="/assets/images/callouts/callout-breakdown-2400.png"
+              <img src="" data-src="/assets/images/callouts/callout-breakdown-2400.png"
                 alt="Chart page views and the distribution user load time" />
             </a>
           </div>
@@ -208,7 +189,7 @@
         <div class="callout flex">
           <div class="picture">
             <a href="/assets/images/callouts/callout-webvital-2400.png" target="_blank">
-              <img src="/assets/images/callouts/callout-webvital-2400.png"
+              <img src="" data-src="assets/images/callouts/callout-webvital-2400.png"
                 alt="Chart page views and the distribution user load time" />
             </a>
           </div>
@@ -383,7 +364,24 @@
     </div>
 
   </footer>
+  <script defer src="/assets/js/util/perf.js"></script>
+  <script defer src="/assets/js/util/lazyloader.js"></script>
+  <script defer src="/assets/js/banner.js"></script>
 
+  <script>
+    // Configuration of inline chat widget Chatty.
+    // Options:
+    //   open @Boolean True if chat is open on load. False if closed.
+    window._chatty = { open: true };
+    (function () {
+      var s = document.createElement('script');
+      s.src =
+        window.location.href.replace('3000', '3001') +
+        '/assets/vendor/chatty/chatty.js';
+      var fs = document.getElementsByTagName('script')[0];
+      fs.parentNode.insertBefore(s, fs);
+    })();
+  </script>
 </body>
 
 </html>
