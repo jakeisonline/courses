@@ -9,12 +9,12 @@
 
   const payload = {
     url: window.location.href,
-    dcl: 0,
+    dcl: 0, // DOMContentLoaded
     load: 0,
-    fcp: 0,
-    lcp: 0,
-    cls: 0,
-    fid: 0
+    fcp: 0, // First Contentful Paint
+    lcp: 0, // Largest Contentful Paint
+    cls: 0, // Cumulative Contentful Paint
+    fid: 0 // First Input Delay
   }
 
   // Navigation Performance Timings
@@ -79,7 +79,6 @@
   });
 
 })();
-
 
 
 // Utility functions to make example easier to understand.
