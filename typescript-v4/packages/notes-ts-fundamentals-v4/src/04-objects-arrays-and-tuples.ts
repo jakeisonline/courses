@@ -1,24 +1,36 @@
 //* Objects
 
+const myCar = {
+  make: "Toyato",
+  model: "Corolla",
+  year: 2002,
+}
+
 let car: {
+  // Note lack of commas here, they're optional
   make: string
   model: string
   year: number
+} = myCar
+
+
+//? A function that prints info about a car to stdout
+function printCar(car: {
+    make: string
+    model: string
+    year: number
+    chargeVoltage?: number // The ? denotes an optional property
+}) {
+  let str = `${car.make} ${car.model} (${car.year})`
+  car.chargeVoltage
+  if (typeof car.chargeVoltage !== "undefined")
+    str += `// ${car.chargeVoltage}v`
+  console.log(str);
 }
 
-/*
-//? A function that prints info about a car to stdout
-// function printCar(car: {
-//     make: string
-//     model: string
-//     year: number
-// }) {
-//     console.log(`${car.make} ${car.model} (${car.year})`)
-// }
+printCar(car)
 
-// printCar(car)
 
-/*
 //* Optional properties
 //? Insert into function printCar
 // let str = `${car.make} ${car.model} (${car.year})`
@@ -26,48 +38,43 @@ let car: {
 // if (typeof car.chargeVoltage !== "undefined")
 //   str += `// ${car.chargeVoltage}v`
 
-/*
-// printCar({ //? original fn works
-//     make: "Honda",
-//     model: "Accord",
-//     year: 2017,
-// })
 
-// printCar({ //? optional property works too!
-//     make: "Tesla",
-//     model: "Model 3",
-//     year: 2020,
-//     chargeVoltage: 220,
-// })
+printCar({ //? original fn works
+    make: "Honda",
+    model: "Accord",
+    year: 2017,
+})
 
-/*
+printCar({ //? optional property works too!
+    make: "Tesla",
+    model: "Model 3",
+    year: 2020,
+    chargeVoltage: 220,
+})
+
+
 //* Excess property checking
 
-// printCar({
-//     make: "Tesla",
-//     model: "Model 3",
-//     year: 2020,
-//     color: "RED", //? EXTRA PROPERTY
-// })
+printCar({
+    make: "Tesla",
+    model: "Model 3",
+    year: 2020,
+    color: "RED", //? EXTRA PROPERTY
+})
 
-/*
 //* Index signatures
 
-//? Dictionary of phone #s
-// const phones = {
-//     home: { country: "+1", area: "211", number: "652-4515" },
-//     work: { country: "+1", area: "670", number: "752-5856" },
-//     fax: { country: "+1", area: "322", number: "525-4357" },
-// }
-/*
-//? Model as an index signature
-// const phones: {
-//     [k: string]: {
-//         country: string
-//         area: string
-//         number: string
-//     }
-// } = {}
+const phones: {
+  [k: string]: {
+      country: string
+      area: string
+      number: string
+  }
+} = {
+  home: { country: "+1", area: "211", number: "652-4515" },
+  work: { country: "+1", area: "670", number: "752-5856" },
+  fax: { country: "+1", area: "322", number: "525-4357" },
+}
 
 //*  Array Types
 
