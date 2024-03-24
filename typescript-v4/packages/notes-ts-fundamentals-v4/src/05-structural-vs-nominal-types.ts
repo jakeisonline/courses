@@ -27,10 +27,9 @@ function printCar(car: {
 }) {
   console.log(`${car.make} ${car.model} (${car.year})`)
 }
-/*
-//printCar(new Car()) //✔️ Fine
-//printCar(new Truck()) //✔️ Fine
-//printCar(vehicle) //✔️ Fine
-/**/
+
+printCar(new Car()) //✔️ Fine
+printCar(new Truck()) //✔️ Fine
+printCar(vehicle) //✔️ Fine
 
 export default {}
