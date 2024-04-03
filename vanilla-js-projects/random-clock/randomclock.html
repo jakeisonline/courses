@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://anjana.dev/vanilla-js-projects/clock/index.html -->
+<html data-theme="dark">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" type="image/svg+xml" href="https://anjana.dev/vanilla-js-projects/favicon.svg">
+
+	<title>Random Clock | Vanilla JS Projects</title>
+	<style>
+		#clock {
+			width: 100%;
+			height: 50vh;
+			position: relative;
+		}
+
+		#clock p {
+			width: 200px;
+			position: relative;
+			font-size: xx-large;
+		}
+	</style>
+
+	<link rel="stylesheet" crossorigin="" href="./public/pico.css">
+	<link rel="stylesheet" crossorigin="" href="./public/spacing.css">
+</head>
+
+<body class="container">
+	<header>
+		<h1>random clock</h1>
+	</header>
+
+	<main class="container">
+		<article>
+			<div id="clock">
+				<p id="time"></p>
+
+			</div>
+		</article>
+	</main>
+
+	<script id="clock.js">
+
+		setTime();
+		setInterval(setTime, 3000);
+
+		function setTime() {
+			const date = new Date;
+			let p = document.querySelector("#time")
+
+			p.textContent = date.toLocaleTimeString('en-GB')
+			p.style.top = `${getRandomRange(0, 100)}%`
+			p.style.left = `${getRandomRange(0, 100)}%`
+			p.style.color = `${getRandomColor()}`
+		}
+
+		function getRandomRange(min, max) {
+			return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min)) + Math.ceil(min));
+		}
+
+		function getRandomColor() {
+			var letters = '0123456789ABCDEF';
+			var color = '#';
+			for (var i = 0; i < 6; i++) {
+				color += letters[Math.floor(Math.random() * 16)];
+			}
+			return color;
+		}
+	</script>
+
+
+
+</body>
+
+</html>
