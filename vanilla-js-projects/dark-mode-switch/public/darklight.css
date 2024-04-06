@@ -70,11 +70,11 @@ footer>* {
 }
 
 html[data-theme=dark] #darklight {
-    background-image: url(./darth.jpg)
+    background-image: url("https://anjana.dev/vanilla-js-projects/assets/darth.jpg")
 }
 
 html[data-theme=light] #darklight {
-    background-image: url(./yoda.jpg)
+    background-image: url("https://anjana.dev/vanilla-js-projects/assets/darth.jpg")
 }
 
 #darklight {
