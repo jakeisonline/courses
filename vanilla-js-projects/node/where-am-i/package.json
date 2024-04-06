@@ -1,0 +1,16 @@
+{
+  "name": "where-am-i",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Tells you which dir you're in (super helpful)",
+  "main": "whereAmI.js",
+  "scripts": {
+    "find-me": "node whereAmI.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jake Holman",
+  "license": "ISC",
+  "dependencies": {
+    "cowsay": "^1.6.0"
+  }
+}
