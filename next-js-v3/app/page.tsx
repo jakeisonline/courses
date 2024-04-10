@@ -1,5 +1,9 @@
-import Image from "next/image"
+import NewTodoForm from "@/components/NewTodoForm"
 
 export default function Home() {
-  return <div>home</div>
+  return (
+    <div>
+      <NewTodoForm></NewTodoForm>
+    </div>
+  )
 }
