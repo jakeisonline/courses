@@ -1,3 +1,14 @@
 {
-  "notes": []
+  "notes": [
+    {
+      "tags": [],
+      "id": 1712933785087,
+      "content": "new note 1"
+    },
+    {
+      "tags": [],
+      "id": 1712933787820,
+      "content": "new note 2"
+    }
+  ]
 }
