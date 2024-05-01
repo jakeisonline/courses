@@ -1,18 +1,10 @@
-import Count from './Count'
-import CountButtons from './CountButtons'
-import ResetButton from './ResetButton'
-import Title from './Title'
+import Card from './Card'
 
 function App() {
 
   return (
     <main>
-      <div>
-        <Title />
-        <Count />
-        <ResetButton />
-        <CountButtons />
-      </div>
+      <Card />
     </main>
   )
 }
