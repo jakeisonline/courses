@@ -1,0 +1,122 @@
+.form {
+
+
+  &__group {
+
+    @include respond(tab-port) {
+      margin-top: 4rem;
+
+      & ~ & {
+        // Reset margin-top on all further siblings of __group
+        margin-top: 0;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__input {
+    font-size: 1.5rem;
+    font-family: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    display: block;
+    transition: all 0.4s;
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-primary;
+
+      &:invalid {
+        border-color: $color-secondary-dark;
+      }
+    }
+  }
+
+  &__label {
+    /* In the lecture, this label is placed below the input, but I disliked that
+       position. This label will appear above the input, as one would expect */
+    font-size: 1.6rem;
+    font-weight: 700;
+    position: relative;
+    top: -8.5rem;
+    display: block;
+    transition: all 0.3s ease-out;
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(4rem) translateX(1.6rem);
+  }
+
+  &__radio-group {
+    width: 49%;
+    display: inline-block;
+
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-label {
+    position: relative;
+    font-size: $default-font-size;
+    cursor: pointer;
+    padding-left: 3.6rem;
+
+    // Add a subtle ghost to the radio button to show intent to toggle
+    &:active > .form__radio-button::after {
+      height: 0.8rem;
+      width: 0.8rem;
+      opacity: 0.6;
+    }
+  }
+
+  &__radio-button {
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: -0.3rem;
+    top: -0.3rem;
+
+    @include respond(tab-land) {
+      border-width: 4px;
+    }
+
+    &::after {
+      @include absoluteCenter;
+      content: "";
+      display: block;
+      height: 1.3rem;
+      width: 1.3rem;
+      border-radius: 50%;
+      background-color: $color-primary;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  }
+
+  &__radio-input:checked ~ &__radio-label &__radio-button:after {
+    opacity: 1;
+  }
+}
