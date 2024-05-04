@@ -1,16 +1,10 @@
+import { BUTTON_GROUP_LABELS } from "../lib/constants"
 import Button from "./Button"
 
 export default function ButtonGroup() {
-  const buttonLabels = [
-    "Mark all as complete",
-    "Mark all as incomplete",
-    "Reset to initial",
-    "Remove all items",
-  ]
-
   return (
     <section className="button-group">
-      {buttonLabels.map((label) => {
+      {BUTTON_GROUP_LABELS.map((label) => {
         return (
           <Button key={label} type="secondary">
             {label}
