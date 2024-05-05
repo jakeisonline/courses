@@ -9,13 +9,33 @@ import Sidebar from "./Sidebar"
 function App() {
   const [items, setItems] = useState(INITIAL_ITEMS)
 
+  const handleAddItem = (newItem) => {
+    const newItems = [...items, newItem]
+    setItems(newItems)
+  }
+
+  const handleRemoveItem = (id) => {
+    const newItems = items.filter((item) => item.id !== id)
+    setItems(newItems)
+  }
+
+  const handleToggleItem = (id) => {
+    const newItems = items.map((item) => {
+      if (item.id === id) {
+        return { ...item, packed: !item.packed }
+      }
+      return item
+    })
+    setItems(newItems)
+  }
+
   return (
     <>
       <BackgroundHeading />
       <main>
         <Header />
         <ItemList items={items} />
-        <Sidebar setItems={setItems} />
+        <Sidebar handleAddItem={handleAddItem} />
       </main>
       <Footer />
     </>
