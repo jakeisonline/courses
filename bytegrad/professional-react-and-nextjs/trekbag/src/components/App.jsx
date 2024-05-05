@@ -9,7 +9,12 @@ import Sidebar from "./Sidebar"
 function App() {
   const [items, setItems] = useState(INITIAL_ITEMS)
 
-  const handleAddItem = (newItem) => {
+  const handleAddItem = (newItemText) => {
+    const newItem = {
+      id: new Date().getTime(),
+      label: newItemText,
+      packed: false,
+    }
     const newItems = [...items, newItem]
     setItems(newItems)
   }

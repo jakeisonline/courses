@@ -12,13 +12,7 @@ export default function AddItemForms({ handleAddItem }) {
     e.preventDefault()
     if (!itemText.trim()) return
 
-    const newItem = {
-      id: new Date().getTime(),
-      label: itemText,
-      packed: false,
-    }
-
-    handleAddItem(newItem)
+    handleAddItem(itemText)
     setItemText("")
   }
 
