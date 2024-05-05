@@ -1,20 +1,18 @@
 import { useState } from "react"
 import { INITIAL_ITEMS } from "../lib/constants"
+import EmptyView from "./EmptyView"
 
-export default function ItemList({
-  items,
-  handleRemoveItem,
-  handleToggleItem,
-}) {
+export default function ItemList({ items, onRemoveItem, onToggleItem }) {
   return (
-    <ul>
+    <ul className="item-list">
+      {items.length === 0 && <EmptyView />}
       {items.map((item) => {
         return (
           <Item
             key={item.id}
             item={item}
-            handleRemoveItem={handleRemoveItem}
-            handleToggleItem={handleToggleItem}
+            handleRemoveItem={onRemoveItem}
+            handleToggleItem={onToggleItem}
           />
         )
       })}
