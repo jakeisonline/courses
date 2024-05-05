@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Button from "./Button"
 
-export default function AddItemForms({ handleAddItem }) {
+export default function AddItemForms({ onAddItem }) {
   const [itemText, setItemText] = useState("")
 
   const handleChange = (e) => {
@@ -12,7 +12,7 @@ export default function AddItemForms({ handleAddItem }) {
     e.preventDefault()
     if (!itemText.trim()) return
 
-    handleAddItem(itemText)
+    onAddItem(itemText)
     setItemText("")
   }
 

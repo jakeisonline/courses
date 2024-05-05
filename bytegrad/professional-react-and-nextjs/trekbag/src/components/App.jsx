@@ -24,6 +24,10 @@ function App() {
     setItems(newItems)
   }
 
+  const handleRemoveAllItems = () => {
+    setItems([])
+  }
+
   const handleToggleItem = (id) => {
     const newItems = items.map((item) => {
       if (item.id === id) {
@@ -34,13 +38,37 @@ function App() {
     setItems(newItems)
   }
 
+  const handleResetToInitial = () => {
+    setItems(INITIAL_ITEMS)
+  }
+
+  const handleMarkAllAsUnpacked = () => {
+    const newItems = items.map((item) => ({ ...item, packed: false }))
+    setItems(newItems)
+  }
+
+  const handleMarkAllAsPacked = () => {
+    const newItems = items.map((item) => ({ ...item, packed: true }))
+    setItems(newItems)
+  }
+
   return (
     <>
       <BackgroundHeading />
       <main>
         <Header />
-        <ItemList items={items} />
-        <Sidebar handleAddItem={handleAddItem} />
+        <ItemList
+          items={items}
+          handleToggleItem={handleToggleItem}
+          handleRemoveItem={handleRemoveItem}
+        />
+        <Sidebar
+          handleAddItem={handleAddItem}
+          handleRemoveAllItems={handleRemoveAllItems}
+          handleResetToInitial={handleResetToInitial}
+          handleMarkAllAsUnpacked={handleMarkAllAsUnpacked}
+          handleMarkAllAsPacked={handleMarkAllAsPacked}
+        />
       </main>
       <Footer />
     </>
