@@ -5,9 +5,12 @@ import Footer from "./Footer"
 import Header from "./Header"
 import ItemList from "./ItemList"
 import Sidebar from "./Sidebar"
+import { useEffect } from "react"
 
 function App() {
-  const [items, setItems] = useState(INITIAL_ITEMS)
+  const [items, setItems] = useState(() => {
+    return JSON.parse(localStorage.getItem("items")) || INITIAL_ITEMS
+  })
 
   const handleAddItem = (newItemText) => {
     const newItem = {
@@ -51,6 +54,10 @@ function App() {
     const newItems = items.map((item) => ({ ...item, packed: true }))
     setItems(newItems)
   }
+
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(items))
+  }, [items])
 
   const totalNumberOfItems = items.length
   const numberOfItemsPacked = items.filter((item) => item.packed).length
