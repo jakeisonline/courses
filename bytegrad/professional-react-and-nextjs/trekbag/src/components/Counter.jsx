@@ -1,8 +1,7 @@
-import { useContext } from "react"
-import { ItemsContext } from "../contexts/ItemsContextProvider"
+import { useItemsContext } from "../lib/hooks"
 
 export default function Counter({ count, totalCount }) {
-  const { totalNumberOfItems, numberOfItemsPacked } = useContext(ItemsContext)
+  const { totalNumberOfItems, numberOfItemsPacked } = useItemsContext()
   return (
     <p>
       <strong>{numberOfItemsPacked}</strong> / {totalNumberOfItems} items packed
