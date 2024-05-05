@@ -3,9 +3,12 @@ import { SORTING_OPTIONS } from "../lib/constants"
 import Select from "react-select"
 import EmptyView from "./EmptyView"
 import { useMemo } from "react"
+import { useContext } from "react"
+import { ItemsContext } from "../contexts/ItemsContextProvider"
 
-export default function ItemList({ items, onRemoveItem, onToggleItem }) {
+export default function ItemList() {
   const [sortBy, setSortBy] = useState(SORTING_OPTIONS[0])
+  const { items, handleRemoveItem, handleToggleItem } = useContext(ItemsContext)
 
   const sortedItems = useMemo(
     () =>
@@ -42,8 +45,8 @@ export default function ItemList({ items, onRemoveItem, onToggleItem }) {
           <Item
             key={item.id}
             item={item}
-            handleRemoveItem={onRemoveItem}
-            handleToggleItem={onToggleItem}
+            onRemoveItem={handleRemoveItem}
+            onToggleItem={handleToggleItem}
           />
         )
       })}
@@ -51,13 +54,13 @@ export default function ItemList({ items, onRemoveItem, onToggleItem }) {
   )
 }
 
-function Item({ item, handleRemoveItem, handleToggleItem }) {
+function Item({ item, onRemoveItem, onToggleItem }) {
   return (
     <li className="item">
       <label>
         <input
           onChange={() => {
-            handleToggleItem(item.id)
+            onToggleItem(item.id)
           }}
           type="checkbox"
           checked={item.packed}
@@ -66,7 +69,7 @@ function Item({ item, handleRemoveItem, handleToggleItem }) {
       </label>
       <button
         onClick={() => {
-          handleRemoveItem(item.id)
+          onRemoveItem(item.id)
         }}
       >
         ❌

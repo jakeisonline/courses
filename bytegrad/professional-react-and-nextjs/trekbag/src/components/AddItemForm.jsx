@@ -1,8 +1,11 @@
 import { useState } from "react"
 import Button from "./Button"
+import { useContext } from "react"
+import { ItemsContext } from "../contexts/ItemsContextProvider"
 
-export default function AddItemForms({ onAddItem }) {
+export default function AddItemForms() {
   const [itemText, setItemText] = useState("")
+  const { handleAddItem } = useContext(ItemsContext)
 
   const handleChange = (e) => {
     setItemText(e.target.value)
@@ -12,7 +15,7 @@ export default function AddItemForms({ onAddItem }) {
     e.preventDefault()
     if (!itemText.trim()) return
 
-    onAddItem(itemText)
+    handleAddItem(itemText)
     setItemText("")
   }
 
