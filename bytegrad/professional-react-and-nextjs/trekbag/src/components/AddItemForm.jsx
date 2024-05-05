@@ -1,10 +1,10 @@
 import { useState } from "react"
 import Button from "./Button"
-import { useItemsContext } from "../lib/hooks"
+import { useItemStore } from "../stores/itemStore"
 
 export default function AddItemForms() {
+  const handleAddItem = useItemStore((state) => state.addItem)
   const [itemText, setItemText] = useState("")
-  const { handleAddItem } = useItemsContext()
 
   const handleChange = (e) => {
     setItemText(e.target.value)
