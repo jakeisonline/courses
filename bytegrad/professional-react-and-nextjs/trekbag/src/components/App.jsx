@@ -52,11 +52,17 @@ function App() {
     setItems(newItems)
   }
 
+  const totalNumberOfItems = items.length
+  const numberOfItemsPacked = items.filter((item) => item.packed).length
+
   return (
     <>
       <BackgroundHeading />
       <main>
-        <Header />
+        <Header
+          totalNumberOfItems={totalNumberOfItems}
+          numberOfItemsPacked={numberOfItemsPacked}
+        />
         <ItemList
           items={items}
           onToggleItem={handleToggleItem}
