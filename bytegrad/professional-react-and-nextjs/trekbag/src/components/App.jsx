@@ -59,15 +59,15 @@ function App() {
         <Header />
         <ItemList
           items={items}
-          handleToggleItem={handleToggleItem}
-          handleRemoveItem={handleRemoveItem}
+          onToggleItem={handleToggleItem}
+          onRemoveItem={handleRemoveItem}
         />
         <Sidebar
-          handleAddItem={handleAddItem}
-          handleRemoveAllItems={handleRemoveAllItems}
-          handleResetToInitial={handleResetToInitial}
-          handleMarkAllAsUnpacked={handleMarkAllAsUnpacked}
-          handleMarkAllAsPacked={handleMarkAllAsPacked}
+          onAddItem={handleAddItem}
+          onRemoveAllItems={handleRemoveAllItems}
+          onResetToInitial={handleResetToInitial}
+          onMarkAllAsUnpacked={handleMarkAllAsUnpacked}
+          onMarkAllAsPacked={handleMarkAllAsPacked}
         />
       </main>
       <Footer />
