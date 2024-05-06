@@ -17,6 +17,9 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
+      zustand:
+        specifier: 4.4.4
+        version: 4.4.4(@types/react@18.3.1)(react@18.3.1)
     devDependencies:
       '@types/react':
         specifier: ^18.2.15
@@ -994,6 +997,11 @@ packages:
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
+  use-sync-external-store@1.2.0:
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
   vite@4.5.3:
     resolution: {integrity: sha512-kQL23kMeX92v3ph7IauVkXkikdDRsYMGTVl5KY2E9OY4ONLvkHf04MDTbnfo6NKxZiDLWzVpP5oTa8hQD8U3dg==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -1043,6 +1051,21 @@ packages:
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  zustand@4.4.4:
+    resolution: {integrity: sha512-5UTUIAiHMNf5+mFp7/AnzJXS7+XxktULFN0+D1sCiZWyX7ZG+AQpqs2qpYrynRij4QvoDdCD+U+bmg/cG3Ucxw==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      '@types/react': '>=16.8'
+      immer: '>=9.0'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
 
 snapshots:
 
@@ -1988,6 +2011,10 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
+  use-sync-external-store@1.2.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+
   vite@4.5.3:
     dependencies:
       esbuild: 0.18.20
@@ -2009,3 +2036,10 @@ snapshots:
   yallist@4.0.0: {}
 
   yocto-queue@0.1.0: {}
+
+  zustand@4.4.4(@types/react@18.3.1)(react@18.3.1):
+    dependencies:
+      use-sync-external-store: 1.2.0(react@18.3.1)
+    optionalDependencies:
+      '@types/react': 18.3.1
+      react: 18.3.1

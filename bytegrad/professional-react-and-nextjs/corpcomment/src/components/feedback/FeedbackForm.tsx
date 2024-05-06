@@ -1,11 +1,9 @@
+import { useFeedbackItemsStore } from "../../stores/feedbackItemsStore"
 import { useState } from "react"
 import { MAX_CHARACTERS } from "../../lib/constants"
 
-type FeedbackFormProps = {
-  onAddToList: (newItem: string) => void
-}
-
-export default function FeedbackForm({ onAddToList }: FeedbackFormProps) {
+export default function FeedbackForm() {
+  const addItemToList = useFeedbackItemsStore((state) => state.addItemToList)
   const [text, setText] = useState("")
   const [showValidIndicator, setValidIndicator] = useState(false)
   const [showInvalidIndicator, setInvalidIndicator] = useState(false)
@@ -29,7 +27,7 @@ export default function FeedbackForm({ onAddToList }: FeedbackFormProps) {
       setInvalidIndicator(true)
       return
     }
-    onAddToList(text)
+    addItemToList(text)
     setText("")
   }
 
