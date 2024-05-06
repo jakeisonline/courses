@@ -1,6 +1,7 @@
-import BookmarkIcon from "./BookmarkIcon";
+import BookmarkIcon from "./BookmarkIcon"
 
 export default function JobItemContent() {
+  return <EmptyJobContent />
   return (
     <section className="job-details">
       <div>
@@ -89,7 +90,7 @@ export default function JobItemContent() {
         </footer>
       </div>
     </section>
-  );
+  )
 }
 
 function EmptyJobContent() {
@@ -104,5 +105,5 @@ function EmptyJobContent() {
         </div>
       </div>
     </section>
-  );
+  )
 }
