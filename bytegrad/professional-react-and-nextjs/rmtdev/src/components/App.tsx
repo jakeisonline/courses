@@ -14,11 +14,13 @@ import PaginationControls from "./PaginationControls"
 import ResultsCount from "./ResultsCount"
 import SortingControls from "./SortingControls"
 import SidebarTop from "./SidebarTop"
-import useJobItems from "../hooks/useJobItems"
+import useJobItems, { useCurrentJobId, useJobItem } from "../hooks/useJobItems"
 
 function App() {
   const [searchText, setSearchText] = useState<string>("")
-  const [jobItems, isLoading] = useJobItems({ searchText })
+  const [jobItems, isJobsLoading] = useJobItems({ searchText })
+  const currentJobId = useCurrentJobId()
+  const [currentJobItem, isJobLoading] = useJobItem({ currentJobId })
 
   return (
     <>
@@ -36,10 +38,13 @@ function App() {
             <ResultsCount />
             <SortingControls />
           </SidebarTop>
-          <JobList isLoading={isLoading} jobItems={jobItems} />
+          <JobList isLoading={isJobsLoading} jobItems={jobItems} />
           <PaginationControls />
         </Sidebar>
-        <JobItemContent />
+        <JobItemContent
+          isLoading={isJobLoading}
+          currentJobItem={currentJobItem}
+        />
       </Container>
       <Footer />
     </>

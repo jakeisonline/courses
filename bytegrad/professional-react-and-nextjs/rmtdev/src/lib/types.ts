@@ -6,3 +6,14 @@ export type TJobItem = {
   relevanceScore: number
   daysAgo: number
 }
+
+export type TJobContent = TJobItem & {
+  companyURL: string
+  coverImgURL: string
+  description: string
+  duration: string
+  location: string
+  salary: string
+  qualifications: string[]
+  reviews: string[]
+}
