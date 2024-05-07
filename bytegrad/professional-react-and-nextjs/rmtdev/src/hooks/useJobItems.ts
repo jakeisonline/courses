@@ -54,23 +54,24 @@ export function useJobItem({ currentJobId }: useJobItemProps) {
 
 export default function useJobItems({ searchText }: useJobItemsProps) {
   const [jobItems, setJobItems] = useState<TJobItem[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isJobsLoading, setIsJobsLoading] = useState<boolean>(false)
 
+  const jobsTotalResults = jobItems.length
   const jobItemsSliced = jobItems.slice(0, 7)
 
   useEffect(() => {
     if (!searchText) return
 
     const fetchData = async () => {
-      setIsLoading(true)
+      setIsJobsLoading(true)
       const response = await fetch(`${JOBS_ENDPOINT}?search=${searchText}`)
       const data = await response.json()
       setJobItems(data.jobItems)
-      setIsLoading(false)
+      setIsJobsLoading(false)
     }
 
     fetchData()
   }, [searchText])
 
-  return [jobItemsSliced, isLoading] as const
+  return { jobsTotalResults, jobItemsSliced, isJobsLoading } as const
 }

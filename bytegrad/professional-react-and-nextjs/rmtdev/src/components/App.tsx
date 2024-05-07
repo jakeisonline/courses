@@ -18,7 +18,9 @@ import useJobItems, { useCurrentJobId, useJobItem } from "../hooks/useJobItems"
 
 function App() {
   const [searchText, setSearchText] = useState<string>("")
-  const [jobItems, isJobsLoading] = useJobItems({ searchText })
+  const { jobsTotalResults, jobItemsSliced, isJobsLoading } = useJobItems({
+    searchText,
+  })
   const currentJobId = useCurrentJobId()
   const [currentJobItem, isJobLoading] = useJobItem({ currentJobId })
 
@@ -35,10 +37,10 @@ function App() {
       <Container>
         <Sidebar>
           <SidebarTop>
-            <ResultsCount />
+            <ResultsCount count={jobsTotalResults} />
             <SortingControls />
           </SidebarTop>
-          <JobList isLoading={isJobsLoading} jobItems={jobItems} />
+          <JobList isLoading={isJobsLoading} jobItems={jobItemsSliced} />
           <PaginationControls />
         </Sidebar>
         <JobItemContent
