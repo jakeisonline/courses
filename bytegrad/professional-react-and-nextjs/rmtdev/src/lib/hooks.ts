@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import { TJobItem } from "../lib/types"
-import { JOBS_ENDPOINT } from "../lib/constants"
+import { TJobItem } from "./types"
+import { JOBS_ENDPOINT } from "./constants"
 
 type useJobItemsProps = {
   searchText: string

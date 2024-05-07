@@ -1,4 +1,4 @@
-import { useCurrentJobId } from "../hooks/useJobItems"
+import { useCurrentJobId } from "../lib/hooks"
 import { TJobItem } from "../lib/types"
 import JobListItem from "./JobListItem"
 import Spinner from "./Spinner"
