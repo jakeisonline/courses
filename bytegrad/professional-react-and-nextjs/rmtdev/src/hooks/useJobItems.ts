@@ -19,6 +19,8 @@ export function useCurrentJobId() {
       setCurrentJobId(jobId)
     }
 
+    handleHashChange()
+
     window.addEventListener("hashchange", handleHashChange)
 
     return () => {
