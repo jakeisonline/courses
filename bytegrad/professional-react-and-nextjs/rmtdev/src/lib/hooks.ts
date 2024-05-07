@@ -10,6 +10,11 @@ type useJobItemProps = {
   currentJobId: number | null
 }
 
+type useDebounceProps = {
+  value: string
+  delay: number
+}
+
 export function useCurrentJobId() {
   const [currentJobId, setCurrentJobId] = useState<number | null>(null)
 
@@ -74,4 +79,18 @@ export default function useJobItems({ searchText }: useJobItemsProps) {
   }, [searchText])
 
   return { jobsTotalResults, jobItemsSliced, isJobsLoading } as const
+}
+
+export function useDebounce({ value, delay }: useDebounceProps) {
+  const [debounceValue, setDebounceValue] = useState(value)
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => setDebounceValue(value), delay)
+
+    return () => {
+      clearTimeout(timeoutId)
+    }
+  }, [value, delay])
+
+  return debounceValue
 }
