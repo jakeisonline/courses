@@ -24,5 +24,5 @@ export default function useJobItems({ searchText }: useJobItemsProps) {
     fetchData()
   }, [searchText])
 
-  return { jobItems, isLoading }
+  return [jobItems, isLoading] as const
 }
