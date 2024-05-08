@@ -19,3 +19,5 @@ export type TJobContent = TJobItem & {
 }
 
 export type TSortBy = "recent" | "relevant"
+
+export type TPaginationControls = "next" | "previous"

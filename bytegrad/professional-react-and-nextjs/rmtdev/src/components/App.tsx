@@ -21,7 +21,7 @@ import useJobItems, {
   useJobItem,
 } from "../lib/hooks"
 import { PER_PAGE_COUNT } from "../lib/constants"
-import { TSortBy, TJobItem } from "../lib/types"
+import { TSortBy, TJobItem, TPaginationControls } from "../lib/types"
 
 function App() {
   const [searchText, setSearchText] = useState<string>("")
@@ -52,7 +52,7 @@ function App() {
   )
   const totalNumberOfPages = Math.ceil(jobsTotalResults / PER_PAGE_COUNT)
 
-  const handleChangePage = (direction: "next" | "previous") => {
+  const handleChangePage = (direction: TPaginationControls) => {
     if (direction === "next") {
       setCurrentPage((prev) => prev + 1)
     } else if (direction === "previous") {
