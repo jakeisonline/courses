@@ -14,6 +14,7 @@ import PaginationControls from "./PaginationControls"
 import ResultsCount from "./ResultsCount"
 import SortingControls from "./SortingControls"
 import SidebarTop from "./SidebarTop"
+import { Toaster } from "react-hot-toast"
 import useJobItems, {
   useCurrentJobId,
   useDebounce,
@@ -26,11 +27,13 @@ function App() {
     value: searchText,
     delay: 500,
   })
-  const { jobsTotalResults, jobItemsSliced, isJobsLoading } = useJobItems({
+  const { jobItems, isJobsLoading } = useJobItems({
     searchText: debouncedSearchText,
   })
   const currentJobId = useCurrentJobId()
-  const [currentJobItem, isJobLoading] = useJobItem({ currentJobId })
+  const { currentJobItem, isJobLoading } = useJobItem({ currentJobId })
+  const jobsTotalResults = jobItems.length
+  const jobItemsSliced = jobItems.slice(0, 7)
 
   return (
     <>
@@ -57,6 +60,7 @@ function App() {
         />
       </Container>
       <Footer />
+      <Toaster position="top-right" />
     </>
   )
 }
