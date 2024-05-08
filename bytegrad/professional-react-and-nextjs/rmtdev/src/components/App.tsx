@@ -21,6 +21,7 @@ import useJobItems, {
   useJobItem,
 } from "../lib/hooks"
 import { PER_PAGE_COUNT } from "../lib/constants"
+import { TSortBy, TJobItem } from "../lib/types"
 
 function App() {
   const [searchText, setSearchText] = useState<string>("")
@@ -34,10 +35,19 @@ function App() {
   const currentJobId = useCurrentJobId()
   const { currentJobItem, isJobLoading } = useJobItem({ currentJobId })
   const [currentPage, setCurrentPage] = useState<number>(1)
-  console.log(currentPage)
+  const [sortBy, setSortBy] = useState<TSortBy>("relevant")
+  console.log(sortBy)
 
   const jobsTotalResults = jobItems.length
-  const jobItemsSliced = jobItems.slice(
+  const jobItemsSorted = jobItems.sort((a: TJobItem, b: TJobItem) => {
+    if (sortBy === "relevant") {
+      return b.relevanceScore - a.relevanceScore
+    } else if (sortBy === "recent") {
+      return b.daysAgo - a.daysAgo
+    }
+    return 0
+  })
+  const jobItemsSliced = jobItemsSorted.slice(
     currentPage * PER_PAGE_COUNT - PER_PAGE_COUNT,
     currentPage * PER_PAGE_COUNT,
   )
@@ -49,6 +59,10 @@ function App() {
     } else if (direction === "previous") {
       setCurrentPage((prev) => prev - 1)
     }
+  }
+
+  const handleSortBy = (sortBy: TSortBy) => {
+    setSortBy(sortBy)
   }
 
   return (
@@ -65,7 +79,7 @@ function App() {
         <Sidebar>
           <SidebarTop>
             <ResultsCount count={jobsTotalResults} />
-            <SortingControls />
+            <SortingControls currentSortBy={sortBy} onSortBy={handleSortBy} />
           </SidebarTop>
           <JobList isLoading={isJobsLoading} jobItems={jobItemsSliced} />
           {jobsTotalResults > 0 && (

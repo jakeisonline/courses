@@ -17,3 +17,5 @@ export type TJobContent = TJobItem & {
   qualifications: string[]
   reviews: string[]
 }
+
+export type TSortBy = "recent" | "relevant"
