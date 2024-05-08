@@ -36,7 +36,6 @@ function App() {
   const { currentJobItem, isJobLoading } = useJobItem({ currentJobId })
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [sortBy, setSortBy] = useState<TSortBy>("relevant")
-  console.log(sortBy)
 
   const jobsTotalResults = jobItems.length
   const jobItemsSorted = jobItems.sort((a: TJobItem, b: TJobItem) => {
