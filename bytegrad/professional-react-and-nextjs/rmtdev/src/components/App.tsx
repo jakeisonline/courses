@@ -38,7 +38,7 @@ function App() {
   const [sortBy, setSortBy] = useState<TSortBy>("relevant")
 
   const jobsTotalResults = jobItems.length
-  const jobItemsSorted = jobItems.sort((a: TJobItem, b: TJobItem) => {
+  const jobItemsSorted = [...jobItems].sort((a: TJobItem, b: TJobItem) => {
     if (sortBy === "relevant") {
       return b.relevanceScore - a.relevanceScore
     } else if (sortBy === "recent") {
