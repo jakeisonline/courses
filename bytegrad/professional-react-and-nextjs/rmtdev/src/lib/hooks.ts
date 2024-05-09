@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { TJobItem, TJobContent } from "./types"
 import { JOBS_ENDPOINT } from "./constants"
 import { useQuery } from "@tanstack/react-query"
 import { toast } from "react-hot-toast"
+import { BookmarksContext } from "../contexts/BookmarkContextProvider"
 
 type JobItemApiResponse = {
   public: boolean
@@ -126,4 +127,31 @@ export function useDebounce({ value, delay }: useDebounceProps) {
   }, [value, delay])
 
   return debounceValue
+}
+
+export function useLocalStorage<T>(
+  key: string,
+  initialValue: T,
+): [T, React.Dispatch<React.SetStateAction<T>>] {
+  const [value, setValue] = useState<T>(() => {
+    const storedValue = localStorage.getItem(key)
+    return storedValue ? JSON.parse(storedValue) : JSON.stringify(initialValue)
+  })
+
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(value))
+  }, [key, value])
+
+  return [value, setValue] as const
+}
+
+export function useBookmarksContext() {
+  const context = useContext(BookmarksContext)
+  if (!context) {
+    throw new Error(
+      "useBookmarksContext must be used within a BookmarksContextProvider",
+    )
+  }
+
+  return context
 }
