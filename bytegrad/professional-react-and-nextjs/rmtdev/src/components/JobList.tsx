@@ -1,4 +1,4 @@
-import { useCurrentJobId } from "../lib/hooks"
+import { useCurrentJobContext } from "../lib/hooks"
 import { TJobItem } from "../lib/types"
 import JobListItem from "./JobListItem"
 import Spinner from "./Spinner"
@@ -9,7 +9,7 @@ type JobListProps = {
 }
 
 export function JobList({ jobItems, isLoading }: JobListProps) {
-  const activeJobId = useCurrentJobId()
+  const { currentJobId } = useCurrentJobContext()
   return (
     <ul className="job-list">
       {isLoading && <Spinner />}
@@ -18,7 +18,7 @@ export function JobList({ jobItems, isLoading }: JobListProps) {
           <JobListItem
             key={jobItem.id}
             jobItem={jobItem}
-            isActive={jobItem.id === activeJobId}
+            isActive={jobItem.id === currentJobId}
           />
         ))}
     </ul>

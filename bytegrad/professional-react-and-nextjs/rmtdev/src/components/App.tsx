@@ -16,7 +16,7 @@ import SortingControls from "./SortingControls"
 import SidebarTop from "./SidebarTop"
 import { Toaster } from "react-hot-toast"
 import useJobSearch, {
-  useCurrentJobId,
+  useCurrentJobContext,
   useDebounce,
   useJobItem,
 } from "../lib/hooks"
@@ -32,7 +32,7 @@ function App() {
   const { jobItems, isJobsLoading } = useJobSearch({
     searchText: debouncedSearchText,
   })
-  const currentJobId = useCurrentJobId()
+  const { currentJobId } = useCurrentJobContext()
   const { currentJobItem, isJobLoading } = useJobItem({ currentJobId })
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [sortBy, setSortBy] = useState<TSortBy>("relevant")

@@ -4,6 +4,7 @@ import { JOBS_ENDPOINT } from "./constants"
 import { useQueries, useQuery } from "@tanstack/react-query"
 import { toast } from "react-hot-toast"
 import { BookmarksContext } from "../contexts/BookmarkContextProvider"
+import { CurrentJobContext } from "../contexts/CurrentJobContextProvider"
 
 type JobItemApiResponse = {
   public: boolean
@@ -182,6 +183,17 @@ export function useBookmarksContext() {
   if (!context) {
     throw new Error(
       "useBookmarksContext must be used within a BookmarksContextProvider",
+    )
+  }
+
+  return context
+}
+
+export function useCurrentJobContext() {
+  const context = useContext(CurrentJobContext)
+  if (!context) {
+    throw new Error(
+      "useCurrentJobContext must be used within a CurrentJobContextProvider",
     )
   }
 
