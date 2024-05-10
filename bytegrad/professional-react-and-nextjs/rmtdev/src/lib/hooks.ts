@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react"
 import { TJobItem, TJobContent } from "./types"
 import { JOBS_ENDPOINT } from "./constants"
-import { useQuery } from "@tanstack/react-query"
+import { useQueries, useQuery } from "@tanstack/react-query"
 import { toast } from "react-hot-toast"
 import { BookmarksContext } from "../contexts/BookmarkContextProvider"
 
@@ -10,17 +10,21 @@ type JobItemApiResponse = {
   jobItem: TJobContent
 }
 
-type JobItemsApiResponse = {
+type JobSearchApiResponse = {
   public: boolean
   jobItems: TJobItem[]
 }
 
-type useJobItemsProps = {
+type useJobSearchProps = {
   searchText: string
 }
 
 type useJobItemProps = {
   currentJobId: number | null
+}
+
+type useJobItemsProps = {
+  ids: number[]
 }
 
 type useDebounceProps = {
@@ -40,9 +44,9 @@ const fetchJobItem = async (
   return data
 }
 
-const fetchJobItems = async ({
+const fetchJobSearchItems = async ({
   searchText,
-}: useJobItemsProps): Promise<JobItemsApiResponse> => {
+}: useJobSearchProps): Promise<JobSearchApiResponse> => {
   const response = await fetch(`${JOBS_ENDPOINT}?search=${searchText}`)
   if (!response.ok) {
     const errorData = await response.json()
@@ -82,7 +86,7 @@ export function useJobItem({ currentJobId }: useJobItemProps) {
       refetchOnWindowFocus: false,
       retry: false,
       enabled: Boolean(currentJobId),
-      onError: (error) => {
+      onError: (error: Error) => {
         console.error("Error fetching job item", error)
       },
     },
@@ -94,10 +98,33 @@ export function useJobItem({ currentJobId }: useJobItemProps) {
   } as const
 }
 
-export default function useJobItems({ searchText }: useJobItemsProps) {
+export function useJobItems({ ids }: useJobItemsProps) {
+  const results = useQueries({
+    queries: ids.map((id) => ({
+      queryKey: ["job-item", id],
+      queryFn: async () => fetchJobItem(id),
+      staleTime: 1000 * 60 * 60,
+      refetchOnWindowFocus: false,
+      retry: false,
+      enabled: Boolean(id),
+      onError: (error: Error) => {
+        console.error("Error fetching job item", error)
+      },
+    })),
+  })
+
+  const jobItems = results
+    .map((result) => result.data?.jobItem)
+    .filter((jobItem) => Boolean(jobItem)) as TJobContent[]
+  const isJobsLoading = results.some((result) => result.isLoading)
+
+  return { jobItems, isJobsLoading }
+}
+
+export default function useJobSearch({ searchText }: useJobSearchProps) {
   const { data, isInitialLoading } = useQuery(
     ["job-items", searchText],
-    async () => searchText && fetchJobItems({ searchText }),
+    async () => searchText && fetchJobSearchItems({ searchText }),
     {
       staleTime: 1000 * 60 * 60,
       refetchOnWindowFocus: false,
@@ -135,7 +162,7 @@ export function useLocalStorage<T>(
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
   const [value, setValue] = useState<T>(() => {
     const storedValue = localStorage.getItem(key)
-    return storedValue ? JSON.parse(storedValue) : JSON.stringify(initialValue)
+    return storedValue ? JSON.parse(storedValue) : initialValue
   })
 
   useEffect(() => {

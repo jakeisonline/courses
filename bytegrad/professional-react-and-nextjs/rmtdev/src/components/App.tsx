@@ -15,7 +15,7 @@ import ResultsCount from "./ResultsCount"
 import SortingControls from "./SortingControls"
 import SidebarTop from "./SidebarTop"
 import { Toaster } from "react-hot-toast"
-import useJobItems, {
+import useJobSearch, {
   useCurrentJobId,
   useDebounce,
   useJobItem,
@@ -29,7 +29,7 @@ function App() {
     value: searchText,
     delay: 500,
   })
-  const { jobItems, isJobsLoading } = useJobItems({
+  const { jobItems, isJobsLoading } = useJobSearch({
     searchText: debouncedSearchText,
   })
   const currentJobId = useCurrentJobId()
