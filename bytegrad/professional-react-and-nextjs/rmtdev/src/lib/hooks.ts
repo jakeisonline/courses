@@ -32,6 +32,11 @@ type useDebounceProps = {
   delay: number
 }
 
+type useOnClickOutsideProps = {
+  refs: React.RefObject<HTMLElement>[]
+  handleClick: () => void
+}
+
 const fetchJobItem = async (
   currentJobId: number,
 ): Promise<JobItemApiResponse> => {
@@ -181,4 +186,26 @@ export function useBookmarksContext() {
   }
 
   return context
+}
+
+export function useOnClickOutside({
+  refs,
+  handleClick,
+}: useOnClickOutsideProps) {
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        e.target instanceof HTMLElement &&
+        refs.every((ref) => !ref.current?.contains(e.target as Node))
+      ) {
+        handleClick()
+      }
+    }
+
+    document.addEventListener("click", handleClickOutside)
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside)
+    }
+  }, [refs, handleClick])
 }
