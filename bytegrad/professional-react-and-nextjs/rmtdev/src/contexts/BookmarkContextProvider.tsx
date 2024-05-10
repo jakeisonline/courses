@@ -2,7 +2,7 @@ import { createContext, useEffect } from "react"
 import { useJobItems, useLocalStorage } from "../lib/hooks"
 import { TJobContent } from "../lib/types"
 
-type BookmarkContextProviderProps = {
+type BookmarksContextProviderProps = {
   children: React.ReactNode
 }
 
@@ -15,9 +15,9 @@ type BookmarksContext = {
 
 export const BookmarksContext = createContext<BookmarksContext | null>(null)
 
-export default function BookmarkContextProvider({
+export default function BookmarksContextProvider({
   children,
-}: BookmarkContextProviderProps) {
+}: BookmarksContextProviderProps) {
   const [bookmarkedIds, setBookmarkedIds] = useLocalStorage<number[]>(
     "bookmarkedIds",
     [],
