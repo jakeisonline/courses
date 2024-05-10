@@ -98,7 +98,7 @@ export function useJobItem({ currentJobId }: useJobItemProps) {
   )
 
   return {
-    currentJobItem: data?.jobItem,
+    currentJobItem: (data as JobItemApiResponse)?.jobItem,
     isJobLoading: isInitialLoading,
   } as const
 }
@@ -142,7 +142,7 @@ export default function useJobSearch({ searchText }: useJobSearchProps) {
   )
 
   return {
-    jobItems: data?.jobItems || [],
+    jobItems: (data as JobSearchApiResponse)?.jobItems || [],
     isJobsLoading: isInitialLoading,
   } as const
 }
