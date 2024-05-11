@@ -5,6 +5,8 @@ import { useQueries, useQuery } from "@tanstack/react-query"
 import { toast } from "react-hot-toast"
 import { BookmarksContext } from "../contexts/BookmarkContextProvider"
 import { CurrentJobContext } from "../contexts/CurrentJobContextProvider"
+import { SearchTextContext } from "../contexts/SearchTextContextProvider"
+import { JobItemsContext } from "../contexts/JobItemsContextProvider"
 
 type JobItemApiResponse = {
   public: boolean
@@ -194,6 +196,28 @@ export function useCurrentJobContext() {
   if (!context) {
     throw new Error(
       "useCurrentJobContext must be used within a CurrentJobContextProvider",
+    )
+  }
+
+  return context
+}
+
+export function useSearchTextContext() {
+  const context = useContext(SearchTextContext)
+  if (!context) {
+    throw new Error(
+      "useSearchTextContext must be used within a SearchTextContextProvider",
+    )
+  }
+
+  return context
+}
+
+export function useJobItemsContext() {
+  const context = useContext(JobItemsContext)
+  if (!context) {
+    throw new Error(
+      "useJobItemsContext must be used within a JobItemsContextProvider",
     )
   }
 

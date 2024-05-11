@@ -1,17 +1,10 @@
-import { TJobContent } from "../lib/types"
+import { useJobItemsContext } from "../lib/hooks"
 import BookmarkIcon from "./BookmarkIcon"
 import Spinner from "./Spinner"
 
-type JobItemContentProps = {
-  currentJobItem: TJobContent | null
-  isLoading: boolean
-}
-
-export default function JobItemContent({
-  currentJobItem,
-  isLoading,
-}: JobItemContentProps) {
-  if (isLoading) {
+export default function JobItemContent() {
+  const { isJobLoading, currentJobItem } = useJobItemsContext()
+  if (isJobLoading) {
     return <LoadingJobContent />
   }
 
@@ -19,7 +12,7 @@ export default function JobItemContent({
     return <EmptyJobContent />
   }
 
-  if (!isLoading && currentJobItem) {
+  if (!isJobLoading && currentJobItem) {
     return (
       <section className="job-details">
         <div>
