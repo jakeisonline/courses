@@ -1,4 +1,4 @@
-import { createContext, useMemo, useState } from "react"
+import { createContext, useCallback, useMemo, useState } from "react"
 import useJobSearch, {
   useCurrentJobContext,
   useJobItem,
@@ -36,6 +36,7 @@ export default function JobItemsContextProvider({
   children,
 }: JobItemsContextProviderProps) {
   const { debouncedSearchText } = useSearchTextContext()
+
   const { jobItems, isJobsLoading } = useJobSearch({
     searchText: debouncedSearchText,
   })
@@ -69,32 +70,51 @@ export default function JobItemsContextProvider({
 
   const totalNumberOfPages = Math.ceil(jobsTotalResults / PER_PAGE_COUNT)
 
-  const handleChangePage = (direction: TPaginationControls) => {
+  const handleChangePage = useCallback((direction: TPaginationControls) => {
     if (direction === "next") {
       setCurrentPage((prev) => prev + 1)
     } else if (direction === "previous") {
       setCurrentPage((prev) => prev - 1)
     }
-  }
+  }, [])
 
-  const handleSortBy = (sortBy: TSortBy) => {
+  const handleSortBy = useCallback((sortBy: TSortBy) => {
     setSortBy(sortBy)
-  }
+  }, [])
+
+  const contextValue = useMemo(
+    () => ({
+      jobItems,
+      jobItemsSliced,
+      isJobsLoading,
+      jobsTotalResults,
+      sortBy,
+      currentJobItem,
+      isJobLoading,
+      totalNumberOfPages,
+      currentPage,
+      handleChangePage,
+      handleSortBy,
+    }),
+    [
+      jobItems,
+      jobItemsSliced,
+      isJobsLoading,
+      jobsTotalResults,
+      sortBy,
+      currentJobItem,
+      isJobLoading,
+      totalNumberOfPages,
+      currentPage,
+      handleChangePage,
+      handleSortBy,
+    ],
+  )
 
   return (
     <JobItemsContext.Provider
       value={{
-        jobItems,
-        jobItemsSliced,
-        isJobsLoading,
-        jobsTotalResults,
-        sortBy,
-        currentJobItem,
-        isJobLoading,
-        totalNumberOfPages,
-        currentPage,
-        handleChangePage,
-        handleSortBy,
+        ...contextValue,
       }}
     >
       {children}
