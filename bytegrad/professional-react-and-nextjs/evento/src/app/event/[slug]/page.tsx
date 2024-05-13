@@ -2,6 +2,8 @@ import H1 from "@/components/h1"
 import { getEvent } from "@/lib/utils"
 import { Metadata } from "next"
 import Image from "next/image"
+import { Suspense } from "react"
+import Loading from "./loading"
 
 type EventPageProps = {
   params: {
