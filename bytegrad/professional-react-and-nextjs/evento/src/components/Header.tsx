@@ -1,10 +1,10 @@
 "use client"
 
 import Link from "next/link"
-import Logo from "./Logo"
+import Logo from "./logo"
 import { usePathname } from "next/navigation"
-import clsx from "clsx"
 import { motion } from "framer-motion"
+import { cn } from "@U"
 
 const routes = [
   { name: "Home", path: "/" },
@@ -21,7 +21,7 @@ export default function Header() {
           {routes.map((route) => (
             <li
               key={route.path}
-              className={clsx(
+              className={cn(
                 "hover:text-white flex items-center transition relative",
                 {
                   "text-white": activePathName === route.path,
