@@ -11,7 +11,7 @@ type PageProps = {
   }
 }
 
-export function generateMetadata({ params }: PageProps) {
+export function generateMetadata({ params }: PageProps): Metadata {
   const cityName = getCityNameUpperCase(params.city)
 
   switch (cityName) {
