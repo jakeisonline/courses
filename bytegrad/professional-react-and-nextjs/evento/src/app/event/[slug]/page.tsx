@@ -11,14 +11,18 @@ type EventPageProps = {
   }
 }
 
-export async function generateMetadata({
-  params,
-}: EventPageProps): Promise<Metadata> {
-  const event = await getEvent(params.slug)
-
+export function generateMetadata({ params }: EventPageProps): Metadata {
+  const title = DeslugEvent(params.slug)
   return {
-    title: `${event.name}`,
+    title,
   }
+
+  // >> Using a fetch within generateMetadata will prevent suspense from being called :(
+  // const event = await getEvent(params.slug)
+
+  // return {
+  //   title: `${event.name}`,
+  // }
 }
 
 export default async function EventPage({ params }: EventPageProps) {
@@ -85,4 +89,8 @@ function EventSection({ heading, body }: EventSectionProps) {
       </p>
     </section>
   )
+}
+
+function DeslugEvent(slug: string) {
+  return slug.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase())
 }
