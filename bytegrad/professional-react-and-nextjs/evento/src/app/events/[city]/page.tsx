@@ -1,9 +1,9 @@
 import EventsList from "@/components/eventsList"
 import H1 from "@/components/h1"
-import { EventoEvent } from "@prisma/client"
 import { Suspense } from "react"
 import Loading from "./loading"
 import { Metadata } from "next"
+import { getCityNameUpperCase } from "@U"
 
 type PageProps = {
   params: {
@@ -46,8 +46,4 @@ export default async function EventsPage({ params }: PageProps) {
       </Suspense>
     </main>
   )
-}
-
-function getCityNameUpperCase(city: string) {
-  return city.charAt(0).toUpperCase() + city.slice(1)
 }
