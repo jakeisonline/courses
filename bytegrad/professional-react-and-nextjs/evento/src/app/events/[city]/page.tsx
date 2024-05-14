@@ -5,13 +5,14 @@ import Loading from "./loading"
 import { Metadata } from "next"
 import { getCityNameUpperCase } from "@U"
 
-type PageProps = {
+type EventsPageProps = {
   params: {
     city: string
   }
+  searchParams: TSearchParams
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
+export function generateMetadata({ params }: EventsPageProps): Metadata {
   const cityName = getCityNameUpperCase(params.city)
 
   switch (cityName) {
@@ -31,8 +32,12 @@ export function generateMetadata({ params }: PageProps): Metadata {
   }
 }
 
-export default async function EventsPage({ params }: PageProps) {
+export default async function EventsPage({
+  params,
+  searchParams,
+}: EventsPageProps) {
   const cityName = getCityNameUpperCase(params.city)
+  const currentPage = searchParams.page || 1
 
   return (
     <main className="flex flex-col items-center py-24 px-[20px] min-h-[110vh]">
@@ -42,7 +47,7 @@ export default async function EventsPage({ params }: PageProps) {
       </H1>
 
       <Suspense fallback={<Loading />}>
-        <EventsList city={params.city} />
+        <EventsList city={params.city} page={+currentPage} />
       </Suspense>
     </main>
   )
