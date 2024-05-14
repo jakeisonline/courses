@@ -9,10 +9,8 @@ type EventsListProps = {
   page?: number
 }
 
-export default async function EventsList({ city, page }: EventsListProps) {
+export default async function EventsList({ city, page = 1 }: EventsListProps) {
   const { events, totalCount } = await getEvents(city, page)
-
-  console.log("events.length", events.length)
 
   const prevPath = page && page > 1 ? `/events/${city}/?page=${page - 1}` : null
   const nextPath =

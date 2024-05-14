@@ -4,6 +4,8 @@ import { Suspense } from "react"
 import Loading from "./loading"
 import { Metadata } from "next"
 import { getCityNameUpperCase } from "@U"
+import { z } from "zod"
+import { notFound } from "next/navigation"
 
 type EventsPageProps = {
   params: {
@@ -32,12 +34,17 @@ export function generateMetadata({ params }: EventsPageProps): Metadata {
   }
 }
 
+const pageNumberSchema = z.coerce.number().int().positive().optional()
+
 export default async function EventsPage({
   params,
   searchParams,
 }: EventsPageProps) {
   const cityName = getCityNameUpperCase(params.city)
-  const currentPage = searchParams.page || 1
+  const parsedPage = pageNumberSchema.safeParse(searchParams.page)
+  if (!parsedPage.success) {
+    return notFound()
+  }
 
   return (
     <main className="flex flex-col items-center py-24 px-[20px] min-h-[110vh]">
@@ -46,8 +53,8 @@ export default async function EventsPage({
         {cityName && cityName !== "All" && `Events in ${cityName}`}
       </H1>
 
-      <Suspense key={cityName + currentPage} fallback={<Loading />}>
-        <EventsList city={params.city} page={+currentPage} />
+      <Suspense key={cityName + parsedPage.data} fallback={<Loading />}>
+        <EventsList city={params.city} page={parsedPage.data} />
       </Suspense>
     </main>
   )
