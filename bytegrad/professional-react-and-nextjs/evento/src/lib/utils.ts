@@ -12,6 +12,9 @@ export async function getEvents(city: string) {
     where: {
       city: cityQuery,
     },
+    orderBy: {
+      date: "asc",
+    },
   })
 
   return events
