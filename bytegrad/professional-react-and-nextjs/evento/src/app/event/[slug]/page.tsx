@@ -28,8 +28,6 @@ export function generateMetadata({ params }: EventPageProps): Metadata {
 export default async function EventPage({ params }: EventPageProps) {
   const event = await getEvent(params.slug)
 
-  if (!event) return
-
   return (
     <main>
       <section className="relative flex justify-center items-center">
