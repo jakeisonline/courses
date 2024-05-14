@@ -1,6 +1,6 @@
 import { EventoEvent } from "@prisma/client"
 import EventCard from "./eventCard"
-import { getEvents } from "@U"
+import { getEvents } from "@/lib/serverUtils"
 import PaginationControls from "./paginationControls"
 import { PER_PAGE } from "@C"
 
