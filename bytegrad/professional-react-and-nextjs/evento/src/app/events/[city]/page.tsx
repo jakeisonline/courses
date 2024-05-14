@@ -1,6 +1,6 @@
 import EventsList from "@/components/eventsList"
 import H1 from "@/components/h1"
-import type { TEventsApiResponse } from "@T"
+import { EventoEvent } from "@prisma/client"
 import { Suspense } from "react"
 import Loading from "./loading"
 import { Metadata } from "next"

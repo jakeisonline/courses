@@ -1,6 +1,6 @@
 import clsx, { ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { TEventsApiResponse } from "./types"
+import { EventoEvent } from "@prisma/client"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -12,7 +12,7 @@ export async function getEvents(city: string) {
     { next: { revalidate: 300 } },
   )
 
-  const events: TEventsApiResponse = await response.json()
+  const events: EventoEvent[] = await response.json()
 
   return events
 }
@@ -23,7 +23,7 @@ export async function getEvent(slug: string) {
     { next: { revalidate: 300 } },
   )
 
-  const event = await response.json()
+  const event: EventoEvent = await response.json()
 
   return event
 }
