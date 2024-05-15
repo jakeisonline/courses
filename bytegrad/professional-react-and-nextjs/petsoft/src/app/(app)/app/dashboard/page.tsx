@@ -4,8 +4,18 @@ import PetDetails from "@/components/petDetails"
 import PetList from "@/components/petList"
 import SearchForm from "@/components/searchForm"
 import Stats from "@/components/stats"
+import { TPet } from "@/lib/types"
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const response = await fetch(
+    "https://bytegrad.com/course-assets/projects/petsoft/api/pets",
+  )
+  if (!response.ok) {
+    throw new Error("Failed to fetch pets")
+  }
+
+  const pets: TPet[] = await response.json()
+
   return (
     <main>
       <div className="flex items-center justify-between py-8 text-white">
@@ -20,7 +30,7 @@ export default function DashboardPage() {
 
         <div className="md:col-span-1 md:col-start-1 md:row-span-full md:row-start-2">
           <ContentBlock>
-            <PetList />
+            <PetList pets={pets} />
           </ContentBlock>
         </div>
 
