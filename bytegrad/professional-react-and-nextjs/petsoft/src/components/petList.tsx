@@ -1,12 +1,13 @@
+"use client"
+
 import Image from "next/image"
 import PetPlaceholderImage from "@/public/pet-placeholder.png"
 import { TPet } from "@/lib/types"
+import usePetContext from "@/hooks/usePetContext"
 
-type PetListProps = {
-  pets: TPet[]
-}
+export default function PetList() {
+  const { pets } = usePetContext()
 
-export default function PetList({ pets }: PetListProps) {
   return (
     <ul className="border-b border-black/10 bg-white">
       {pets.map((pet) => (
