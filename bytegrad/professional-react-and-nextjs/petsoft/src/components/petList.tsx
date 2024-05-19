@@ -4,15 +4,24 @@ import Image from "next/image"
 import PetPlaceholderImage from "@/public/pet-placeholder.png"
 import { TPet } from "@/lib/types"
 import usePetContext from "@/hooks/usePetContext"
+import { cn } from "@/lib/utils"
 
 export default function PetList() {
-  const { pets } = usePetContext()
+  const { pets, selectedPetId, handleSelectedPet } = usePetContext()
 
   return (
     <ul className="border-b border-black/10 bg-white">
       {pets.map((pet) => (
         <li key={pet.id} className="">
-          <button className="flex h-[70px] w-full cursor-pointer items-center gap-4 px-5 py-4 text-base transition hover:bg-[#EFF1F2] focus:bg-[#EFF1F2]">
+          <button
+            onClick={() => {
+              handleSelectedPet(pet.id)
+            }}
+            className={cn(
+              "flex h-[70px] w-full cursor-pointer items-center gap-4 px-5 py-4 text-base transition hover:bg-[#EFF1F2] focus:bg-[#EFF1F2]",
+              pet.id === selectedPetId ? "bg-[#EFF1F2]" : "bg-white",
+            )}
+          >
             <Image
               src={!pet.imageUrl ? PetPlaceholderImage : pet.imageUrl}
               height={45}
