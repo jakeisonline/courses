@@ -8,20 +8,28 @@ export default function PetDetails() {
   const { selectedPet } = usePetContext()
   return (
     <section className="flex h-full w-full flex-col">
-      <NameBar>
-        <PetImage
-          alt="Selected pet image"
-          height={75}
-          width={75}
-          src={selectedPet?.imageUrl}
-        />
-        <PetTitle petName={selectedPet?.name} />
-      </NameBar>
-      <PetMetaInfoPanel>
-        <PetMetaInfoItem label="Owner Name" value={selectedPet?.ownerName} />
-        <PetMetaInfoItem label="Pet Age" value={selectedPet?.age} />
-      </PetMetaInfoPanel>
-      <PetNotes petNote={selectedPet?.notes} />
+      {!selectedPet && <EmptyState />}
+      {selectedPet && (
+        <>
+          <NameBar>
+            <PetImage
+              alt="Selected pet image"
+              height={75}
+              width={75}
+              src={selectedPet?.imageUrl}
+            />
+            <PetTitle petName={selectedPet?.name} />
+          </NameBar>
+          <PetMetaInfoPanel>
+            <PetMetaInfoItem
+              label="Owner Name"
+              value={selectedPet?.ownerName}
+            />
+            <PetMetaInfoItem label="Pet Age" value={selectedPet?.age} />
+          </PetMetaInfoPanel>
+          <PetNotes petNote={selectedPet?.notes} />
+        </>
+      )}
     </section>
   )
 }
@@ -35,6 +43,14 @@ function NameBar({ children }: NameBarProps) {
     <div className="border-light flex items-center border-b px-8 py-5">
       {children}
     </div>
+  )
+}
+
+function EmptyState() {
+  return (
+    <p className="flex h-full items-center justify-center text-2xl font-medium">
+      No pet selected
+    </p>
   )
 }
 
