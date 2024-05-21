@@ -3,13 +3,19 @@
 import usePetContext from "@/hooks/usePetContext"
 import { cn } from "@/lib/utils"
 import PetImage from "./petImage"
+import useSearchContext from "@/hooks/useSearchContext"
 
 export default function PetList() {
   const { pets, selectedPetId, handleSelectedPet } = usePetContext()
+  const { searchText } = useSearchContext()
+
+  const filteredPets = pets.filter((pet) => {
+    return pet.name.toLowerCase().includes(searchText.toLowerCase())
+  })
 
   return (
     <ul className="border-light border-b bg-white">
-      {pets.map((pet) => (
+      {filteredPets.map((pet) => (
         <li key={pet.id} className="">
           <button
             onClick={() => {
