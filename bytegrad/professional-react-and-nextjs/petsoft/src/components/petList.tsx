@@ -1,8 +1,5 @@
 "use client"
 
-import Image from "next/image"
-import PetPlaceholderImage from "@/public/pet-placeholder.png"
-import { TPet } from "@/lib/types"
 import usePetContext from "@/hooks/usePetContext"
 import { cn } from "@/lib/utils"
 import PetImage from "./petImage"
