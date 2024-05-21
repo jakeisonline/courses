@@ -5,6 +5,7 @@ import PetPlaceholderImage from "@/public/pet-placeholder.png"
 import { TPet } from "@/lib/types"
 import usePetContext from "@/hooks/usePetContext"
 import { cn } from "@/lib/utils"
+import PetImage from "./petImage"
 
 export default function PetList() {
   const { pets, selectedPetId, handleSelectedPet } = usePetContext()
@@ -22,11 +23,11 @@ export default function PetList() {
               pet.id === selectedPetId ? "bg-[#EFF1F2]" : "bg-white",
             )}
           >
-            <Image
-              src={!pet.imageUrl ? PetPlaceholderImage : pet.imageUrl}
-              height={45}
+            <PetImage
               width={45}
-              alt={`Profile image representing ${pet.name}`}
+              height={45}
+              src={pet.imageUrl}
+              alt={`Image of ${pet.name}`}
               className="h-[45px] w-[45px] rounded-full object-cover"
             />
             <p className="font-semibold">{pet.name}</p>
