@@ -30,7 +30,10 @@ export default function PetImage({
       height={height}
       src={petImage}
       alt={imageAlt}
-      className={cn("h-[75px] w-[75px] rounded-full object-cover", className)}
+      className={cn(
+        "border-light h-[75px] w-[75px] rounded-full border object-cover",
+        className,
+      )}
     />
   )
 }
