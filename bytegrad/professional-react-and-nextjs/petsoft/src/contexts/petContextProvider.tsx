@@ -37,15 +37,21 @@ export default function PetContextProvider({
   const handleCheckoutPet = (id: number): void => {
     // Remove the pet from the list
     const originalPets = pets
-    const checkoutPetIndex = pets.map((pet) => pet.id).indexOf(id)
+    const checkoutPetIndex = originalPets.map((pet) => pet.id).indexOf(id)
     const updatedPets = originalPets
       .slice(0, checkoutPetIndex)
       .concat(originalPets.slice(checkoutPetIndex + 1))
     setPets(updatedPets)
     // Select the next pet in the list, if any
-    const nextSelectedPetId =
-      checkoutPetIndex > 0 ? updatedPets[checkoutPetIndex - 1].id : null
-    setSelectedPetId(nextSelectedPetId)
+    setSelectedPetId(getNextPetId(checkoutPetIndex))
+  }
+
+  const getNextPetId = (previousPetIndex: number): number | null => {
+    if (previousPetIndex === 0 && pets.length - 1 > 0)
+      return pets[previousPetIndex + 1].id
+    if (previousPetIndex > 0) return pets[previousPetIndex - 1].id
+
+    return null
   }
 
   return (
