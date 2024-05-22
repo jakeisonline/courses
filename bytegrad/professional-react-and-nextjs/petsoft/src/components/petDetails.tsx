@@ -3,9 +3,10 @@
 import usePetContext from "@/hooks/usePetContext"
 import Image from "next/image"
 import PetImage from "./petImage"
+import PetButton from "./petButton"
 
 export default function PetDetails() {
-  const { selectedPet } = usePetContext()
+  const { selectedPet, handleCheckoutPet } = usePetContext()
   return (
     <section className="flex h-full w-full flex-col">
       {!selectedPet && <EmptyState />}
@@ -19,6 +20,17 @@ export default function PetDetails() {
               src={selectedPet?.imageUrl}
             />
             <PetTitle petName={selectedPet?.name} />
+            <div className="ml-auto flex gap-3">
+              <PetButton action="edit">Edit</PetButton>
+              <PetButton
+                action="checkout"
+                onClick={() => {
+                  handleCheckoutPet(selectedPet.id)
+                }}
+              >
+                Checkout
+              </PetButton>
+            </div>
           </NameBar>
           <PetMetaInfoPanel>
             <PetMetaInfoItem
