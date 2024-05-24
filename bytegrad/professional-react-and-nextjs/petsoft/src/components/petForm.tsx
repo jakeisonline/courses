@@ -6,6 +6,7 @@ import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Textarea } from "./ui/textarea"
 import { TPet } from "@/lib/types"
+import { addPet } from "@/actions/doAddPet"
 
 type PetFormProps = {
   action: "add" | "edit"
@@ -13,33 +14,33 @@ type PetFormProps = {
 }
 
 export default function PetForm({ action, onFormSubmission }: PetFormProps) {
-  const { handleAddPet, handleEditPet, selectedPet } = usePetContext()
+  const { selectedPet } = usePetContext()
   const editPet: TPet | undefined = action === "edit" ? selectedPet : undefined
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const formData = new FormData(e.currentTarget)
-    const newPet: Omit<TPet, "id"> = {
-      name: formData.get("name") as string,
-      ownerName: formData.get("ownerName") as string,
-      imageUrl:
-        "https://images.unsplash.com/photo-1583511655826-05700d52f4d9?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      age: Number(formData.get("age")),
-      notes: formData.get("notes") as string,
-    }
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault()
+  //   const formData = new FormData(e.currentTarget)
+  //   const newPet: Omit<TPet, "id"> = {
+  //     name: formData.get("name") as string,
+  //     ownerName: formData.get("ownerName") as string,
+  //     imageUrl:
+  //       "https://images.unsplash.com/photo-1583511655826-05700d52f4d9?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //     age: Number(formData.get("age")),
+  //     notes: formData.get("notes") as string,
+  //   }
 
-    if (action === "edit" && selectedPet) {
-      handleEditPet({ id: selectedPet.id, ...newPet })
-    } else {
-      // @ts-ignore: id is missing, but it will be added in handleAddPet
-      handleAddPet(newPet)
-    }
+  //   if (action === "edit" && selectedPet) {
+  //     handleEditPet({ id: selectedPet.id, ...newPet })
+  //   } else {
+  //     // @ts-ignore: id is missing, but it will be added in handleAddPet
+  //     handleAddPet(newPet)
+  //   }
 
-    onFormSubmission()
-  }
+  //   onFormSubmission()
+  // }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
+    <form action={addPet} className="flex flex-col space-y-3">
       <div className="space-y-4">
         <FieldWrapper>
           <LabelledInput
