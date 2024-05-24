@@ -4,13 +4,19 @@ import prisma from "@/lib/db"
 import { revalidatePath } from "next/cache"
 
 export async function checkoutPet(petId: any) {
+  let error, response
+
   try {
-    await prisma.pet.delete({
+    response = await prisma.pet.delete({
       where: { id: petId },
     })
   } catch (error) {
-    return { message: `Failed to delete pet from database (Pet ID: ${petId})` }
+    error = { message: `Failed to delete pet from database (Pet ID: ${petId})` }
   }
 
-  revalidatePath("/app", "layout")
+  if (!error) {
+    revalidatePath("/app", "layout")
+  }
+
+  return { error, response }
 }

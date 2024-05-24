@@ -4,8 +4,10 @@ import prisma from "@/lib/db"
 import { revalidatePath } from "next/cache"
 
 export async function addPet(formData: any) {
+  let error, response
+
   try {
-    await prisma.pet.create({
+    response = await prisma.pet.create({
       data: {
         name: formData.get("name"),
         ownerName: formData.get("ownerName"),
@@ -15,8 +17,12 @@ export async function addPet(formData: any) {
       },
     })
   } catch (error) {
-    return { message: "Failed to add pet to database" }
+    error = { message: "Failed to add pet to database" }
   }
 
-  revalidatePath("/app", "layout")
+  if (!error) {
+    revalidatePath("/app", "layout")
+  }
+
+  return { error, response }
 }

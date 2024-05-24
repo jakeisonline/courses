@@ -4,8 +4,10 @@ import prisma from "@/lib/db"
 import { revalidatePath } from "next/cache"
 
 export async function editPet(petId: any, formData: any) {
+  let error, response
+
   try {
-    await prisma.pet.update({
+    response = await prisma.pet.update({
       where: { id: petId },
       data: {
         name: formData.get("name"),
@@ -16,8 +18,12 @@ export async function editPet(petId: any, formData: any) {
       },
     })
   } catch (error) {
-    return { message: `Failed to update pet in database (Pet ID: ${petId})` }
+    error = { message: `Failed to update pet in database (Pet ID: ${petId})` }
   }
 
-  revalidatePath("/app", "layout")
+  if (!error) {
+    revalidatePath("/app", "layout")
+  }
+
+  return { error, response }
 }

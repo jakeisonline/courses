@@ -21,7 +21,7 @@ export default function PetForm({
   actionType,
   onFormSubmission,
 }: PetFormProps) {
-  const { selectedPet } = usePetContext()
+  const { selectedPet, handleAddPet, handleEditPet } = usePetContext()
   const currentPet: TPet | undefined =
     actionType === "edit" ? selectedPet : undefined
 
@@ -29,18 +29,10 @@ export default function PetForm({
     <form
       action={async (formData) => {
         if (actionType === "add") {
-          const error = await addPet(formData)
-          if (error) {
-            toast.warning(error.message)
-            return
-          }
+          await handleAddPet(formData)
           onFormSubmission()
         } else if (actionType === "edit") {
-          const error = await editPet(selectedPet?.id, formData)
-          if (error) {
-            toast.warning(error.message)
-            return
-          }
+          await handleEditPet(selectedPet?.id, formData)
           onFormSubmission()
         }
       }}
