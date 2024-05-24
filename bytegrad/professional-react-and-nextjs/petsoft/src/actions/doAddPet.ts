@@ -1,14 +1,15 @@
 "use server"
 
 import prisma from "@/lib/db"
-import { TPet } from "@/lib/types"
 
-type addPetArg = Omit<TPet, "id" | "updatedAt" | "createdAt">
-
-export async function addPet(pet: addPetArg) {
+export async function addPet(formData: any) {
   await prisma.pet.create({
     data: {
-      ...pet,
+      name: formData.get("name"),
+      ownerName: formData.get("ownerName"),
+      imageUrl: formData.get("imageUrl") || "/pet-placeholder.png",
+      age: parseInt(formData.get("age")),
+      notes: formData.get("notes"),
     },
   })
 }

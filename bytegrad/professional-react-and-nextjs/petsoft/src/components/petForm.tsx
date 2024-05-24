@@ -17,28 +17,6 @@ export default function PetForm({ action, onFormSubmission }: PetFormProps) {
   const { selectedPet } = usePetContext()
   const editPet: TPet | undefined = action === "edit" ? selectedPet : undefined
 
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault()
-  //   const formData = new FormData(e.currentTarget)
-  //   const newPet: Omit<TPet, "id"> = {
-  //     name: formData.get("name") as string,
-  //     ownerName: formData.get("ownerName") as string,
-  //     imageUrl:
-  //       "https://images.unsplash.com/photo-1583511655826-05700d52f4d9?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  //     age: Number(formData.get("age")),
-  //     notes: formData.get("notes") as string,
-  //   }
-
-  //   if (action === "edit" && selectedPet) {
-  //     handleEditPet({ id: selectedPet.id, ...newPet })
-  //   } else {
-  //     // @ts-ignore: id is missing, but it will be added in handleAddPet
-  //     handleAddPet(newPet)
-  //   }
-
-  //   onFormSubmission()
-  // }
-
   return (
     <form action={addPet} className="flex flex-col space-y-3">
       <div className="space-y-4">
@@ -49,6 +27,7 @@ export default function PetForm({ action, onFormSubmission }: PetFormProps) {
             type="text"
             label="Name"
             value={editPet?.name}
+            required={true}
           />
         </FieldWrapper>
         <FieldWrapper>
@@ -58,6 +37,7 @@ export default function PetForm({ action, onFormSubmission }: PetFormProps) {
             type="text"
             label="Owner Name"
             value={editPet?.ownerName}
+            required={true}
           />
         </FieldWrapper>
         <FieldWrapper>
@@ -76,6 +56,7 @@ export default function PetForm({ action, onFormSubmission }: PetFormProps) {
             type="number"
             label="Age"
             value={editPet?.age.toString()}
+            required={true}
           />
         </FieldWrapper>
         <FieldWrapper>
@@ -84,6 +65,7 @@ export default function PetForm({ action, onFormSubmission }: PetFormProps) {
             name="notes"
             label="Notes"
             value={editPet?.notes}
+            required={true}
           />
         </FieldWrapper>
       </div>
@@ -100,17 +82,25 @@ function LabelledInput({
   type,
   label,
   value,
+  required = false,
 }: {
   id: string
   name: string
   type: string
   label: string
   value?: string
+  required?: boolean
 }) {
   return (
     <>
       <Label htmlFor={id}>{label}</Label>
-      <Input id={id} name={name} type={type} defaultValue={value} required />
+      <Input
+        id={id}
+        name={name}
+        type={type}
+        defaultValue={value}
+        required={required ? true : false}
+      />
     </>
   )
 }
@@ -120,6 +110,7 @@ function LabelledTextarea({
   name,
   label,
   value,
+  required = false,
 }: {
   id: string
   name: string
@@ -130,7 +121,13 @@ function LabelledTextarea({
   return (
     <>
       <Label htmlFor={id}>{label}</Label>
-      <Textarea id={id} name={name} rows={3} defaultValue={value} required />
+      <Textarea
+        id={id}
+        name={name}
+        rows={3}
+        defaultValue={value}
+        required={required ? true : false}
+      />
     </>
   )
 }
