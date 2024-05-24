@@ -11,6 +11,8 @@ type PetContextProviderProps = {
 type PetContextArgs = {
   pets: TPet[]
   selectedPetId: number | null
+  handleAddPet: (newPet: TPet) => void
+  handleEditPet: (editedPet: TPet) => void
   handleSelectedPet: (id: number) => number
   handleCheckoutPet: (id: number) => void
   selectedPet: TPet | undefined
@@ -32,6 +34,26 @@ export default function PetContextProvider({
   const handleSelectedPet = (id: number): number => {
     setSelectedPetId(id)
     return id
+  }
+
+  const handleAddPet = (newPet: Omit<TPet, "id">): void => {
+    const newPetId = Math.floor(Math.random() * 1000)
+    setPets([...pets, { id: newPetId, ...newPet }])
+
+    setSelectedPetId(newPetId)
+  }
+
+  const handleEditPet = (editedPet: TPet): void => {
+    setPets((prevPets) => {
+      const updatedPets = prevPets.map((pet) => {
+        if (pet.id === editedPet.id) {
+          return editedPet
+        }
+        return pet
+      })
+      return updatedPets
+    })
+    setSelectedPetId(editedPet.id)
   }
 
   const handleCheckoutPet = (id: number): void => {
@@ -59,6 +81,8 @@ export default function PetContextProvider({
       value={{
         pets,
         selectedPetId,
+        handleAddPet,
+        handleEditPet,
         handleSelectedPet,
         handleCheckoutPet,
         selectedPet,
