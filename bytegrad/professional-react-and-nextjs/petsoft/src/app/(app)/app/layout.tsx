@@ -5,21 +5,13 @@ import PetContextProvider from "@/contexts/petContextProvider"
 import SearchContextProvider from "@/contexts/searchContextProvider"
 import { TPet } from "@/lib/types"
 import prisma from "@/lib/db"
+import { Toaster } from "@/components/ui/sonner"
 
 type LayoutProps = {
   children: React.ReactNode
 }
 
 export default async function Layout({ children }: LayoutProps) {
-  // const response = await fetch(
-  //   "https://bytegrad.com/course-assets/projects/petsoft/api/pets",
-  // )
-  // if (!response.ok) {
-  //   throw new Error("Failed to fetch pets")
-  // }
-
-  // const pets: TPet[] = await response.json()
-
   const pets: TPet[] = await prisma.pet.findMany()
 
   return (
@@ -32,6 +24,8 @@ export default async function Layout({ children }: LayoutProps) {
         </SearchContextProvider>
         <AppFooter />
       </div>
+
+      <Toaster position="top-right" />
     </>
   )
 }

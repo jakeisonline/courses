@@ -1,6 +1,7 @@
 "use client"
 
 import { addPet } from "@/actions/doAddPet"
+import { checkoutPet } from "@/actions/doCheckoutPet"
 import { TPet } from "@/lib/types"
 import { createContext, useState } from "react"
 
@@ -12,8 +13,6 @@ type PetContextProviderProps = {
 type PetContextArgs = {
   pets: TPet[]
   selectedPetId: string | null
-  handleAddPet: (newPet: TPet) => void
-  handleEditPet: (editedPet: TPet) => void
   handleSelectedPet: (id: string) => string
   handleCheckoutPet: (id: string) => void
   selectedPet: TPet | undefined
@@ -23,10 +22,9 @@ type PetContextArgs = {
 export const PetContext = createContext<PetContextArgs | null>(null)
 
 export default function PetContextProvider({
-  data,
+  data: pets,
   children,
 }: PetContextProviderProps) {
-  const [pets, setPets] = useState<TPet[]>(data)
   const [selectedPetId, setSelectedPetId] = useState<string | null>(null)
 
   const selectedPet = pets.find((pet) => pet.id === selectedPetId)
@@ -37,33 +35,11 @@ export default function PetContextProvider({
     return id
   }
 
-  const handleAddPet = async (newPet: Omit<TPet, "id">) => {
-    await addPet(newPet)
-  }
-
-  const handleEditPet = (editedPet: TPet): void => {
-    setPets((prevPets) => {
-      const updatedPets = prevPets.map((pet) => {
-        if (pet.id === editedPet.id) {
-          return editedPet
-        }
-        return pet
-      })
-      return updatedPets
-    })
-    setSelectedPetId(editedPet.id)
-  }
-
-  const handleCheckoutPet = (id: string): void => {
-    // Remove the pet from the list
-    const originalPets = pets
-    const checkoutPetIndex = originalPets.map((pet) => pet.id).indexOf(id)
-    const updatedPets = originalPets
-      .slice(0, checkoutPetIndex)
-      .concat(originalPets.slice(checkoutPetIndex + 1))
-    setPets(updatedPets)
+  const handleCheckoutPet = async (id: string) => {
+    await checkoutPet(id)
     // Select the next pet in the list, if any
-    setSelectedPetId(getNextPetId(checkoutPetIndex))
+    // TODO: Refactor this to work once more
+    //setSelectedPetId(getNextPetId(checkoutPetIndex))
   }
 
   const getNextPetId = (previousPetIndex: number): string | null => {
@@ -79,8 +55,6 @@ export default function PetContextProvider({
       value={{
         pets,
         selectedPetId,
-        handleAddPet,
-        handleEditPet,
         handleSelectedPet,
         handleCheckoutPet,
         selectedPet,

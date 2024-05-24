@@ -53,7 +53,7 @@ export default function PetButton({
             </DialogTitle>
           </DialogHeader>
           <PetForm
-            action={action}
+            actionType={action}
             onFormSubmission={() => setIsFormOpen(false)}
           />
         </DialogContent>

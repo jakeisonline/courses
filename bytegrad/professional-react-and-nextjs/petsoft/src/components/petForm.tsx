@@ -7,18 +7,45 @@ import { Label } from "./ui/label"
 import { Textarea } from "./ui/textarea"
 import { TPet } from "@/lib/types"
 import { addPet } from "@/actions/doAddPet"
+import { editPet } from "@/actions/doEditPet"
+import { useFormStatus } from "react-dom"
+import { Loader2 } from "lucide-react"
+import { toast } from "sonner"
 
 type PetFormProps = {
-  action: "add" | "edit"
+  actionType: "add" | "edit"
   onFormSubmission: () => void
 }
 
-export default function PetForm({ action, onFormSubmission }: PetFormProps) {
+export default function PetForm({
+  actionType,
+  onFormSubmission,
+}: PetFormProps) {
   const { selectedPet } = usePetContext()
-  const editPet: TPet | undefined = action === "edit" ? selectedPet : undefined
+  const currentPet: TPet | undefined =
+    actionType === "edit" ? selectedPet : undefined
 
   return (
-    <form action={addPet} className="flex flex-col space-y-3">
+    <form
+      action={async (formData) => {
+        if (actionType === "add") {
+          const error = await addPet(formData)
+          if (error) {
+            toast.warning(error.message)
+            return
+          }
+          onFormSubmission()
+        } else if (actionType === "edit") {
+          const error = await editPet(selectedPet?.id, formData)
+          if (error) {
+            toast.warning(error.message)
+            return
+          }
+          onFormSubmission()
+        }
+      }}
+      className="flex flex-col space-y-3"
+    >
       <div className="space-y-4">
         <FieldWrapper>
           <LabelledInput
@@ -26,7 +53,7 @@ export default function PetForm({ action, onFormSubmission }: PetFormProps) {
             name="name"
             type="text"
             label="Name"
-            value={editPet?.name}
+            value={currentPet?.name}
             required={true}
           />
         </FieldWrapper>
@@ -36,7 +63,7 @@ export default function PetForm({ action, onFormSubmission }: PetFormProps) {
             name="ownerName"
             type="text"
             label="Owner Name"
-            value={editPet?.ownerName}
+            value={currentPet?.ownerName}
             required={true}
           />
         </FieldWrapper>
@@ -46,7 +73,7 @@ export default function PetForm({ action, onFormSubmission }: PetFormProps) {
             name="imageUrl"
             type="text"
             label="Image URL"
-            value={editPet?.imageUrl}
+            value={currentPet?.imageUrl}
           />
         </FieldWrapper>
         <FieldWrapper>
@@ -55,7 +82,7 @@ export default function PetForm({ action, onFormSubmission }: PetFormProps) {
             name="age"
             type="number"
             label="Age"
-            value={editPet?.age.toString()}
+            value={currentPet?.age.toString()}
             required={true}
           />
         </FieldWrapper>
@@ -64,15 +91,29 @@ export default function PetForm({ action, onFormSubmission }: PetFormProps) {
             id="notes"
             name="notes"
             label="Notes"
-            value={editPet?.notes}
+            value={currentPet?.notes}
             required={true}
           />
         </FieldWrapper>
       </div>
-      <Button type="submit" className="self-end">
-        Save
-      </Button>
+      <SubmitButton label="Save" pendingLabel="Saving..." />
     </form>
+  )
+}
+
+function SubmitButton({
+  label,
+  pendingLabel,
+}: {
+  label: string
+  pendingLabel?: string
+}) {
+  const { pending } = useFormStatus()
+  return (
+    <Button type="submit" className="self-end" disabled={pending}>
+      {pending ? pendingLabel : label}
+      {pending && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
+    </Button>
   )
 }
 
