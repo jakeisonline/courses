@@ -34,14 +34,19 @@ export default function PetContextProvider({
 }: PetContextProviderProps) {
   const [optimisticPets, setOptimisticPets] = useOptimistic(
     data,
-    (prev, petData: Omit<TPet, "id">) => {
-      return [
-        ...prev,
-        {
-          ...petData,
-          id: String(Math.random()),
-        },
-      ]
+    (prev, { action, data }) => {
+      switch (action) {
+        case "add":
+          return [...prev, { id: Math.random().toString(), ...data }]
+        case "edit":
+          return prev.map((pet) =>
+            pet.id === data.id ? { ...pet, ...data.petData } : pet,
+          )
+        case "delete":
+          return prev.filter((pet) => pet.id !== data.id)
+        default:
+          return prev
+      }
     },
   )
   const [selectedPetId, setSelectedPetId] = useState<string | null>(null)
@@ -57,7 +62,7 @@ export default function PetContextProvider({
   const handleAddPet = async (
     petData: Omit<TPet, "id">,
   ): Promise<TPet | undefined> => {
-    setOptimisticPets(petData)
+    setOptimisticPets({ action: "add", data: petData })
     const { error, response } = await addPet(petData)
 
     if (error) {
@@ -73,6 +78,7 @@ export default function PetContextProvider({
     id: string,
     petData: Omit<TPet, "id">,
   ): Promise<TPet | undefined> => {
+    setOptimisticPets({ action: "edit", data: { id: id, petData } })
     const { error, response } = await editPet(id, petData)
 
     if (error) {
@@ -84,6 +90,7 @@ export default function PetContextProvider({
   }
 
   const handleCheckoutPet = async (id: string) => {
+    setOptimisticPets({ action: "delete", data: { id } })
     const { error } = await checkoutPet(id)
 
     if (error) {
