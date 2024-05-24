@@ -4,7 +4,6 @@ import { addPet } from "@/actions/doAddPet"
 import { checkoutPet } from "@/actions/doCheckoutPet"
 import { editPet } from "@/actions/doEditPet"
 import { TPet } from "@/lib/types"
-import { revalidatePath } from "next/cache"
 import { createContext, useState } from "react"
 import { toast } from "sonner"
 

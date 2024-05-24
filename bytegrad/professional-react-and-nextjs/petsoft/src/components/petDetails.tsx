@@ -1,12 +1,15 @@
 "use client"
 
 import usePetContext from "@/hooks/usePetContext"
-import Image from "next/image"
 import PetImage from "./petImage"
 import PetButton from "./petButton"
+import { Loader2 } from "lucide-react"
+import { useTransition } from "react"
 
 export default function PetDetails() {
   const { selectedPet, handleCheckoutPet } = usePetContext()
+  const [isPending, startTransition] = useTransition()
+
   return (
     <section className="flex h-full w-full flex-col">
       {!selectedPet && <EmptyState />}
@@ -24,11 +27,14 @@ export default function PetDetails() {
               <PetButton action="edit">Edit</PetButton>
               <PetButton
                 action="checkout"
-                onClick={() => {
-                  handleCheckoutPet(selectedPet.id)
+                onClick={async () => {
+                  startTransition(async () => {
+                    await handleCheckoutPet(selectedPet.id)
+                  })
                 }}
               >
-                Checkout
+                {isPending ? "Checking out..." : "Checkout"}
+                {isPending && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
               </PetButton>
             </div>
           </NameBar>
@@ -52,7 +58,7 @@ type NameBarProps = {
 
 function NameBar({ children }: NameBarProps) {
   return (
-    <div className="border-light flex items-center border-b px-8 py-5">
+    <div className="flex items-center border-b border-light px-8 py-5">
       {children}
     </div>
   )
@@ -106,7 +112,7 @@ type PetNotesProps = {
 
 function PetNotes({ petNote }: PetNotesProps) {
   return (
-    <section className="border-light mx-8 mb-9 flex-1 rounded-md border bg-white px-7 py-5">
+    <section className="mx-8 mb-9 flex-1 rounded-md border border-light bg-white px-7 py-5">
       {petNote}
     </section>
   )
