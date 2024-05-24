@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils"
 import PetImage from "./petImage"
 import useSearchContext from "@/hooks/useSearchContext"
 import { useMemo } from "react"
+import { TPet } from "@/lib/types"
 
 export default function PetList() {
   const { pets, selectedPetId, handleSelectedPet } = usePetContext()
@@ -19,8 +20,8 @@ export default function PetList() {
   )
 
   return (
-    <ul className="border-light border-b bg-white">
-      {filteredPets.map((pet) => (
+    <ul className="border-b border-light bg-white">
+      {filteredPets.map((pet: TPet) => (
         <li key={pet.id} className="">
           <button
             onClick={() => {

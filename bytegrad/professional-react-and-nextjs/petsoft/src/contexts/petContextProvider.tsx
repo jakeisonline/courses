@@ -10,11 +10,11 @@ type PetContextProviderProps = {
 
 type PetContextArgs = {
   pets: TPet[]
-  selectedPetId: number | null
+  selectedPetId: string | null
   handleAddPet: (newPet: TPet) => void
   handleEditPet: (editedPet: TPet) => void
-  handleSelectedPet: (id: number) => number
-  handleCheckoutPet: (id: number) => void
+  handleSelectedPet: (id: string) => string
+  handleCheckoutPet: (id: string) => void
   selectedPet: TPet | undefined
   numberOfPets: number
 }
@@ -26,18 +26,18 @@ export default function PetContextProvider({
   children,
 }: PetContextProviderProps) {
   const [pets, setPets] = useState<TPet[]>(data)
-  const [selectedPetId, setSelectedPetId] = useState<number | null>(null)
+  const [selectedPetId, setSelectedPetId] = useState<string | null>(null)
 
   const selectedPet = pets.find((pet) => pet.id === selectedPetId)
   const numberOfPets = pets.length
 
-  const handleSelectedPet = (id: number): number => {
+  const handleSelectedPet = (id: string): string => {
     setSelectedPetId(id)
     return id
   }
 
   const handleAddPet = (newPet: Omit<TPet, "id">): void => {
-    const newPetId = Math.floor(Math.random() * 1000)
+    const newPetId = String(Math.floor(Math.random() * 1000))
     setPets([...pets, { id: newPetId, ...newPet }])
 
     setSelectedPetId(newPetId)
@@ -56,7 +56,7 @@ export default function PetContextProvider({
     setSelectedPetId(editedPet.id)
   }
 
-  const handleCheckoutPet = (id: number): void => {
+  const handleCheckoutPet = (id: string): void => {
     // Remove the pet from the list
     const originalPets = pets
     const checkoutPetIndex = originalPets.map((pet) => pet.id).indexOf(id)
@@ -68,7 +68,7 @@ export default function PetContextProvider({
     setSelectedPetId(getNextPetId(checkoutPetIndex))
   }
 
-  const getNextPetId = (previousPetIndex: number): number | null => {
+  const getNextPetId = (previousPetIndex: number): string | null => {
     if (previousPetIndex === 0 && pets.length - 1 > 0)
       return pets[previousPetIndex + 1].id
     if (previousPetIndex > 0) return pets[previousPetIndex - 1].id
