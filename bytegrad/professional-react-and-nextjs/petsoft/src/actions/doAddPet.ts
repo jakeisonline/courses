@@ -1,20 +1,15 @@
 "use server"
 
 import prisma from "@/lib/db"
+import { TErrorMutatePet, TPet, TPromisePet } from "@/lib/types"
 import { revalidatePath } from "next/cache"
 
-export async function addPet(formData: any) {
-  let error, response
+export async function addPet(petData: Omit<TPet, "id">): Promise<TPromisePet> {
+  let error: TErrorMutatePet | undefined, response
 
   try {
     response = await prisma.pet.create({
-      data: {
-        name: formData.get("name"),
-        ownerName: formData.get("ownerName"),
-        imageUrl: formData.get("imageUrl") || "/pet-placeholder.png",
-        age: parseInt(formData.get("age")),
-        notes: formData.get("notes"),
-      },
+      data: petData,
     })
   } catch (error) {
     error = { message: "Failed to add pet to database" }

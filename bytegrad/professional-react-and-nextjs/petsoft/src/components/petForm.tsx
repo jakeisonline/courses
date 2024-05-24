@@ -28,12 +28,19 @@ export default function PetForm({
   return (
     <form
       action={async (formData) => {
+        onFormSubmission()
+        const petData: Omit<TPet, "id"> = {
+          name: formData.get("name") as string,
+          ownerName: formData.get("ownerName") as string,
+          imageUrl: formData.get("imageUrl") as string,
+          age: Number(formData.get("age")) as number,
+          notes: formData.get("notes") as string,
+        }
+
         if (actionType === "add") {
-          await handleAddPet(formData)
-          onFormSubmission()
+          await handleAddPet(petData)
         } else if (actionType === "edit") {
-          await handleEditPet(selectedPet?.id, formData)
-          onFormSubmission()
+          await handleEditPet(selectedPet!.id, petData)
         }
       }}
       className="flex flex-col space-y-3"

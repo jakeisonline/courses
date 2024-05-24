@@ -1,21 +1,19 @@
 "use server"
 
 import prisma from "@/lib/db"
+import { TErrorMutatePet, TPet, TPromisePet } from "@/lib/types"
 import { revalidatePath } from "next/cache"
 
-export async function editPet(petId: any, formData: any) {
-  let error, response
+export async function editPet(
+  petId: string,
+  petData: Omit<TPet, "id">,
+): Promise<TPromisePet> {
+  let error: TErrorMutatePet | undefined, response
 
   try {
     response = await prisma.pet.update({
       where: { id: petId },
-      data: {
-        name: formData.get("name"),
-        ownerName: formData.get("ownerName"),
-        imageUrl: formData.get("imageUrl") || "/pet-placeholder.png",
-        age: parseInt(formData.get("age")),
-        notes: formData.get("notes"),
-      },
+      data: petData,
     })
   } catch (error) {
     error = { message: `Failed to update pet in database (Pet ID: ${petId})` }

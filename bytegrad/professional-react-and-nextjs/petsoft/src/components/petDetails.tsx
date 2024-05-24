@@ -4,7 +4,7 @@ import usePetContext from "@/hooks/usePetContext"
 import PetImage from "./petImage"
 import PetButton from "./petButton"
 import { Loader2 } from "lucide-react"
-import { useTransition } from "react"
+import { useOptimistic, useTransition } from "react"
 
 export default function PetDetails() {
   const { selectedPet, handleCheckoutPet } = usePetContext()
@@ -20,9 +20,9 @@ export default function PetDetails() {
               alt="Selected pet image"
               height={75}
               width={75}
-              src={selectedPet?.imageUrl}
+              src={selectedPet.imageUrl}
             />
-            <PetTitle petName={selectedPet?.name} />
+            <PetTitle petName={selectedPet.name} />
             <div className="ml-auto flex gap-3">
               <PetButton action="edit">Edit</PetButton>
               <PetButton
@@ -39,13 +39,10 @@ export default function PetDetails() {
             </div>
           </NameBar>
           <PetMetaInfoPanel>
-            <PetMetaInfoItem
-              label="Owner Name"
-              value={selectedPet?.ownerName}
-            />
-            <PetMetaInfoItem label="Pet Age" value={selectedPet?.age} />
+            <PetMetaInfoItem label="Owner Name" value={selectedPet.ownerName} />
+            <PetMetaInfoItem label="Pet Age" value={selectedPet.age} />
           </PetMetaInfoPanel>
-          <PetNotes petNote={selectedPet?.notes} />
+          <PetNotes petNote={selectedPet.notes} />
         </>
       )}
     </section>

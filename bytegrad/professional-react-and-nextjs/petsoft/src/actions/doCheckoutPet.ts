@@ -1,10 +1,11 @@
 "use server"
 
 import prisma from "@/lib/db"
+import { TErrorMutatePet } from "@/lib/types"
 import { revalidatePath } from "next/cache"
 
-export async function checkoutPet(petId: any) {
-  let error, response
+export async function checkoutPet(petId: string) {
+  let error: TErrorMutatePet | undefined, response
 
   try {
     response = await prisma.pet.delete({

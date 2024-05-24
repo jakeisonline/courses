@@ -8,3 +8,12 @@ export type TPet = {
   updatedAt?: Date
   createdAt?: Date
 }
+
+export type TErrorMutatePet = {
+  message: string
+}
+
+export type TPromisePet = {
+  error: TErrorMutatePet | undefined
+  response: TPet | undefined
+}
