@@ -4,7 +4,7 @@ import usePetContext from "@/hooks/usePetContext"
 import PetImage from "./petImage"
 import PetButton from "./petButton"
 import { Loader2 } from "lucide-react"
-import { useOptimistic, useTransition } from "react"
+import { useTransition } from "react"
 
 export default function PetDetails() {
   const { selectedPet, handleCheckoutPet } = usePetContext()
