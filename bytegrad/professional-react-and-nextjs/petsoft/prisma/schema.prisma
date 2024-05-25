@@ -17,6 +17,17 @@ model Pet {
   age       Int
   imageUrl  String?
   notes     String
+  User      User     @relation(fields: [userId], references: [id])
+  userId    String
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  pets      Pet[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
