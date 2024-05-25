@@ -3,12 +3,9 @@
 import usePetContext from "@/hooks/usePetContext"
 import PetImage from "./petImage"
 import PetButton from "./petButton"
-import { Loader2 } from "lucide-react"
-import { useTransition } from "react"
 
 export default function PetDetails() {
   const { selectedPet, handleCheckoutPet } = usePetContext()
-  const [isPending, startTransition] = useTransition()
 
   return (
     <section className="flex h-full w-full flex-col">
@@ -28,13 +25,10 @@ export default function PetDetails() {
               <PetButton
                 action="checkout"
                 onClick={async () => {
-                  startTransition(async () => {
-                    await handleCheckoutPet(selectedPet.id)
-                  })
+                  await handleCheckoutPet(selectedPet.id)
                 }}
               >
-                {isPending ? "Checking out..." : "Checkout"}
-                {isPending && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
+                Checkout
               </PetButton>
             </div>
           </NameBar>
