@@ -9,9 +9,11 @@ export type TPet = {
   createdAt?: Date
 }
 
-export type TErrorMutatePet = {
-  message: string
-}
+export type TErrorMutatePet =
+  | {
+      message: string
+    }
+  | undefined
 
 export type TPromisePet = {
   error: TErrorMutatePet | undefined

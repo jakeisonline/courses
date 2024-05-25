@@ -6,7 +6,7 @@ import { sleep } from "@/lib/utils"
 import { revalidatePath } from "next/cache"
 
 export async function addPet(petData: Omit<TPet, "id">): Promise<TPromisePet> {
-  let error: TErrorMutatePet | undefined, response
+  let error: TErrorMutatePet, response
 
   try {
     response = await prisma.pet.create({

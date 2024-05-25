@@ -5,7 +5,7 @@ import { TErrorMutatePet } from "@/lib/types"
 import { revalidatePath } from "next/cache"
 
 export async function checkoutPet(petId: string) {
-  let error: TErrorMutatePet | undefined, response
+  let error: TErrorMutatePet, response
 
   try {
     response = await prisma.pet.delete({

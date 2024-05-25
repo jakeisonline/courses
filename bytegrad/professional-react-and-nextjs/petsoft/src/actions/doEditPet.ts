@@ -8,7 +8,7 @@ export async function editPet(
   petId: string,
   petData: Omit<TPet, "id">,
 ): Promise<TPromisePet> {
-  let error: TErrorMutatePet | undefined, response
+  let error: TErrorMutatePet, response
 
   try {
     response = await prisma.pet.update({
