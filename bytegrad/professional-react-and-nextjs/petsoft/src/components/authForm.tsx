@@ -4,7 +4,11 @@ import { Label } from "@radix-ui/react-label"
 import { Input } from "./ui/input"
 import { Button } from "./ui/button"
 
-export default function AuthForm() {
+type AuthFormProps = {
+  action: "login" | "signup"
+}
+
+export default function AuthForm({ action }: AuthFormProps) {
   return (
     <div className="mt-4">
       <form className="flex flex-col gap-y-5">
@@ -17,7 +21,7 @@ export default function AuthForm() {
           <Input id="password" type="password" />
         </div>
         <Button type="submit" className="">
-          Go!
+          {action === "login" ? "Log in" : "Sign up"}
         </Button>
       </form>
     </div>
