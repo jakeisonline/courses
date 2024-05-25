@@ -3,7 +3,7 @@
 import { addPet } from "@/actions/doAddPet"
 import { checkoutPet } from "@/actions/doCheckoutPet"
 import { editPet } from "@/actions/doEditPet"
-import { TPet } from "@/lib/types"
+import { TMutatingPet, TPet } from "@/lib/types"
 import { createContext, useOptimistic, useState } from "react"
 import { toast } from "sonner"
 
@@ -16,10 +16,10 @@ type PetContextArgs = {
   pets: TPet[]
   selectedPetId: string | null
   handleSelectedPet: (id: string) => string
-  handleAddPet: (petData: Omit<TPet, "id">) => Promise<TPet | undefined>
+  handleAddPet: (petData: TMutatingPet) => Promise<TPet | undefined>
   handleEditPet: (
     id: string,
-    petData: Omit<TPet, "id">,
+    petData: TMutatingPet,
   ) => Promise<TPet | undefined>
   handleCheckoutPet: (id: string) => Promise<void>
   selectedPet: TPet | undefined
@@ -60,7 +60,7 @@ export default function PetContextProvider({
   }
 
   const handleAddPet = async (
-    petData: Omit<TPet, "id">,
+    petData: TMutatingPet,
   ): Promise<TPet | undefined> => {
     setOptimisticPets({ action: "add", data: petData })
     const { error, response } = await addPet(petData)
@@ -76,7 +76,7 @@ export default function PetContextProvider({
 
   const handleEditPet = async (
     id: string,
-    petData: Omit<TPet, "id">,
+    petData: TMutatingPet,
   ): Promise<TPet | undefined> => {
     setOptimisticPets({ action: "edit", data: { id: id, petData } })
     const { error, response } = await editPet(id, petData)

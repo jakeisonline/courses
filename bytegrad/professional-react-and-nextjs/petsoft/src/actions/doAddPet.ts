@@ -1,10 +1,10 @@
 "use server"
 
 import prisma from "@/lib/db"
-import { TErrorMutatePet, TPet, TPromisePet } from "@/lib/types"
+import { TErrorMutatePet, TMutatingPet, TPromisePet } from "@/lib/types"
 import { revalidatePath } from "next/cache"
 
-export async function addPet(petData: Omit<TPet, "id">): Promise<TPromisePet> {
+export async function addPet(petData: TMutatingPet): Promise<TPromisePet> {
   let error: TErrorMutatePet, response
 
   try {

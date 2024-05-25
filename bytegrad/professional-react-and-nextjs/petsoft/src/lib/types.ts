@@ -1,13 +1,8 @@
-export type TPet = {
-  id: string
-  name: string
-  ownerName: string
-  imageUrl: string
-  age: number
-  notes: string
-  updatedAt?: Date
-  createdAt?: Date
-}
+import { Pet } from "@prisma/client"
+
+export type TPet = Pet
+
+export type TMutatingPet = Omit<TPet, "id" | "createdAt" | "updatedAt">
 
 export type TErrorMutatePet =
   | {

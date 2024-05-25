@@ -5,9 +5,8 @@ import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Textarea } from "./ui/textarea"
-import { TPet } from "@/lib/types"
-import { useFormStatus } from "react-dom"
-import { Loader2 } from "lucide-react"
+import { TMutatingPet, TPet } from "@/lib/types"
+import React from "react"
 
 type PetFormProps = {
   actionType: "add" | "edit"
@@ -26,7 +25,7 @@ export default function PetForm({
     <form
       action={async (formData) => {
         onFormSubmission()
-        const petData: Omit<TPet, "id"> = {
+        const petData: TMutatingPet = {
           name: formData.get("name") as string,
           ownerName: formData.get("ownerName") as string,
           imageUrl: formData.get("imageUrl") as string,
@@ -92,23 +91,15 @@ export default function PetForm({
           />
         </FieldWrapper>
       </div>
-      <SubmitButton label="Save" pendingLabel="Saving..." />
+      <SubmitButton>Save</SubmitButton>
     </form>
   )
 }
 
-function SubmitButton({
-  label,
-  pendingLabel,
-}: {
-  label: string
-  pendingLabel?: string
-}) {
-  const { pending } = useFormStatus()
+function SubmitButton({ children }: { children: React.ReactNode }) {
   return (
-    <Button type="submit" className="self-end" disabled={pending}>
-      {pending ? pendingLabel : label}
-      {pending && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
+    <Button type="submit" className="self-end">
+      {children}
     </Button>
   )
 }
