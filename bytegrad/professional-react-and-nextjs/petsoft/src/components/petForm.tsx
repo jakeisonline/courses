@@ -5,33 +5,60 @@ import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Textarea } from "./ui/textarea"
-import { TMutatingPet, TPet } from "@/lib/types"
+import { TPet } from "@/lib/types"
 import React from "react"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { petFormSchema } from "@/lib/validations"
 
 type PetFormProps = {
   actionType: "add" | "edit"
   onFormSubmission: () => void
 }
 
+type InputFieldProps = {
+  id: string
+  validation: any // todo: type this
+  name: string
+  label: string
+  errors?: any
+}
+
+type TextareaFieldProps = Omit<InputFieldProps, "type">
+
+type TPetForm = z.infer<typeof petFormSchema>
+
 export default function PetForm({
   actionType,
   onFormSubmission,
 }: PetFormProps) {
   const { selectedPet, handleAddPet, handleEditPet } = usePetContext()
+
+  const {
+    register,
+    getValues,
+    trigger,
+    formState: { errors },
+  } = useForm<TPetForm>({
+    resolver: zodResolver(petFormSchema),
+    defaultValues: selectedPet,
+  })
+
   const currentPet: TPet | undefined =
     actionType === "edit" ? selectedPet : undefined
 
   return (
     <form
-      action={async (formData) => {
-        onFormSubmission()
-        const petData: TMutatingPet = {
-          name: formData.get("name") as string,
-          ownerName: formData.get("ownerName") as string,
-          imageUrl: formData.get("imageUrl") as string,
-          age: Number(formData.get("age")) as number,
-          notes: formData.get("notes") as string,
+      action={async () => {
+        const result = await trigger()
+        if (!result) {
+          return
         }
+
+        onFormSubmission()
+
+        const petData = getValues()
 
         if (actionType === "add") {
           await handleAddPet(petData)
@@ -45,49 +72,56 @@ export default function PetForm({
         <FieldWrapper>
           <LabelledInput
             id="name"
+            validation={{
+              ...register("name"),
+            }}
             name="name"
-            type="text"
             label="Name"
-            value={currentPet?.name}
-            required={true}
+            errors={errors}
           />
         </FieldWrapper>
         <FieldWrapper>
           <LabelledInput
             id="ownerName"
+            validation={{
+              ...register("ownerName"),
+            }}
             name="ownerName"
-            type="text"
             label="Owner Name"
-            value={currentPet?.ownerName}
-            required={true}
+            errors={errors}
           />
         </FieldWrapper>
         <FieldWrapper>
           <LabelledInput
             id="imageUrl"
+            validation={{
+              ...register("imageUrl"),
+            }}
             name="imageUrl"
-            type="text"
             label="Image URL"
-            value={currentPet?.imageUrl}
+            errors={errors}
           />
         </FieldWrapper>
         <FieldWrapper>
           <LabelledInput
             id="age"
+            validation={{
+              ...register("age"),
+            }}
             name="age"
-            type="number"
             label="Age"
-            value={currentPet?.age.toString()}
-            required={true}
+            errors={errors}
           />
         </FieldWrapper>
         <FieldWrapper>
           <LabelledTextarea
             id="notes"
+            validation={{
+              ...register("notes"),
+            }}
             name="notes"
             label="Notes"
-            value={currentPet?.notes}
-            required={true}
+            errors={errors}
           />
         </FieldWrapper>
       </div>
@@ -106,58 +140,38 @@ function SubmitButton({ children }: { children: React.ReactNode }) {
 
 function LabelledInput({
   id,
+  validation,
   name,
-  type,
   label,
-  value,
-  required = false,
-}: {
-  id: string
-  name: string
-  type: string
-  label: string
-  value?: string
-  required?: boolean
-}) {
+  errors,
+}: InputFieldProps) {
   return (
     <>
       <Label htmlFor={id}>{label}</Label>
-      <Input
-        id={id}
-        name={name}
-        type={type}
-        defaultValue={value}
-        required={required ? true : false}
-      />
+      <Input id={id} {...validation} />
+      {errors[name] && <FieldErrors>{errors[name].message}</FieldErrors>}
     </>
   )
 }
 
 function LabelledTextarea({
   id,
+  validation,
   name,
   label,
-  value,
-  required = false,
-}: {
-  id: string
-  name: string
-  label: string
-  value?: string
-  required?: boolean
-}) {
+  errors,
+}: TextareaFieldProps) {
   return (
     <>
       <Label htmlFor={id}>{label}</Label>
-      <Textarea
-        id={id}
-        name={name}
-        rows={3}
-        defaultValue={value}
-        required={required ? true : false}
-      />
+      <Textarea id={id} name={name} {...validation} rows={3} />
+      {errors[name] && <FieldErrors>{errors[name].message}</FieldErrors>}
     </>
   )
+}
+
+function FieldErrors({ children }: { children: React.ReactNode }) {
+  return <p className="text-red-500">{children}</p>
 }
 
 function FieldWrapper({ children }: { children: React.ReactNode }) {
