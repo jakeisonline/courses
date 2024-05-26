@@ -49,12 +49,12 @@ const config = {
     authorized: ({ auth, request }) => {
       const isLoggedIn = Boolean(auth?.user)
       const requestedPath = request.nextUrl.pathname
-      const isAppAccess = requestedPath.includes("/app")
+      const isAccessingApp = requestedPath.includes("/app")
       const isAuthing =
         requestedPath.includes("/login") || requestedPath.includes("/signup")
 
       // Redirect to login if not logged in, and trying to access app
-      if (isAppAccess && !isLoggedIn) return false
+      if (isAccessingApp && !isLoggedIn) return false
 
       // Redirect to app if logged in, and trying to access login
       if (isAuthing && isLoggedIn) {
