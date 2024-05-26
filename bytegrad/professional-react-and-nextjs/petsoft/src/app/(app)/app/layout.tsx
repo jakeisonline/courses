@@ -7,6 +7,7 @@ import { TPet } from "@/lib/types"
 import prisma from "@/lib/db"
 import { Toaster } from "@/components/ui/sonner"
 import { auth } from "@/lib/auth"
+import { getPetsByUserId } from "@/lib/serverUtils"
 
 type LayoutProps = {
   children: React.ReactNode
@@ -14,11 +15,7 @@ type LayoutProps = {
 
 export default async function Layout({ children }: LayoutProps) {
   const userSession = await auth()
-  const pets: TPet[] = await prisma.pet.findMany({
-    where: {
-      userId: userSession?.user?.id,
-    },
-  })
+  const pets = await getPetsByUserId(userSession.user.id)
 
   return (
     <>

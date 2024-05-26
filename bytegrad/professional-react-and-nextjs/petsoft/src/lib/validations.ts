@@ -16,3 +16,8 @@ export const petFormSchema = z.object({
 })
 
 export const petIdSchema = z.string().cuid("Pet ID must be a valid CUID")
+
+export const authSchema = z.object({
+  email: z.string().email("Email must be a valid email address"),
+  password: z.string(),
+})

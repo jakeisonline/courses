@@ -1,7 +1,7 @@
 "use server"
 
 import prisma from "@/lib/db"
-import { getUserSession } from "@/lib/serverUtils"
+import { getPetById, getUserSession } from "@/lib/serverUtils"
 import { TErrorMutatePet } from "@/lib/types"
 import { petIdSchema } from "@/lib/validations"
 import { revalidatePath } from "next/cache"
@@ -23,12 +23,9 @@ export async function checkoutPet(petId: unknown) {
   }
 
   // Allowed check (user owns pet)
-  const petOwnerId = await prisma.pet.findUnique({
-    where: { id: validatedPetId.data },
-    select: { userId: true },
-  })
+  const pet = await getPetById(validatedPetId.data)
 
-  if (!petOwnerId || petOwnerId.userId !== userSession.user.id) {
+  if (!pet?.userId || pet.userId !== userSession.user.id) {
     error = {
       message: `User does not own pet (Pet ID: ${validatedPetId.data})`,
     }

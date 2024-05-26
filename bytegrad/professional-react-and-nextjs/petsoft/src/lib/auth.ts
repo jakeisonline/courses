@@ -1,7 +1,8 @@
-import prisma from "./db"
 import NextAuth, { NextAuthConfig } from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
+import { getUserByEmail } from "@/lib/serverUtils"
+import { authSchema } from "@/lib/validations"
 
 const config = {
   pages: {
@@ -14,16 +15,19 @@ const config = {
   providers: [
     Credentials({
       async authorize(credentials) {
+        // Validation
+        const validatedCredentials = authSchema.safeParse(credentials)
+
+        if (!validatedCredentials.success) {
+          throw new Error("Auth data failed validation")
+        }
+
         // Runs on every login
-        const { email, password } = credentials
+        const { email, password } = validatedCredentials.data
 
         if (!email) throw new Error("Email is was not found")
 
-        const user = await prisma.user.findUnique({
-          where: {
-            email,
-          },
-        })
+        const user = await getUserByEmail(email)
 
         if (!user) {
           console.log("User not found")
@@ -72,4 +76,9 @@ const config = {
   },
 } satisfies NextAuthConfig
 
-export const { auth, signIn, signOut } = NextAuth(config)
+export const {
+  auth,
+  signIn,
+  signOut,
+  handlers: { GET, POST },
+} = NextAuth(config)

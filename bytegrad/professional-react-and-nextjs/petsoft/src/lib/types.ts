@@ -1,4 +1,6 @@
 import { Pet } from "@prisma/client"
+import { z } from "zod"
+import { authSchema } from "@/lib/validations"
 
 export type TPet = Pet
 
@@ -14,3 +16,5 @@ export type TPromisePet = {
   error: TErrorMutatePet | undefined
   response: TPet | undefined
 }
+
+export type TAuth = z.infer<typeof authSchema>

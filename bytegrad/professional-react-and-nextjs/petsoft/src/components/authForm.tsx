@@ -19,11 +19,11 @@ export default function AuthForm({ actionType }: AuthFormProps) {
       >
         <div>
           <Label htmlFor="email">Email</Label>
-          <Input id="email" name="email" type="email" />
+          <Input id="email" name="email" type="email" required />
         </div>
         <div>
           <Label htmlFor="password">Password</Label>
-          <Input id="password" name="password" type="password" />
+          <Input id="password" name="password" type="password" required />
         </div>
         <Button type="submit" className="">
           {actionType === "login" ? "Log in" : "Sign up"}
