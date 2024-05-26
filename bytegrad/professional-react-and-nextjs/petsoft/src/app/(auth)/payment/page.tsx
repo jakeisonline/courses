@@ -5,6 +5,8 @@ import H1 from "@/components/h1"
 import { Button } from "@/components/ui/button"
 import { Loader2 } from "lucide-react"
 import { useTransition } from "react"
+import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
 
 type PageProps = {
   searchParams: { [key: string]: string | string[] | undefined }
@@ -12,6 +14,8 @@ type PageProps = {
 
 export default function Page({ searchParams }: PageProps) {
   const [isPending, startTransition] = useTransition()
+  const { update } = useSession()
+  const router = useRouter()
 
   return (
     <main className="flex flex-col space-y-6">
@@ -37,7 +41,20 @@ export default function Page({ searchParams }: PageProps) {
       {searchParams.success && (
         <>
           <H1>😍 Your support means a lot! 😍</H1>
-          <Button>Access your new PetSoft account</Button>
+          <Button
+            disabled={isPending}
+            onClick={() => {
+              startTransition(async () => {
+                await update(true)
+                router.push("/app/dashboard")
+              })
+            }}
+          >
+            Access your new PetSoft account
+            {isPending && (
+              <Loader2 className="ml-2 mr-2 h-4 w-4 animate-spin" />
+            )}
+          </Button>
         </>
       )}
     </main>

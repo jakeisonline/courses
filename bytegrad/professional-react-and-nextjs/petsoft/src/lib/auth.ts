@@ -1,7 +1,7 @@
 import NextAuth, { NextAuthConfig } from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
-import { getUserByEmail } from "@/lib/serverUtils"
+import { getUserByEmail, getUserById } from "@/lib/serverUtils"
 import { authSchema } from "@/lib/validations"
 
 const config = {
@@ -61,16 +61,45 @@ const config = {
         return Response.redirect(new URL("/app/dashboard/", request.nextUrl))
       }
 
-      return true
+      // Redirect to payment if logged in and not yet paid, and trying to access app
+      if (isAccessingApp && isLoggedIn && !auth?.user.hasAccess) {
+        return Response.redirect(new URL("/payment/", request.nextUrl))
+      }
+
+      // Allow access to app if logged in and paid
+      if (isAccessingApp && isLoggedIn && auth?.user.hasAccess) {
+        return true
+      }
+
+      // Always allow non-app access
+      if (!isAccessingApp) {
+        return true
+      }
+
+      return false
     },
-    jwt: ({ token, user }) => {
-      if (user) token.userId = user.id
+    jwt: async ({ token, user, trigger }) => {
+      if (user) {
+        token.userId = user.id
+        token.hasAccess = user.hasAccess
+      }
+
+      if (trigger === "update") {
+        const dbUser = await getUserById(String(token.userId))
+
+        if (dbUser) {
+          token.hasAccess = dbUser.hasAccess
+        }
+      }
+
       return token
     },
     session: ({ session, token }) => {
       if (session.user) {
         session.user.id = token.userId
+        session.user.hasAccess = token.hasAccess
       }
+
       return session
     },
   },
