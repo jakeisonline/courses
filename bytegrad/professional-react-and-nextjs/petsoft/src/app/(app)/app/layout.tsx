@@ -14,7 +14,6 @@ type LayoutProps = {
 
 export default async function Layout({ children }: LayoutProps) {
   const userSession = await auth()
-  console.log(userSession)
   const pets: TPet[] = await prisma.pet.findMany({
     where: {
       userId: userSession?.user?.id,
