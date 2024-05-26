@@ -34,6 +34,8 @@ export default function PetForm({
   onFormSubmission,
 }: PetFormProps) {
   const { selectedPet, handleAddPet, handleEditPet } = usePetContext()
+  const defaultValues: TPet | undefined =
+    actionType === "edit" ? selectedPet : undefined
 
   const {
     register,
@@ -42,11 +44,8 @@ export default function PetForm({
     formState: { errors },
   } = useForm<TPetForm>({
     resolver: zodResolver(petFormSchema),
-    defaultValues: selectedPet,
+    defaultValues, // TODO: fix type error
   })
-
-  const currentPet: TPet | undefined =
-    actionType === "edit" ? selectedPet : undefined
 
   return (
     <form
