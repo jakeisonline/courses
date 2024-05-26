@@ -17,6 +17,8 @@ const config = {
         // Runs on every login
         const { email, password } = credentials
 
+        if (!email) throw new Error("Email is was not found")
+
         const user = await prisma.user.findUnique({
           where: {
             email,
@@ -51,4 +53,4 @@ const config = {
   },
 } satisfies NextAuthConfig
 
-export const { auth, signIn } = NextAuth(config)
+export const { auth, signIn, signOut } = NextAuth(config)
