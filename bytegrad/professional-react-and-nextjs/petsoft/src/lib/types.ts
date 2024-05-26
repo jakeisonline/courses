@@ -4,7 +4,10 @@ import { authSchema } from "@/lib/validations"
 
 export type TPet = Pet
 
-export type TMutatingPet = Omit<TPet, "id" | "createdAt" | "updatedAt">
+export type TMutatingPet = Omit<
+  TPet,
+  "id" | "userId" | "createdAt" | "updatedAt"
+>
 
 export type TErrorMutatePet =
   | {
