@@ -95,10 +95,8 @@ const config = {
       return token
     },
     session: ({ session, token }) => {
-      if (session.user) {
-        session.user.id = token.userId
-        session.user.hasAccess = token.hasAccess
-      }
+      session.user.id = token.userId as string
+      session.user.hasAccess = token.hasAccess as boolean
 
       return session
     },

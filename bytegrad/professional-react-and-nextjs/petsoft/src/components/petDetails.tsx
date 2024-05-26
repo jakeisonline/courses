@@ -17,7 +17,7 @@ export default function PetDetails() {
               alt="Selected pet image"
               height={75}
               width={75}
-              src={selectedPet.imageUrl}
+              src={selectedPet.imageUrl || undefined}
             />
             <PetTitle petName={selectedPet.name} />
             <div className="ml-auto flex gap-3">

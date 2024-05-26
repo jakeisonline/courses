@@ -35,7 +35,7 @@ export default function PetList() {
             <PetImage
               width={45}
               height={45}
-              src={pet.imageUrl}
+              src={pet.imageUrl || undefined}
               alt={`Image of ${pet.name}`}
               className="h-[45px] w-[45px] rounded-full object-cover"
             />
