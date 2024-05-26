@@ -17,8 +17,6 @@ const config = {
         // Runs on every login
         const { email, password } = credentials
 
-        console.log("credentials", credentials)
-
         const user = await prisma.user.findUnique({
           where: {
             email,
@@ -30,7 +28,6 @@ const config = {
           return null
         }
 
-        console.log("user.password", user.password)
         const passwordsMatch = await bcrypt.compare(password, user.password)
 
         if (!passwordsMatch) {
