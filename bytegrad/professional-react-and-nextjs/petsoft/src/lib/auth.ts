@@ -44,9 +44,18 @@ const config = {
   callbacks: {
     authorized: ({ auth, request }) => {
       const isLoggedIn = Boolean(auth?.user)
-      const isAppAccess = request.nextUrl.pathname.includes("/app")
+      const requestedPath = request.nextUrl.pathname
+      const isAppAccess = requestedPath.includes("/app")
+      const isAuthing =
+        requestedPath.includes("/login") || requestedPath.includes("/signup")
 
+      // Redirect to login if not logged in, and trying to access app
       if (isAppAccess && !isLoggedIn) return false
+
+      // Redirect to app if logged in, and trying to access login
+      if (isAuthing && isLoggedIn) {
+        return Response.redirect(new URL("/app/dashboard/", request.nextUrl))
+      }
 
       return true
     },

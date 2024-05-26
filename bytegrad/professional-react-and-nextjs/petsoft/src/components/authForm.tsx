@@ -4,15 +4,19 @@ import { Label } from "@radix-ui/react-label"
 import { Input } from "./ui/input"
 import { Button } from "./ui/button"
 import doAuth from "@/actions/doAuth"
+import doRegister from "@/actions/doRegister"
 
 type AuthFormProps = {
-  action: "login" | "signup"
+  actionType: "login" | "signup"
 }
 
-export default function AuthForm({ action }: AuthFormProps) {
+export default function AuthForm({ actionType }: AuthFormProps) {
   return (
     <div className="mt-4">
-      <form action={doAuth} className="flex flex-col gap-y-5">
+      <form
+        action={actionType === "login" ? doAuth : doRegister}
+        className="flex flex-col gap-y-5"
+      >
         <div>
           <Label htmlFor="email">Email</Label>
           <Input id="email" name="email" type="email" />
@@ -22,7 +26,7 @@ export default function AuthForm({ action }: AuthFormProps) {
           <Input id="password" name="password" type="password" />
         </div>
         <Button type="submit" className="">
-          {action === "login" ? "Log in" : "Sign up"}
+          {actionType === "login" ? "Log in" : "Sign up"}
         </Button>
       </form>
     </div>

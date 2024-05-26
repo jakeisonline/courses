@@ -5,7 +5,7 @@ export default function LoginPage() {
   return (
     <main>
       <H1 className="text-center">Sign Up</H1>
-      <AuthForm action="signup" />
+      <AuthForm actionType="signup" />
 
       <p className="mt-4 text-zinc-500">
         Already have an account?{" "}
