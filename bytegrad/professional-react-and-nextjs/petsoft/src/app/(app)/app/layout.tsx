@@ -6,13 +6,20 @@ import SearchContextProvider from "@/contexts/searchContextProvider"
 import { TPet } from "@/lib/types"
 import prisma from "@/lib/db"
 import { Toaster } from "@/components/ui/sonner"
+import { auth } from "@/lib/auth"
 
 type LayoutProps = {
   children: React.ReactNode
 }
 
 export default async function Layout({ children }: LayoutProps) {
-  const pets: TPet[] = await prisma.pet.findMany()
+  const userSession = await auth()
+  console.log(userSession)
+  const pets: TPet[] = await prisma.pet.findMany({
+    where: {
+      userId: userSession?.user?.id,
+    },
+  })
 
   return (
     <>
