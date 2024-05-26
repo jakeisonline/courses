@@ -1,11 +1,10 @@
 "use server"
 
-import { auth } from "@/lib/auth"
 import prisma from "@/lib/db"
+import { getUserSession } from "@/lib/serverUtils"
 import { TErrorMutatePet, TMutatingPet, TPromisePet } from "@/lib/types"
 import { petFormSchema, petIdSchema } from "@/lib/validations"
 import { revalidatePath } from "next/cache"
-import { redirect } from "next/navigation"
 
 export async function editPet(
   petId: unknown,
@@ -14,10 +13,7 @@ export async function editPet(
   let error: TErrorMutatePet, response
 
   // Auth check
-  const userSession = await auth()
-  if (!userSession?.user) {
-    redirect("/login")
-  }
+  const userSession = await getUserSession()
 
   // Run validations
   const validatedPetId = petIdSchema.safeParse(petId)
