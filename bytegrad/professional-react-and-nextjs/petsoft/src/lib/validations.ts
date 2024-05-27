@@ -4,10 +4,17 @@ export const petFormSchema = z
   .object({
     name: z.string().trim().nonempty("Name is required"),
     ownerName: z.string().trim().nonempty("Owner Name is required"),
-    imageUrl: z.union([
-      z.literal(""),
-      z.string().trim().url({ message: "Image URL must be a valid URL" }),
-    ]),
+    // imageUrl: z.union([
+    //   z.literal(""),
+    //   z.string().trim().url({ message: "Image URL must be a valid URL" }),
+    // ]),
+    imageUrl: z
+      .string()
+      .trim()
+      .url({ message: "Image URL must be a valid URL" })
+      .optional()
+      .or(z.null())
+      .or(z.literal("")),
     age: z.coerce
       .number()
       .int()
