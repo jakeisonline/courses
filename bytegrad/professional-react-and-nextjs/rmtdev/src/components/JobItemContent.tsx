@@ -111,6 +111,8 @@ export default function JobItemContent() {
       </section>
     )
   }
+
+  return <></>
 }
 
 function LoadingJobContent() {

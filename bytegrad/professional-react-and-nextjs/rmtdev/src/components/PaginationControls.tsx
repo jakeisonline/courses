@@ -9,30 +9,32 @@ export default function PaginationControls() {
     totalNumberOfPages,
   } = useJobItemsContext()
 
-  if (!jobsTotalResults) return
+  if (jobsTotalResults > 0) {
+    return (
+      <section className="pagination">
+        {currentPage > 1 && (
+          <PaginationButton
+            onClick={() => handleChangePage("previous")}
+            className={"pagination__button--previous"}
+          >
+            <ArrowLeftIcon />
+            Page {currentPage - 1}
+          </PaginationButton>
+        )}
+        {currentPage < totalNumberOfPages && (
+          <PaginationButton
+            onClick={() => handleChangePage("next")}
+            className={"pagination__button--next"}
+          >
+            Page {currentPage + 1}
+            <ArrowRightIcon />
+          </PaginationButton>
+        )}
+      </section>
+    )
+  }
 
-  return (
-    <section className="pagination">
-      {currentPage > 1 && (
-        <PaginationButton
-          onClick={() => handleChangePage("previous")}
-          className={"pagination__button--previous"}
-        >
-          <ArrowLeftIcon />
-          Page {currentPage - 1}
-        </PaginationButton>
-      )}
-      {currentPage < totalNumberOfPages && (
-        <PaginationButton
-          onClick={() => handleChangePage("next")}
-          className={"pagination__button--next"}
-        >
-          Page {currentPage + 1}
-          <ArrowRightIcon />
-        </PaginationButton>
-      )}
-    </section>
-  )
+  return <></>
 }
 
 type PaginationButtonProps = {
