@@ -55,7 +55,10 @@ const fetchJobItem = async (
 const fetchJobSearchItems = async ({
   searchText,
 }: useJobSearchProps): Promise<JobSearchApiResponse> => {
-  const response = await fetch(`${JOBS_ENDPOINT}?search=${searchText}`)
+  const endpoint = searchText
+    ? `${JOBS_ENDPOINT}?search=${searchText}`
+    : JOBS_ENDPOINT
+  const response = await fetch(endpoint)
   if (!response.ok) {
     const errorData = await response.json()
     toast.error(errorData.description)
@@ -132,12 +135,11 @@ export function useJobItems({ ids }: useJobItemsProps) {
 export default function useJobSearch({ searchText }: useJobSearchProps) {
   const { data, isInitialLoading } = useQuery(
     ["job-items", searchText],
-    async () => searchText && fetchJobSearchItems({ searchText }),
+    async () => fetchJobSearchItems({ searchText }),
     {
       staleTime: 1000 * 60 * 60,
       refetchOnWindowFocus: false,
       retry: false,
-      enabled: Boolean(searchText),
       onError: (error) => {
         console.error("Error fetching job items", error)
       },
