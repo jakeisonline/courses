@@ -25,6 +25,7 @@ export async function getPetById(petId: Pet["id"]) {
 export async function getPetsByUserId(userId: User["id"]) {
   const pets = await prisma.pet.findMany({
     where: { userId },
+    orderBy: { createdAt: "desc" },
   })
 
   return pets
