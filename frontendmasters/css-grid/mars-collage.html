@@ -31,8 +31,11 @@
 
     .collage-container {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(4, auto);
+      grid-template-areas:
+        "header header header"
+        "planet planet detail1"
+        "planet planet detail2"
+        "footer footer footer";
       gap: 1rem;
       width: 980px;
       margin: 0 auto;
@@ -43,25 +46,23 @@
     }
 
     img:nth-child(1) {
-      grid-column: 1/span 3;
+      grid-area: header;
     }
 
     img:nth-child(2) {
-      grid-column: 1/span 2;
-      grid-row: 2/span 2;
+      grid-area: planet;
     }
 
     img:nth-child(3) {
-      grid-column: 1/span 3;
-      grid-row: 4/span 1;
+      grid-area: footer
     }
 
     img:nth-child(4) {
-      grid-row: 2/span 1;
+      grid-area: detail1;
     }
 
     img:nth-child(5) {
-      grid-row: 3/span 1;
+      grid-area: detail2;
     }
   </style>
 </head>
