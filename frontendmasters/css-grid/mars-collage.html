@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 3:Mars Collage</title>
+  <style>
+    /* EXERCISE: Create the layout shown using CSS Grid and the skills you've learned to this point in time. Should match: https://grid-flexbox.css.education/img/mars-collage.jpg
+
+    Width of the collage should be 980px. You may center the collage in space if there is extra room.
+
+    Do not reorder the images. You may need to alter the HTML to get the collage to work.
+ */
+
+    body {
+      font-family: "Libre Franklin", sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      background-color: black;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    figure {
+      margin: 0;
+      padding: 0;
+    }
+
+    .collage-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, auto);
+      gap: 1rem;
+      width: 980px;
+      margin: 0 auto;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    img:nth-child(1) {
+      grid-column: 1/4;
+    }
+
+    img:nth-child(2) {
+      grid-column: 1/3;
+      grid-row: 2/4;
+    }
+
+    img:nth-child(3) {
+      grid-column: 1/4;
+      grid-row: 4/5;
+    }
+
+    img:nth-child(4) {
+      grid-row: 2/3;
+    }
+
+    img:nth-child(5) {
+      grid-row: 3/4;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="collage-container">
+    <img src="./assets/PIA01546~orig.jpg">
+    <img src="./assets/PIA00407~small.jpg">
+    <img src="./assets/PIA13593~small.jpg">
+    <img src="./assets/PIA08528~orig.jpg">
+    <img src="./assets/PIA05208~small.jpg">
+  </div>
+</body>
+
+</html>
