@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 2: Basic Grid</title>
+  <style>
+    /* extremely basic formatting */
+    body {
+      font-family: "Libre Franklin", sans-serif;
+      line-height: 1.5;
+    }
+
+    /* make image flex with container */
+    img {
+      max-width: 100%;
+    }
+
+    /* EXERCISE: Take each moon individually and set it as a grid item, and make the caption appear to the right of the moon. Then, ensure the Europa is the most prominent moon in the group. */
+
+    figure {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      border: 2px solid red;
+    }
+
+    figcaption {
+      border: 2px dotted blue;
+    }
+
+    figure:nth-child(3) {
+      grid-column: 1/2;
+      grid-row: 1/4;
+      display: block;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Galilean Moons of Jupiter</h1>
+  <div class="grid-container">
+    <figure>
+      <img src="./assets/fem-io.jpg" alt="A pizza-looking moon. The outline of an erupting volcano is on the left.">
+      <figcaption>
+        Volcanic Activity on Io via
+        <cite><a href="https://images.nasa.gov/details/PIA01530" target="_blank">NASA</a></cite>
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/fem-callisto.jpg" alt="A moon with green, brown, and blue patches and many white craters." />
+      <figcaption>
+        Bright scars on a darker surface testify to a long history of impacts on Jupiter moon Callisto in this image of
+        Callisto from NASA Galileo spacecraft.
+        <cite><a href="https://images.nasa.gov/details/PIA03456" target="_blank">NASA</a></cite>
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/fem-europa.jpg" alt="A white moon with orange cracks all over the surface." />
+      <figcaption>
+        The scene shows the stunning diversity of Europa's surface geology. Long, linear cracks and ridges crisscross
+        the
+        surface, interrupted by regions of disrupted terrain where the surface ice crust has been broken up and
+        re-frozen
+        into new patterns.
+        <cite><a href="https://images.nasa.gov/details/PIA19048" target="_blank">NASA</a></cite>
+      </figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/fem-ganymede.jpg"
+        alt="A moon that looks similar to our own, with a giant crater in the upper right." />
+      <figcaption>
+        This enhanced image of the Jovian moon Ganymede was obtained by the JunoCam imager aboard NASA's Juno spacecraft
+        during the mission's June 7, 2021, flyby of the icy moon on Juno's 34th pass close to Jupiter.
+        <cite><a href="https://images.nasa.gov/details/PIA25028" target="_blank">NASA</a></cite>
+      </figcaption>
+    </figure>
+  </div>
+</body>
+
+</html>
