@@ -8,6 +8,7 @@
   --transition-duration: 0.3s;
   --transition-easing: cubic-bezier(0.5, 0, 0.5, 1);
   --animation-duration: 0.8s;
+  --animation-offset: 0.5s;
 }
 body {
   display: flex;
@@ -39,13 +40,14 @@ body {
   > .ui-input,
   > .ui-button {
     // Add animations here
+    animation: slide-up var(--animation-duration) var(--transition-easing) backwards;
   }
 
   > .ui-input {
-    // ...
+    animation-delay: calc(var(--animation-duration) - var(--animation-offset));
   }
   > .ui-button {
-    // ...
+    animation-delay: calc((var(--animation-duration) * 2) - var(--animation-offset) * 2);
   }
 }
 
