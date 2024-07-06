@@ -4,6 +4,7 @@
   --color-gray: #8c97b7;
   --color-blue: #1c38f1;
   --color-green: #1fcdb0;
+  --color-red: #ff4d4d;
   --input-height: 3rem;
   --transition-duration: 0.3s;
   --transition-easing: cubic-bezier(0.5, 0, 0.5, 1);
@@ -40,10 +41,26 @@ body {
 
   &[data-state='success'] {
     // Change the color and/or add an animation here
+    .ui-button {
+    background-color: var(--color-green)
+    }
+
+    .ui-input {
+      border-color: var(--color-green);
+    }
   }
 
   &[data-state='error'] {
     // Change the color and/or add an animation here
+    animation: shake 0.5s;
+
+    .ui-button {
+      background-color: var(--color-red);
+    }
+
+    .ui-input {
+      border-color: var(--color-red);
+    }
   }
 
   > .ui-input,
@@ -84,7 +101,7 @@ body {
   transition: inherit;
 }
 
-[data-show]:not([data-active]) {
+[data-show="false"] {
   display: none;
 }
 

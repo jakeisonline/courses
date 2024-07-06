@@ -1,26 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>States</title>
-    <link rel="stylesheet" href="style.scss" />
-  </head>
-  <body>
-    <form class="ui-form" data-state="subscribe">
-      <input class="ui-input" type="email" placeholder="your@email.com" />
-      <button class="ui-button" type="button" onclick="setState('subscribing')">
-        <span>Subscribe</span>
-        <span>Subscribing</span>
-        <span>Success!</span>
-        <span>Error</span>
-      </button>
-    </form>
-  </body>
-  <script>
-    const form = document.querySelector('.ui-form');
 
-    // ...
-  </script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>States</title>
+  <link rel="stylesheet" href="style.scss" />
+</head>
+
+<body>
+  <form class="ui-form" data-state="subscribe">
+    <input class="ui-input" type="email" placeholder="your@email.com" />
+    <button class="ui-button" type="button" onclick="setState('subscribing')">
+      <span data-message-type="subscribe" data-show="true">Subscribe</span>
+      <span data-message-type="subscribing" data-show="false">Subscribing...</span>
+      <span data-message-type="success" data-show="false">Success!</span>
+      <span data-message-type="error" data-show="false">Error</span>
+    </button>
+  </form>
+</body>
+<script>
+  const form = document.querySelector('.ui-form');
+  const button = document.querySelector('.ui-button');
+  console.log("[state] initial:", form.getAttribute('data-state'));
+
+  function resetState() {
+    form.setAttribute('data-state', 'subscribe');
+  }
+
+  function clearStateMessage() {
+    const message = form.querySelectorAll('[data-show]');
+    message.forEach(el => el.setAttribute("data-show", false));
+  }
+
+  function setStateMessage(state) {
+    if (!['subscribe', 'subscribing', 'success', 'error'].includes(state)) {
+      console.error("[state] invalid:", state);
+      return;
+    }
+
+    const messageEl = form.querySelector(`[data-message-type="${state}"]`);
+
+    clearStateMessage();
+    messageEl.setAttribute('data-show', true);
+  }
+
+  function setButtonDisabled(boolean) {
+    const buttonEl = form.querySelector(".ui-button");
+    buttonEl.disabled = boolean;
+  }
+
+  function randomSuccessOrError() {
+    const success = Math.random() > 0.5;
+
+    if (success) {
+      setState('success');
+    } else {
+      setState('error');
+    }
+  }
+
+  function setState(state) {
+    form.setAttribute('data-state', state);
+    setStateMessage(state);
+
+    switch (state) {
+      case 'subscribing':
+        setButtonDisabled(true);
+        window.setTimeout(randomSuccessOrError, 1000);
+        break;
+      case 'success':
+      case 'error':
+        setButtonDisabled(false);
+        break;
+    }
+
+    console.log("[state] set:", state);
+  }
+
+
+</script>
+
 </html>
