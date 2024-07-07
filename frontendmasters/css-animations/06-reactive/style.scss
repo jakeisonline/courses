@@ -1,8 +1,12 @@
 @import '../styles/base.scss';
 
 .circle {
-  height: 5vmin;
-  width: 5vmin;
+  --wh: 16vmin;
+  --x-px: calc(var(--x) * 1px);
+  --y-px: calc(var(--y) * 1px);
+  height: var(--wh);
+  width: var(--wh);
   border-radius: 50%;
-  background-color: blue;
+  background: radial-gradient(circle at bottom right, hwb(235 2% 0%), hwb(231 36% 0%));
+  transform: translate(calc(var(--x-px) - 50%), calc(var(--y-px) - 50%));
 }

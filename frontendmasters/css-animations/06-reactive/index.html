@@ -1,18 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reactive</title>
-    <link rel="stylesheet" href="style.scss" />
-  </head>
-  <body>
-    <div class="circle"></div>
-  </body>
-  <script>
-    const circleEl = document.querySelector('.circle');
 
-    // ...
-  </script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reactive</title>
+  <link rel="stylesheet" href="style.scss" />
+</head>
+
+<body>
+  <div class="circle"></div>
+</body>
+<script>
+  const circleEl = document.querySelector('.circle');
+
+  const currentPointerPosition = {
+    x: 0,
+    y: 0,
+  };
+
+  const targetPointerPosition = {
+    x: 0,
+    y: 0,
+  };
+
+  function lerp() {
+    const dx = targetPointerPosition.x - currentPointerPosition.x;
+    const dy = targetPointerPosition.y - currentPointerPosition.y;
+
+    currentPointerPosition.x += dx * 0.5;
+    currentPointerPosition.y += dy * 0.5;
+
+    circleEl.style.setProperty('--x', currentPointerPosition.x);
+    circleEl.style.setProperty('--y', currentPointerPosition.y);
+
+    // Don't animate if the movement is subpixel
+    if (Math.abs(dx) < 0.01 && Math.abs(dy) < 0.01) {
+      return
+    }
+
+    requestAnimationFrame(lerp);
+  }
+
+  document.body.addEventListener("pointermove", (e) => {
+    const { clientX, clientY } = e;
+    targetPointerPosition.x = clientX;
+    targetPointerPosition.y = clientY;
+
+    lerp();
+  });
+</script>
+
 </html>
