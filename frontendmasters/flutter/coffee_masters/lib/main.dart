@@ -1,3 +1,4 @@
+import 'package:coffee_masters/offers_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -68,6 +69,6 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: Image.asset("images/logo.png"),
         ),
-        body: Greet());
+        body: const OffersPage());
   }
 }
