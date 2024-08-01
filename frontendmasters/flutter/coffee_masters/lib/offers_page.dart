@@ -62,10 +62,10 @@ class Offer extends StatelessWidget {
   final String description;
 
   const Offer({
-    Key? key,
+    super.key,
     required this.title,
     required this.description,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

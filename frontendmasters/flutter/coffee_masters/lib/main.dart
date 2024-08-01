@@ -57,18 +57,53 @@ class _GreetState extends State<Greet> {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    Widget currentWidgetPage = const Text("!");
+
+    switch (_currentIndex) {
+      case 0:
+        currentWidgetPage = const Text("Menu Page");
+        break;
+      case 1:
+        currentWidgetPage = const OffersPage();
+        break;
+      case 2:
+        currentWidgetPage = const Text("Checkout Page");
+        break;
+    }
+
     return Scaffold(
         appBar: AppBar(
           title: Image.asset("images/logo.png"),
         ),
-        body: const OffersPage());
+        bottomNavigationBar: BottomNavigationBar(
+            currentIndex: _currentIndex,
+            onTap: (newIndex) {
+              setState(() {
+                _currentIndex = newIndex;
+              });
+            },
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+            selectedItemColor: Theme.of(context).primaryColorLight,
+            unselectedItemColor:
+                Theme.of(context).primaryColorLight.withOpacity(0.7),
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.coffee),
+                label: "Coffee",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.local_offer),
+                label: "Offers",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_cart_checkout_outlined),
+                label: "Offers",
+              ),
+            ]),
+        body: currentWidgetPage);
   }
 }
