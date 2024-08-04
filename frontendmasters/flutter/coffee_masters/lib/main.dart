@@ -106,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.shopping_cart_checkout_outlined),
-                label: "Offers",
+                label: "Checkout",
               ),
             ]),
         body: currentWidgetPage);
