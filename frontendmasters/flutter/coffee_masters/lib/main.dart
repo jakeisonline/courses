@@ -3,6 +3,8 @@ import 'package:coffee_masters/pages/offers.dart';
 import 'package:coffee_masters/pages/order.dart';
 import 'package:flutter/material.dart';
 
+import 'datamanager.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -59,6 +61,7 @@ class _GreetState extends State<Greet> {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var dataManager = DataManager();
   int _currentIndex = 0;
 
   @override
@@ -67,13 +70,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
     switch (_currentIndex) {
       case 0:
-        currentWidgetPage = const MenuPage();
+        currentWidgetPage = MenuPage(dataManager: dataManager);
         break;
       case 1:
         currentWidgetPage = const OffersPage();
         break;
       case 2:
-        currentWidgetPage = const OrderPage();
+        currentWidgetPage = OrderPage(dataManager: dataManager);
         break;
     }
 
