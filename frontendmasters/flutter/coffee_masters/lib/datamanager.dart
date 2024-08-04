@@ -51,6 +51,10 @@ class DataManager {
     cart.clear();
   }
 
+  bool inCart(Product p) {
+    return cart.any((item) => item.product.id == p.id);
+  }
+
   double cartTotal() {
     var total = 0.0;
     for (var item in cart) {

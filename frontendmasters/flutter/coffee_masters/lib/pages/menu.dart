@@ -31,9 +31,7 @@ class MenuPage extends StatelessWidget {
                         return ProductItem(
                           product:
                               categories[categoryIndex].products[productIndex],
-                          onAdd: (addedProduct) {
-                            dataManager.cartAdd(addedProduct);
-                          },
+                          dataManager: dataManager,
                         );
                       }))
                 ],
@@ -54,11 +52,10 @@ class MenuPage extends StatelessWidget {
 
 class ProductItem extends StatelessWidget {
   final Product product;
-  final Function onAdd;
+  final DataManager dataManager;
 
-  const ProductItem({super.key, required this.product, required this.onAdd});
-
-  handleOnPressed(product) => onAdd(product);
+  const ProductItem(
+      {super.key, required this.product, required this.dataManager});
 
   @override
   Widget build(BuildContext context) {
@@ -90,11 +87,10 @@ class ProductItem extends StatelessWidget {
                           Text("\$${(product.price).toStringAsFixed(2)}"),
                         ],
                       ),
-                      ElevatedButton(
-                          onPressed: () {
-                            handleOnPressed(product);
-                          },
-                          child: const Text("Add")),
+                      AddToCartButton(
+                        product: product,
+                        dataManager: dataManager,
+                      ),
                     ],
                   ),
                 ),
@@ -104,5 +100,49 @@ class ProductItem extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class AddToCartButton extends StatefulWidget {
+  final Product product;
+  final DataManager dataManager;
+
+  const AddToCartButton({
+    super.key,
+    required this.product,
+    required this.dataManager,
+  });
+
+  @override
+  State<AddToCartButton> createState() => _AddToCartButtonState();
+}
+
+class _AddToCartButtonState extends State<AddToCartButton> {
+  late bool _isAdded;
+  late String _buttonText;
+
+  @override
+  Widget build(BuildContext context) {
+    if (widget.dataManager.inCart(widget.product)) {
+      setState(() {
+        _isAdded = true;
+        _buttonText = "Remove";
+      });
+    } else {
+      setState(() {
+        _isAdded = false;
+        _buttonText = "Add";
+      });
+    }
+
+    return ElevatedButton(
+        onPressed: () {
+          if (!_isAdded) {
+            setState(() => widget.dataManager.cartAdd(widget.product));
+          } else {
+            setState(() => widget.dataManager.cartRemove(widget.product));
+          }
+        },
+        child: Text(_buttonText));
   }
 }
