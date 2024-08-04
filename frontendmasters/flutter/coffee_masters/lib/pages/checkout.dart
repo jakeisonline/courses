@@ -3,19 +3,26 @@ import 'package:flutter/material.dart';
 import '../datamanager.dart';
 import '../datamodel.dart';
 
-class CheckoutPage extends StatelessWidget {
+class CheckoutPage extends StatefulWidget {
   final DataManager dataManager;
   const CheckoutPage({super.key, required this.dataManager});
 
   @override
+  State<CheckoutPage> createState() => _CheckoutPageState();
+}
+
+class _CheckoutPageState extends State<CheckoutPage> {
+  @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: dataManager.cart.length,
+        itemCount: widget.dataManager.cart.length,
         itemBuilder: (context, index) {
           return OrderItem(
-              item: dataManager.cart[index],
+              item: widget.dataManager.cart[index],
               onRemove: (product) {
-                dataManager.cartRemove(product);
+                setState(() {
+                  widget.dataManager.cartRemove(product);
+                });
               });
         });
   }
