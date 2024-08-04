@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
               });
             },
             backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-            selectedItemColor: Theme.of(context).primaryColorLight,
+            selectedItemColor: const Color(0xFFF6F1C1),
             unselectedItemColor:
                 Theme.of(context).primaryColorLight.withOpacity(0.7),
             items: const [
