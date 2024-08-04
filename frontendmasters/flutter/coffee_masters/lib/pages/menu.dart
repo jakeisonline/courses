@@ -94,7 +94,7 @@ class ProductItem extends StatelessWidget {
                           onPressed: () {
                             handleOnPressed(product);
                           },
-                          child: const Text("Buy")),
+                          child: const Text("Add")),
                     ],
                   ),
                 ),
