@@ -63,8 +63,10 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
-      child: Center(
+      width: 100.0,
+      height: 300.0,
+      padding: const EdgeInsets.all(8),
+      child: FittedBox(
         child: Card(
           elevation: 4,
           child: Column(
@@ -73,24 +75,28 @@ class ProductItem extends StatelessWidget {
               Image.network(product.imageUrl),
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(product.name,
-                            style:
-                                const TextStyle(fontWeight: FontWeight.bold)),
-                        Text("\$${(product.price).toStringAsFixed(2)}"),
-                      ],
-                    ),
-                    ElevatedButton(
-                        onPressed: () {
-                          handleOnPressed(product);
-                        },
-                        child: const Text("Buy")),
-                  ],
+                child: SizedBox(
+                  width: 294.0,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(product.name,
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold)),
+                          Text("\$${(product.price).toStringAsFixed(2)}"),
+                        ],
+                      ),
+                      ElevatedButton(
+                          onPressed: () {
+                            handleOnPressed(product);
+                          },
+                          child: const Text("Buy")),
+                    ],
+                  ),
                 ),
               ),
             ],
