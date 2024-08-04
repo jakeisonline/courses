@@ -36,10 +36,10 @@ class DataManager {
         found = true;
         break;
       }
+    }
 
-      if (!found) {
-        cart.add(ItemInCart(product: p, quantity: 1));
-      }
+    if (!found) {
+      cart.add(ItemInCart(product: p, quantity: 1));
     }
   }
 
