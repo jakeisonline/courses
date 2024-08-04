@@ -1,6 +1,6 @@
 import 'package:coffee_masters/pages/menu.dart';
 import 'package:coffee_masters/pages/offers.dart';
-import 'package:coffee_masters/pages/order.dart';
+import 'package:coffee_masters/pages/checkout.dart';
 import 'package:flutter/material.dart';
 
 import 'datamanager.dart';
@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
         currentWidgetPage = const OffersPage();
         break;
       case 2:
-        currentWidgetPage = OrderPage(dataManager: dataManager);
+        currentWidgetPage = CheckoutPage(dataManager: dataManager);
         break;
     }
 
