@@ -82,7 +82,7 @@ class ProductItem extends StatelessWidget {
                         Text(product.name,
                             style:
                                 const TextStyle(fontWeight: FontWeight.bold)),
-                        Text("\$${product.price}"),
+                        Text("\$${(product.price).toStringAsFixed(2)}"),
                       ],
                     ),
                     ElevatedButton(
