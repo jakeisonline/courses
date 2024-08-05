@@ -33,33 +33,6 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class Greet extends StatefulWidget {
-  const Greet({super.key});
-
-  @override
-  State<Greet> createState() => _GreetState();
-}
-
-class _GreetState extends State<Greet> {
-  var name = "";
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text("Hello $name!"),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: TextField(
-              onChanged: (value) => setState(() {
-                    name = value;
-                  })),
-        ),
-      ],
-    );
-  }
-}
-
 class _MyHomePageState extends State<MyHomePage> {
   var dataManager = DataManager();
   int _currentIndex = 0;
