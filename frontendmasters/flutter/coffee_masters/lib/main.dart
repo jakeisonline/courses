@@ -2,6 +2,7 @@ import 'package:coffee_masters/pages/menu.dart';
 import 'package:coffee_masters/pages/offers.dart';
 import 'package:coffee_masters/pages/checkout.dart';
 import 'package:flutter/material.dart';
+import 'package:badges/badges.dart' as badges;
 
 import 'datamanager.dart';
 
@@ -96,22 +97,51 @@ class _MyHomePageState extends State<MyHomePage> {
                 label: "Offers",
               ),
               NavigationDestination(
-                icon: ValueListenableBuilder(
-                    builder: (context, value, child) => Badge(
-                          label: Text(dataManager.cart.value.length.toString()),
-                          child: const Icon(Icons.shopping_cart),
-                        ),
-                    valueListenable: dataManager.cart),
+                icon: _CartTotalBadge(
+                  dataManager: dataManager,
+                ),
                 label: "Checkout",
-                selectedIcon: ValueListenableBuilder(
-                    builder: (context, value, child) => Badge(
-                          label: Text(dataManager.cart.value.length.toString()),
-                          child: const Icon(Icons.shopping_cart,
-                              color: Colors.white),
-                        ),
-                    valueListenable: dataManager.cart),
+                selectedIcon: _CartTotalBadge(
+                  dataManager: dataManager,
+                  color: selectedIconColor,
+                ),
               ),
             ]),
         body: currentWidgetPage);
+  }
+}
+
+class _CartTotalBadge extends StatefulWidget {
+  final DataManager dataManager;
+  final Color? color;
+
+  const _CartTotalBadge({required this.dataManager, this.color});
+
+  @override
+  State<_CartTotalBadge> createState() => __CartTotalBadgeState();
+}
+
+class __CartTotalBadgeState extends State<_CartTotalBadge> {
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder(
+        builder: (context, value, child) => badges.Badge(
+              showBadge: value.isNotEmpty,
+              position: badges.BadgePosition.topEnd(top: -14, end: -9),
+              badgeAnimation: const badges.BadgeAnimation.fade(),
+              badgeContent: Text(
+                value.length.toString(),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              child: Icon(
+                Icons.shopping_cart,
+                color: widget.color ??
+                    Theme.of(context).appBarTheme.foregroundColor,
+              ),
+            ),
+        valueListenable: widget.dataManager.cart);
   }
 }
