@@ -1,11 +1,14 @@
 import 'dart:convert';
 
+import 'package:flutter/widgets.dart';
+
 import 'datamodel.dart';
 import 'package:http/http.dart' as http;
 
 class DataManager {
   List<Category>? _menu;
-  List<ItemInCart> cart = [];
+  // List<ItemInCart> cart = [];
+  ValueNotifier<List<ItemInCart>> cart = ValueNotifier<List<ItemInCart>>([]);
 
   fetchMenu() async {
     const url = "https://firtman.github.io/coffeemasters/api/menu.json";
@@ -30,7 +33,7 @@ class DataManager {
 
   cartAdd(Product p) {
     bool found = false;
-    for (var item in cart) {
+    for (var item in cart.value) {
       if (item.product.id == p.id) {
         item.quantity++;
         found = true;
@@ -39,25 +42,29 @@ class DataManager {
     }
 
     if (!found) {
-      cart.add(ItemInCart(product: p, quantity: 1));
+      final newCart = cart.value.toList();
+      newCart.add(ItemInCart(product: p, quantity: 1));
+      cart.value = newCart;
     }
   }
 
   cartRemove(Product p) {
-    cart.removeWhere((item) => item.product.id == p.id);
+    final newCart = cart.value.toList();
+    newCart.removeWhere((item) => item.product.id == p.id);
+    cart.value = newCart;
   }
 
   cartClear() {
-    cart.clear();
+    cart.value = [];
   }
 
   bool inCart(Product p) {
-    return cart.any((item) => item.product.id == p.id);
+    return cart.value.any((item) => item.product.id == p.id);
   }
 
   double cartTotal() {
     var total = 0.0;
-    for (var item in cart) {
+    for (var item in cart.value) {
       total += item.product.price * item.quantity;
     }
     return total;

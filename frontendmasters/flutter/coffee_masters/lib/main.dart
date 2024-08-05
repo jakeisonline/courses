@@ -96,15 +96,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 label: "Offers",
               ),
               NavigationDestination(
-                icon: Icon(
-                  Icons.shopping_cart_checkout_outlined,
-                  color: backgroundColor,
-                ),
-                selectedIcon: Icon(
-                  Icons.shopping_cart_checkout_outlined,
-                  color: selectedIconColor,
-                ),
+                icon: ValueListenableBuilder(
+                    builder: (context, value, child) => Badge(
+                          label: Text(dataManager.cart.value.length.toString()),
+                          child: const Icon(Icons.shopping_cart),
+                        ),
+                    valueListenable: dataManager.cart),
                 label: "Checkout",
+                selectedIcon: ValueListenableBuilder(
+                    builder: (context, value, child) => Badge(
+                          label: Text(dataManager.cart.value.length.toString()),
+                          child: const Icon(Icons.shopping_cart,
+                              color: Colors.white),
+                        ),
+                    valueListenable: dataManager.cart),
               ),
             ]),
         body: currentWidgetPage);

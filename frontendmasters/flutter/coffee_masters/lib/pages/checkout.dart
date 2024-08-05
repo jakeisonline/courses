@@ -14,17 +14,17 @@ class CheckoutPage extends StatefulWidget {
 class _CheckoutPageState extends State<CheckoutPage> {
   @override
   Widget build(BuildContext context) {
-    if (widget.dataManager.cart.isEmpty) {
+    if (widget.dataManager.cart.value.isEmpty) {
       return const Center(
         child: Text("Your cart is empty"),
       );
     }
 
     return ListView.builder(
-        itemCount: widget.dataManager.cart.length,
+        itemCount: widget.dataManager.cart.value.length,
         itemBuilder: (context, index) {
           return OrderItem(
-              item: widget.dataManager.cart[index],
+              item: widget.dataManager.cart.value[index],
               onRemove: (product) {
                 setState(() {
                   widget.dataManager.cartRemove(product);
