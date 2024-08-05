@@ -67,6 +67,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     Widget currentWidgetPage = const Text("!");
+    final Color? foregroundColor =
+        Theme.of(context).appBarTheme.foregroundColor;
+    final Color? backgroundColor =
+        Theme.of(context).appBarTheme.backgroundColor;
+    final selectedIconColor = Colors.white.withOpacity(0.9);
 
     switch (_currentIndex) {
       case 0:
@@ -84,28 +89,49 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: Image.asset("images/logo.png"),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-            currentIndex: _currentIndex,
-            onTap: (newIndex) {
+        bottomNavigationBar: NavigationBar(
+            selectedIndex: _currentIndex,
+            onDestinationSelected: (newIndex) {
               setState(() {
                 _currentIndex = newIndex;
               });
             },
-            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-            selectedItemColor: const Color(0xFFF6F1C1),
-            unselectedItemColor:
-                Theme.of(context).primaryColorLight.withOpacity(0.7),
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.coffee),
+            backgroundColor: foregroundColor,
+            indicatorColor: backgroundColor,
+            shadowColor: backgroundColor,
+            //unselectedItemColor: Theme.of(context).primaryColorLight.withOpacity(0.7),
+            destinations: [
+              NavigationDestination(
+                icon: Icon(
+                  Icons.coffee,
+                  color: backgroundColor,
+                ),
+                selectedIcon: Icon(
+                  Icons.coffee,
+                  color: selectedIconColor,
+                ),
                 label: "Coffee",
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.local_offer),
+              NavigationDestination(
+                icon: Icon(
+                  Icons.local_offer,
+                  color: backgroundColor,
+                ),
+                selectedIcon: Icon(
+                  Icons.local_offer,
+                  color: selectedIconColor,
+                ),
                 label: "Offers",
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart_checkout_outlined),
+              NavigationDestination(
+                icon: Icon(
+                  Icons.shopping_cart_checkout_outlined,
+                  color: backgroundColor,
+                ),
+                selectedIcon: Icon(
+                  Icons.shopping_cart_checkout_outlined,
+                  color: selectedIconColor,
+                ),
                 label: "Checkout",
               ),
             ]),
