@@ -99,7 +99,6 @@ class _MyHomePageState extends State<MyHomePage> {
             backgroundColor: foregroundColor,
             indicatorColor: backgroundColor,
             shadowColor: backgroundColor,
-            //unselectedItemColor: Theme.of(context).primaryColorLight.withOpacity(0.7),
             destinations: [
               NavigationDestination(
                 icon: Icon(
