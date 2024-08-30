@@ -9,5 +9,10 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
   output: "static",
-  integrations: [mdx(), react(), tailwind()]
+  integrations: [mdx({
+      syntaxHighlight: "shiki",
+      shikiConfig: {
+        theme: "poimandres",
+      },
+    }),, react(), tailwind()]
 });
