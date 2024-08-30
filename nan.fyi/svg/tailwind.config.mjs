@@ -31,6 +31,7 @@ export default {
 	},
 	plugins: [
 		plugin(function ({ addBase }) {
+      require('@tailwindcss/typography'),
       addBase({
         html: { fontSize: "22px" },
       })
