@@ -1,0 +1,35 @@
+---
+import "@/styles/global.css"
+import { ViewTransitions } from "astro:transitions"
+
+interface Props {
+  frontmatter?: Record<string, string>
+  title?: string
+  description?: string
+}
+
+const {
+  frontmatter,
+  title = frontmatter?.title,
+  description = frontmatter?.description,
+} = Astro.props
+---
+
+<html lang="en" class="font-sans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions transition:animate="none" />
+  </head>
+  <body
+    class="flex flex-col items-center overflow-y-scroll min-h-dvh bg-background"
+  >
+    <main
+      class="flex flex-row items-center justify-center w-full container-page"
+    >
+      <slot />
+    </main>
+  </body>
+</html>
