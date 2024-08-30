@@ -26,3 +26,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .container-page {
+    @apply max-w-screen-2xl px-2 md:px-4 2xl:px-0;
+  }
+}

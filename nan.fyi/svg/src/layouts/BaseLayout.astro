@@ -24,13 +24,18 @@ const {
     <title>{title}</title>
     <ViewTransitions transition:animate="none" />
   </head>
-  <body
-    class="flex flex-col items-center overflow-y-scroll min-h-dvh bg-background"
-  >
-    <main
-      class="w-full"
-    >
-      <slot />
+  <body class="flex flex-col items-center overflow-y-scroll bg-background min-h-dvh">
+    <main class="flex flex-row items-center justify-center w-full container-page">
+      <div class="container px-4 md:px-6 flex-1 pt-6 pb-20 items-start md:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
+        <div><!-- sub nav --></div>
+        <div class="relative lg:grid grid-cols-full">
+          <div class="w-full min-w-0 mx-auto">
+            <article>
+              <slot />
+            </article>
+          </div>
+        </div>
+      </div>
     </main>
   </body>
 </html>
