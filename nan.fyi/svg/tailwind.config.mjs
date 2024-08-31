@@ -27,6 +27,13 @@ export default {
           foreground: "hsl(var(--secondary-foreground))",
         },
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: '100ch', // add required value here
+          }
+        }
+      },
 		},
 	},
 	plugins: [

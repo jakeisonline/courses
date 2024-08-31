@@ -1,19 +1,19 @@
 ---
-import '@fontsource/urbanist';
-import "@/styles/global.css"
-import { ViewTransitions } from "astro:transitions"
+import "@fontsource/urbanist";
+import "@/styles/global.css";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
-  frontmatter?: Record<string, string>
-  title?: string
-  description?: string
+  frontmatter?: Record<string, string>;
+  title?: string;
+  description?: string;
 }
 
 const {
   frontmatter,
   title = frontmatter?.title,
   description = frontmatter?.description,
-} = Astro.props
+} = Astro.props;
 ---
 
 <html lang="en" class="font-sans">
@@ -24,13 +24,21 @@ const {
     <title>{title}</title>
     <ViewTransitions transition:animate="none" />
   </head>
-  <body class="flex flex-col items-center overflow-y-scroll bg-background min-h-dvh">
-    <main class="flex flex-row items-center justify-center w-full container-page">
-      <div class="container px-4 md:px-6 flex-1 pt-6 pb-20 items-start md:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
+  <body
+    class="flex flex-col items-center overflow-y-scroll bg-background min-h-dvh"
+  >
+    <main
+      class="flex flex-row items-center justify-center w-full container-page"
+    >
+      <div
+        class="container px-4 md:px-6 flex-1 pt-6 pb-20 items-start md:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"
+      >
         <div><!-- sub nav --></div>
         <div class="relative lg:grid grid-cols-full">
           <div class="w-full min-w-0 mx-auto">
-            <article class="mt-4 prose prose-h2:border-b prose-h2:pb-2 prose-headings:tracking-tight prose-h1:text-3xl prose-headings:font-bold prose-h1:mb-0 dark:prose-invert">
+            <article
+              class="mt-4 prose prose-h2:border-b prose-h2:pb-2 prose-headings:tracking-tight prose-h1:text-3xl prose-headings:font-bold prose-h1:mb-0 dark:prose-invert"
+            >
               <slot />
             </article>
           </div>
