@@ -1,0 +1,55 @@
+---
+title: Shapes
+---
+
+import CodeWithOutput from "@/components/CodeWithOutput.astro";
+
+Whew, that was a lot to take in! Let's put everything together by trying to recreate this alarm clock icon. If you ever get stuck, I highly recommend taking a look at the MDN docs for SVG shapes—they're a great resource!
+
+## Problem
+<CodeWithOutput>
+  <Fragment slot="code">
+    ```svg
+    <svg viewBox="0 0 100 100">
+
+    </svg>
+    ```
+  </Fragment>
+  <Fragment slot="output">
+    <svg viewBox="0 0 100 100">
+
+    </svg>
+  </Fragment>
+</CodeWithOutput>
+
+## Solution
+<CodeWithOutput>
+  <Fragment slot="code">
+    ```svg
+    <svg viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="3" />
+      <line x1="15" y1="30" x2="30" y2="14" stroke="currentColor" stroke-width="3" />
+      <line x1="85" y1="30" x2="70" y2="14" stroke="currentColor" stroke-width="3" />
+      <polyline
+        points="50,30 50,50 64,63"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="3"
+      />
+    </svg>
+    ```
+  </Fragment>
+  <Fragment slot="output">
+    <svg viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="3" />
+      <line x1="15" y1="30" x2="30" y2="14" stroke="currentColor" stroke-width="3" />
+      <line x1="85" y1="30" x2="70" y2="14" stroke="currentColor" stroke-width="3" />
+      <polyline
+        points="50,30 50,50 64,63"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="3"
+      />
+    </svg>
+  </Fragment>
+</CodeWithOutput>
