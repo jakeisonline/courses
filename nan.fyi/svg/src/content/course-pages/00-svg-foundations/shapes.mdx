@@ -128,3 +128,61 @@ Draw the airplay icon, using the gray shadow in the output as a reference. You c
 </CodeWithOutput>
 
 _not super happy with the outcome here, feel like using `path` would be better but I'm not sure about arc_
+
+## Arrow
+
+Draw the arrow icon, using the gray shadow in the output as a reference. You can always refer to the MDN documentation if you forgot any of the syntax!
+
+<CodeWithOutput>
+  <Fragment slot="code">
+    ```svg
+    <svg viewBox="0 0 100 100">
+      <rect
+        x="25"
+        y="25"
+        rx="5"
+        width="50"
+        height="40"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linejoin="round"
+        />
+      <polyline
+        points="40,70 60,70 50,60 40,70"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+      />
+    </svg>
+    ```
+  </Fragment>
+  <Fragment slot="output">
+    <svg viewBox="0 0 100 100">
+      <circle
+        r="22"
+        cx="50"
+        cy="50"
+        fill="none"
+        stroke-width="3"
+        stroke="currentColor" />
+      <line
+        x1="40"
+        y1="40"
+        x2="60"
+        y2="60"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round" />
+      <polyline
+        points="40,55 40,40 55,40"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
+  </Fragment>
+</CodeWithOutput>
