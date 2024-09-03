@@ -1,12 +1,12 @@
 ---
-const { ...props } = Astro.props;
+
 ---
 
 <div class="grid grid-cols-5 justify-items-center w-full">
-  <div class="justify-self-start w-full col-span-2 -mt-2">
+  <div class="justify-self-start w-full col-span-3 -mt-2">
     <slot name="code" />
   </div>
-  <div class="w-full col-span-3 flex items-start justify-center not-prose">
+  <div class="w-full col-span-2 flex items-start justify-center not-prose">
     <slot name="output" />
   </div>
 </div>

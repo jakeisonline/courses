@@ -10,30 +10,64 @@ Whew, that was a lot to take in! Let's put everything together by trying to recr
 <CodeWithOutput>
   <Fragment slot="code">
     ```svg
-    <svg viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="3" />
-      <line x1="15" y1="30" x2="30" y2="14" stroke="currentColor" stroke-width="3" />
-      <line x1="85" y1="30" x2="70" y2="14" stroke="currentColor" stroke-width="3" />
+        <svg viewBox="0 0 100 100">
+      <circle
+        cx="50"
+        cy="50"
+        r="30"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="3" />
+      <line
+        x1="15"
+        y1="30"
+        x2="30"
+        y2="14"
+        stroke="currentColor"
+        stroke-width="3" />
+      <line
+        x1="85"
+        y1="30"
+        x2="70"
+        y2="14"
+        stroke="currentColor"
+        stroke-width="3" />
       <polyline
         points="50,30 50,50 64,63"
         fill="none"
         stroke="currentColor"
-        stroke-width="3"
-      />
+        stroke-width="3" />
     </svg>
     ```
   </Fragment>
   <Fragment slot="output">
     <svg viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="3" />
-      <line x1="15" y1="30" x2="30" y2="14" stroke="currentColor" stroke-width="3" />
-      <line x1="85" y1="30" x2="70" y2="14" stroke="currentColor" stroke-width="3" />
+      <circle
+        cx="50"
+        cy="50"
+        r="30"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="3" />
+      <line
+        x1="15"
+        y1="30"
+        x2="30"
+        y2="14"
+        stroke="currentColor"
+        stroke-width="3" />
+      <line
+        x1="85"
+        y1="30"
+        x2="70"
+        y2="14"
+        stroke="currentColor"
+        stroke-width="3" />
       <polyline
         points="50,30 50,50 64,63"
         fill="none"
         stroke="currentColor"
-        stroke-width="3"
-      />
+        stroke-width="3" />
     </svg>
   </Fragment>
 </CodeWithOutput>
@@ -46,24 +80,51 @@ Draw the airplay icon, using the gray shadow in the output as a reference. You c
   <Fragment slot="code">
     ```svg
     <svg viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="3" />
-      <line x1="15" y1="30" x2="30" y2="14" stroke="currentColor" stroke-width="3" />
-      <line x1="85" y1="30" x2="70" y2="14" stroke="currentColor" stroke-width="3" />
-      <polyline
-        points="50,30 50,50 64,63"
+      <rect
+        x="25"
+        y="25"
+        rx="5"
+        width="50"
+        height="40"
         fill="none"
         stroke="currentColor"
-        stroke-width="3"
+        stroke-width="2"
+        stroke-linejoin="round"
+        />
+      <polyline
+        points="40,70 60,70 50,60 40,70"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linejoin="round"
+        stroke-linecap="round"
       />
     </svg>
     ```
   </Fragment>
   <Fragment slot="output">
     <svg viewBox="0 0 100 100">
-      <rect x="25" y="25" rx="5" width="50" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
-      <polyline points="40,70 60,70 50,60 40,70" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+      <rect
+        x="25"
+        y="25"
+        rx="5"
+        width="50"
+        height="40"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linejoin="round"
+        />
+      <polyline
+        points="40,70 60,70 50,60 40,70"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+      />
     </svg>
   </Fragment>
 </CodeWithOutput>
 
-_not super happy with the outcome here, feel like using `path` would be better but I'm not sure about arc yet_
+_not super happy with the outcome here, feel like using `path` would be better but I'm not sure about arc_
