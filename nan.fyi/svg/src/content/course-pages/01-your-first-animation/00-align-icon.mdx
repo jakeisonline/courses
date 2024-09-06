@@ -64,3 +64,76 @@ Let's try to apply everything we've learned so far to make an animated align ico
     </svg>
   </Fragment>
 </CodeWithOutput>
+
+# Animating the align icon
+
+<CodeWithOutput>
+  <Fragment slot="code">
+    ```xml
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      width="420"
+      class="
+        group
+        hover:cursor-pointer
+      "
+    >
+      <g opacity="0.1">
+        <use href="arrow.svg#icon" />
+      </g>
+      <g
+        stroke="currentColor"
+        fill="none"
+        stroke-width="2"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+      >
+        <g>
+          <line x1="4" y1="4" x2="4" y2="20" />
+        </g>
+        <g class="
+          transition-transform
+          group-hover:translate-x-0.5
+        ">
+          <line x1="8" y1="12" x2="20" y2="12" />
+          <polyline points="16,8 20,12 16,16" />
+        </g>
+      </g>
+    </svg>
+    ```
+  </Fragment>
+  <Fragment slot="output">
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      width="420"
+      class="
+        group
+        hover:cursor-pointer
+      "
+    >
+      <g opacity="0.1">
+        <use href="arrow.svg#icon" />
+      </g>
+      <g
+        stroke="currentColor"
+        fill="none"
+        stroke-width="2"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+      >
+        <g>
+          <line x1="4" y1="4" x2="4" y2="20" />
+        </g>
+        <g class="
+          transition-transform
+          group-hover:translate-x-0.5
+        ">
+          <line x1="8" y1="12" x2="20" y2="12" />
+          <polyline points="16,8 20,12 16,16" />
+        </g>
+      </g>
+    </svg>
+  </Fragment>
+</CodeWithOutput>
