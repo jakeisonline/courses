@@ -3,6 +3,7 @@ title: Your First Animation
 ---
 
 import CodeWithOutput from "@/components/CodeWithOutput.astro";
+import { transform } from "typescript";
 
 In the last section, we spent a bit of time learning how to draw various different shapes with SVGs. But of course, that's not what you're here for—you're here to learn how to animate them!
 
@@ -102,6 +103,117 @@ Let's start by trying to recreate this animation—a trash can that opens when y
           x2="14"
           y2="17"
         />
+      </g>
+    </svg>
+  </Fragment>
+</CodeWithOutput>
+
+# Animating the trash can
+
+Now we have our trash can, let's animate it! Hover over the icon, you should see the lid move up, and the can move down, smoothly. Note we're using Tailwind here for styling.
+
+<CodeWithOutput>
+  <Fragment slot="code">
+    ```xml
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      width="420"
+      class="group hover:cursor-pointer"
+    >
+      <g opacity="0.1">
+        <use href="trash-can.svg#trash-can" />
+      </g>
+      <g
+        stroke="currentColor"
+        fill="none"
+        stroke-width="2"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+      >
+        <g class="transition-transform group-hover:-translate-y-0.5">
+          <rect
+            x="9"
+            y="5"
+            width="6"
+            height="3"
+          />
+          <line
+            x1="5"
+            y1="8"
+            x2="19"
+            y2="8"
+          />
+        </g>
+        <g class="transition-transform group-hover:translate-y-0.5">
+          <polygon
+            points="6,8 18,8 17,20 7,20"
+          />
+          <line
+            x1="10"
+            y1="11"
+            x2="10"
+            y2="17"
+          />
+          <line
+            x1="14"
+            y1="11"
+            x2="14"
+            y2="17"
+          />
+        </g>
+      </g>
+    </svg>
+    ```
+  </Fragment>
+  <Fragment slot="output">
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      width="420"
+      class="group hover:cursor-pointer"
+    >
+      <g opacity="0.1">
+        <use href="trash-can.svg#trash-can" />
+      </g>
+      <g
+        stroke="currentColor"
+        fill="none"
+        stroke-width="2"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+      >
+        <g class="transition-transform group-hover:-translate-y-0.5">
+          <rect
+            x="9"
+            y="5"
+            width="6"
+            height="3"
+          />
+          <line
+            x1="5"
+            y1="8"
+            x2="19"
+            y2="8"
+          />
+        </g>
+        <g class="transition-transform group-hover:translate-y-0.5">
+          <polygon
+            points="6,8 18,8 17,20 7,20"
+          />
+          <line
+            x1="10"
+            y1="11"
+            x2="10"
+            y2="17"
+          />
+          <line
+            x1="14"
+            y1="11"
+            x2="14"
+            y2="17"
+          />
+        </g>
       </g>
     </svg>
   </Fragment>
