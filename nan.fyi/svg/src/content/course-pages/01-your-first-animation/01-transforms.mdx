@@ -68,3 +68,62 @@ Let's change up our trash can animation a little bit. Instead of the lid opening
     </svg>
   </Fragment>
 </CodeWithOutput>
+
+## Animating details
+
+Try implementing this animation of a "+" icon turning into a "-" icon when the `<details>` element is open:
+
+<CodeWithOutput>
+  <Fragment slot="code">
+    ```xml
+    <details class="group w-[300px] rounded-md border bg-foreground/10 py-1 px-1.5 hover:cursor-pointer">
+      <summary class="list-none -m-3 p-3 flex items-center gap-2">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="20">
+          <g
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line
+              class="group-open:rotate-90 transition-transform origin-center"
+              x1="12"
+              y1="4"
+              x2="12"
+              y2="20"
+            />
+            <line x1="4" y1="12" x2="20" y2="12" />
+          </g>
+        </svg>
+        <span>Read more</span>
+      </summary>
+      Something interesting here!
+    </details>
+    ```
+  </Fragment>
+  <Fragment slot="output">
+    <details class="group w-[300px] rounded-md border bg-foreground/10 py-1 px-1.5 hover:cursor-pointer">
+      <summary class="list-none -m-3 p-3 flex items-center gap-2">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="20">
+          <g
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line
+              class="group-open:rotate-90 transition-transform origin-center"
+              x1="12"
+              y1="4"
+              x2="12"
+              y2="20"
+            />
+            <line x1="4" y1="12" x2="20" y2="12" />
+          </g>
+        </svg>
+        <span>Read more</span>
+      </summary>
+      Something interesting here!
+    </details>
+  </Fragment>
+</CodeWithOutput>
