@@ -1,16 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 
 import plugin from "tailwindcss/plugin"
-import defaultTheme from 'tailwindcss/defaultTheme'
+import defaultTheme from "tailwindcss/defaultTheme"
 
 export default {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	theme: {
-		extend: {
-			fontFamily: {
-        sans: ['Urbanist', ...defaultTheme.fontFamily.sans],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  theme: {
+    extend: {
+      extend: {
+        transitionDelay: {
+          "200ms": "2000ms",
+        },
+        transitionProperty: {
+          translate: "transform",
+          rotate: "transform",
+        },
       },
-			colors: {
+      fontFamily: {
+        sans: ["Urbanist", ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
         "border": "hsl(var(--border))",
         "input": "hsl(var(--input))",
         "ring": "hsl(var(--ring))",
@@ -30,18 +39,18 @@ export default {
       typography: {
         DEFAULT: {
           css: {
-            maxWidth: '100ch', // add required value here
-          }
-        }
+            maxWidth: "100ch", // add required value here
+          },
+        },
       },
-		},
-	},
-	plugins: [
+    },
+  },
+  plugins: [
     require("@tailwindcss/typography"),
-		plugin(function ({ addBase }) {
+    plugin(function ({ addBase }) {
       addBase({
         html: { fontSize: "22px" },
       })
     }),
-	],
+  ],
 }

@@ -1,0 +1,87 @@
+---
+title: Sequencing animations
+---
+
+import CodeWithOutput from "@/components/CodeWithOutput.astro"
+import "@/styles/02-sequencing-animations.css"
+
+Let's try building a slightly more complex animation—a burger menu icon that turns into a close icon when clicked
+
+<CodeWithOutput>
+  <Fragment slot="code">
+  ```xml
+  <style>
+    .top,
+    .bottom {
+      transition-property: translate, rotate;
+      transition-delay: 0.2s, 0s;
+      transition-duration: 0.2s;
+    }
+
+    .top {
+      transform-origin: 12px 7px;
+    }
+
+    .middle {
+      transform-origin: 12px 12px;
+      transition: rotate 0.2s;
+    }
+
+    .bottom {
+      transform-origin: 12px 17px;
+    }
+
+    button[aria-pressed="true"] .top {
+      translate: 0px 5px;
+      rotate: 45deg;
+      transition-delay: 0s, 0.2s;
+    }
+
+    button[aria-pressed="true"] .bottom {
+      translate: 0px -5px;
+      rotate: -45deg;
+      transition-delay: 0s, 0.2s;
+    }
+
+    button[aria-pressed="true"] .middle {
+      rotate: -45deg;
+      transition-delay: 0.2s;
+    }
+
+  </style>
+  <button class="group w-[80px] h-[80px] rounded-full bg-foreground p-3" aria-pressed="false" onClick="this.setAttribute('aria-pressed', this.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');">
+    <svg aria-hidden="true" viewBox="0 0 24 24" width="100%" class="text-background">
+      <g
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        stroke="currentColor"
+        stroke-width="2"
+        fill="none"
+      >
+        <line x1="4" y1="7" x2="20" y2="7" class="top" />
+        <line x1="4" y1="12" x2="20" y2="12" class="middle" />
+        <line x1="4" y1="17" x2="20" y2="17" class="bottom" />
+      </g>
+    </svg>
+  </button>
+  ```
+  </Fragment>
+  <Fragment slot="output">
+    <button class="group w-[80px] h-[80px] rounded-full bg-foreground p-3" aria-pressed="false" onClick="this.setAttribute('aria-pressed', this.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');">
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="100%" class="text-background">
+        <g
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke="currentColor"
+          stroke-width="2"
+          fill="none"
+        >
+          <line x1="4" y1="7" x2="20" y2="7" class="top" />
+          <line x1="4" y1="12" x2="20" y2="12" class="middle" />
+          <line x1="4" y1="17" x2="20" y2="17" class="bottom" />
+        </g>
+      </svg>
+    </button>
+  </Fragment>
+
+</CodeWithOutput>
