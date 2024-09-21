@@ -13,3 +13,20 @@ export type HeroQuery = {
     }[]
   }
 }
+
+export type ClientTicker = {
+  assetCollection: {
+    items: {
+      width: number
+      height: number
+      url: string
+      title: string
+      contentfulMetadata: {
+        tags: {
+          id: string
+          name: string
+        }[]
+      }
+    }[]
+  }
+}
