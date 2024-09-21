@@ -9,4 +9,12 @@ export const contentGqlFetcher = async (query: string, variables = {}, preview =
       },
       body: JSON.stringify({query, variables}),
     })
+
+    const { data, errors } = await response.json()
+
+    if (errors) {
+      throw new Error(errors)
+    }
+
+    return data
 }
