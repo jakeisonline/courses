@@ -9,11 +9,16 @@ import Illustration from '@/public/images/page-illustration.svg'
 import CustomerBadge from '@/public/images/customer-badge.svg'
 import Particles from '@/components/particles'
 import RelatedPosts from './related-posts'
-import { getCustomerStories } from '@/content/queries'
+import { getCustomerStorySlugs, getCustomerStory } from '@/content/queries'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
+export const generateStaticParams = async () => {
+  const data = await getCustomerStorySlugs()
+  return data.customerStoryCollection.items
+}
+
 export default async function CustomerSingle({ params }: { params: { slug: string } }) {
-  const data = await getCustomerStories(params.slug)
+  const data = await getCustomerStory(params.slug)
   const content = data.customerStoryCollection.items[0]
 
   return (

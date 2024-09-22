@@ -44,6 +44,14 @@ export type ClientTicker = {
   }
 }
 
+export type CustomerStorySlugsQuery = {
+  customerStoryCollection: {
+    items: {
+      slug: string
+    }[]
+  }
+}
+
 export type CustomerStoryQuery = {
   customerStoryCollection: {
     items: {

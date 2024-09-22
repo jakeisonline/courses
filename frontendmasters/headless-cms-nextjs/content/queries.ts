@@ -1,5 +1,5 @@
 import "server-only"
-import { ClientTicker, CustomerStoryQuery, HeaderNavQuery, HeroQuery } from '@/types'
+import { ClientTicker, CustomerStoryQuery, CustomerStorySlugsQuery, HeaderNavQuery, HeroQuery } from '@/types'
 import { contentGqlFetcher } from './fetch'
 
 export const getHeaderNav = async () => {
@@ -97,7 +97,27 @@ export const getClientTicker = async () => {
   return data as ClientTicker
 }
 
-export const getCustomerStories = async (slug: string) => {
+export const getCustomerStorySlugs = async () => {
+  const query = `#graphql
+  query CustomerStorySlugsCollection {
+  customerStoryCollection {
+      items {
+        slug
+      }
+    }
+  }
+  `
+
+  const data = await contentGqlFetcher<CustomerStorySlugsQuery>({ query })
+
+  if (!data) {
+    throw new Error('Failed to fetch customer stories')
+  }
+
+  return data as CustomerStorySlugsQuery
+}
+
+export const getCustomerStory = async (slug: string) => {
   const query = `#graphql
   query CustomerStoryCollection($where: CustomerStoryFilter) {
   customerStoryCollection(where: $where) {
