@@ -32,10 +32,10 @@ export const getHeaderNav = async () => {
   return data as HeaderNavQuery
 }
 
-export const getHero = async () => {
+export const getHero = async (isDraft = false) => {
   const query = `#graphql
   query HeroCollection {
-    heroCollection {
+    heroCollection(preview: ${isDraft ? "true" : "false"}) {
       items {
         subtitle
         preTitle
@@ -51,7 +51,7 @@ export const getHero = async () => {
   }
   `
 
-  const data = await contentGqlFetcher<HeroQuery>({ query })
+  const data = await contentGqlFetcher<HeroQuery>({ query, preview: isDraft })
 
   if (!data) {
     throw new Error('Failed to fetch hero')

@@ -7,7 +7,7 @@ export const contentGqlFetcher = async <T>({
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": preview ? `Bearer ${process.env.CONTENTFUL_PREVIEW_TOKEN}` : `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+        "Authorization": preview ? `Bearer ${process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN}` : `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
       },
       body: JSON.stringify({query, variables}),
     })
