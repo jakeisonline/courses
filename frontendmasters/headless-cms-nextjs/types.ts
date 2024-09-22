@@ -1,3 +1,16 @@
+export type HeaderNavQuery = {
+  navigationCollection: {
+    items: {
+      linksCollection: {
+        items: {
+          label: string
+          url: string
+        }[]
+      }
+    }[]
+  }
+}
+
 export type HeroQuery = {
     heroCollection: {
     items: {

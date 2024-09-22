@@ -1,5 +1,36 @@
-import { ClientTicker, HeroQuery } from '@/types'
+import "server-only"
+import { ClientTicker, HeaderNavQuery, HeroQuery } from '@/types'
 import { contentGqlFetcher } from './fetch'
+
+export const getHeaderNav = async () => {
+  const query = `#graphql
+  query NavigationCollection($where: NavigationFilter) {
+    navigationCollection(where: $where) {
+      items {
+        linksCollection {
+          items {
+            label
+            url
+          }
+        }
+      }
+    }
+  }
+  `
+
+  const data = await contentGqlFetcher<HeaderNavQuery>({ query, variables: {
+      "where": {
+        "name": "Header"
+      }
+    }
+  })
+
+  if (!data) {
+    throw new Error('Failed to fetch header nav')
+  }
+
+  return data
+}
 
 export const getHero = async () => {
   const query = `#graphql
