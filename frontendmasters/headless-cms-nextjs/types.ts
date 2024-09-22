@@ -43,3 +43,24 @@ export type ClientTicker = {
     }[]
   }
 }
+
+export type CustomerStoryQuery = {
+  customerStoryCollection: {
+    items: {
+      title: string
+      body: {
+        json: any
+      }
+      customer: {
+        name: string
+        logo: {
+          width: number
+          height: number
+          url: string
+          title: string
+        }
+      }
+      slug: string
+    }[]
+  }
+}

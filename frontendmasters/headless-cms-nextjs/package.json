@@ -14,6 +14,7 @@
     }
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.22.11",
     "@headlessui/react": "^1.7.17",
     "@types/node": "^20.10.4",
     "@types/react": "^18.2.42",

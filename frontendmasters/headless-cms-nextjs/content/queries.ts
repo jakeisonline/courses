@@ -1,5 +1,5 @@
 import "server-only"
-import { ClientTicker, HeaderNavQuery, HeroQuery } from '@/types'
+import { ClientTicker, CustomerStoryQuery, HeaderNavQuery, HeroQuery } from '@/types'
 import { contentGqlFetcher } from './fetch'
 
 export const getHeaderNav = async () => {
@@ -29,7 +29,7 @@ export const getHeaderNav = async () => {
     throw new Error('Failed to fetch header nav')
   }
 
-  return data
+  return data as HeaderNavQuery
 }
 
 export const getHero = async () => {
@@ -57,7 +57,7 @@ export const getHero = async () => {
     throw new Error('Failed to fetch hero')
   }
 
-  return data
+  return data as HeroQuery
 }
 
 export const getClientTicker = async () => {
@@ -94,5 +94,43 @@ export const getClientTicker = async () => {
     throw new Error('Failed to fetch client ticker')
   }
 
-  return data
+  return data as ClientTicker
+}
+
+export const getCustomerStories = async (slug: string) => {
+  const query = `#graphql
+  query CustomerStoryCollection($where: CustomerStoryFilter) {
+  customerStoryCollection(where: $where) {
+      items {
+        title
+        body {
+          json
+        }
+        customer {
+          name
+          logo {
+            width
+            height
+            url
+            title
+          }
+        }
+        slug
+      }
+    }
+  }
+  `
+
+  const data = await contentGqlFetcher<CustomerStoryQuery>({ query, variables: {
+      "where": {
+        "slug": slug
+      }
+    }
+  })
+
+  if (!data) {
+    throw new Error(`Failed to fetch customer story with slug: ${slug}`)
+  }
+
+  return data as CustomerStoryQuery
 }
