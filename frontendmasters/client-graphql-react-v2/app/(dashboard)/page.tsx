@@ -38,6 +38,7 @@ const IssuesPage = () => {
     }
 
     if (result.data) {
+      replay()
       close()
       setIssueName('')
       setIssueDescription('')
