@@ -55,8 +55,8 @@ const Status = ({ status, issueId }) => {
           <span>Backlog</span>
         </DropdownItem>
         <DropdownItem
-          key="INPROGRESS"
-          startContent={<StatusRing status={'INPROGRESS'} />}
+          key="IN_PROGRESS"
+          startContent={<StatusRing status={'IN_PROGRESS'} />}
         >
           <span>In Progress</span>
         </DropdownItem>

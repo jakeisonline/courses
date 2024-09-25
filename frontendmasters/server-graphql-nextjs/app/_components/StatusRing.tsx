@@ -5,7 +5,7 @@ import { cn } from '@nextui-org/react'
 const getStatusClass = (status: string) => {
   return status === 'BACKLOG'
     ? 'border-slate-400 hover:border-slate-600'
-    : status === 'INPROGRESS'
+    : status === 'IN_PROGRESS'
     ? 'border-yellow-300 border-yellow-500'
     : ''
 }

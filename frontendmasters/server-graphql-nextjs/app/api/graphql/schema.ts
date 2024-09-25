@@ -16,6 +16,13 @@ export const schema = `#graphql
     status: IssueStatus
   }
 
+  input EditIssueInput {
+    name: String
+    content: String
+    status: IssueStatus
+    id: ID!
+  }
+
   enum IssueStatus {
     DONE
     TODO
@@ -49,5 +56,6 @@ export const schema = `#graphql
     signIn(input: AuthInput!): User
     createUser(input: AuthInput!): User
     createIssue(input: CreateIssueInput!): Issue
+    editIssue(input: EditIssueInput!): Issue
   }
 `

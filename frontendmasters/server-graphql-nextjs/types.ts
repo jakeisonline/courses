@@ -15,6 +15,13 @@ export type CreateIssueInputType = {
   status?: IssueStatus
 }
 
+export type EditIssueInputType = {
+  name?: string
+  content?: string
+  status?: IssueStatus
+  id: string
+}
+
 export type IssuesQueryInputType = {
   statuses?: IssueStatus[]
 }
