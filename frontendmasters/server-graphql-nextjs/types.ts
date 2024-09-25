@@ -15,6 +15,10 @@ export type CreateIssueInputType = {
   status?: IssueStatus
 }
 
+export type IssuesQueryInputType = {
+  statuses?: IssueStatus[]
+}
+
 export type IssueStatus =
   | 'done'
   | 'todo'
