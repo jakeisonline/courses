@@ -1,4 +1,28 @@
 export const schema = `#graphql
+  type Issue {
+    id: ID!
+    name: String!
+    content: String!
+    userId: ID!
+    projectId: ID!
+    status: IssueStatus
+    createdAt: String!
+    user: User!
+  }
+
+  input CreateIssueInput {
+    name: String!
+    content: String!
+    status: IssueStatus
+  }
+
+  enum IssueStatus {
+    DONE
+    TODO
+    IN_PROGRESS
+    BACKLOG
+  }
+
   type User {
     id: ID!
     email: String!
@@ -18,5 +42,6 @@ export const schema = `#graphql
   type Mutation {
     signIn(input: AuthInput!): User
     createUser(input: AuthInput!): User
+    createIssue(input: CreateIssueInput!): Issue
   }
 `
