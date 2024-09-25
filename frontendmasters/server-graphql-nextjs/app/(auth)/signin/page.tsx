@@ -8,16 +8,16 @@ import { useState } from 'react'
 import { useMutation } from 'urql'
 
 const SigninPage = () => {
-  const [signinResult, signin] = useMutation(SigninMutation)
+  const [_, signin] = useMutation(SigninMutation)
   const [state, setState] = useState({ password: '', email: '' })
   const router = useRouter()
 
-  const handleSignin = async (e) => {
+  const handleSignin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const result = await signin({ input: state })
 
-    if (result.data.signin) {
-      setToken(result.data.signin.token)
+    if (result.data.signIn) {
+      setToken(result.data.signIn.token)
       router.push('/')
     }
   }
