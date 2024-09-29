@@ -9,7 +9,7 @@ export const getAttendeesCount = async (userId: string) => {
 
   const counts = await db
     .select({
-      totalAttendees: sql`count(distinct ${attendees.id})`,
+      totalAttendees: sql<number>`count(distinct ${attendees.id})`,
     })
     .from(events)
     .leftJoin(rsvps, eq(rsvps.eventId, events.id))
