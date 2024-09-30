@@ -19,4 +19,5 @@ export const createNewEvent = async () => {
   })
 
   revalidateTag('dashboards:events')
+  revalidateTag('events')
 }

@@ -27,7 +27,7 @@ const DashdboardLayout = ({
           </div>
         </div>
       ) : (
-        <div>Children</div>
+        <div>{children}</div>
       )}
     </Shell>
   )
