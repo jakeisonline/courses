@@ -4,6 +4,8 @@
     "target": "ESNext",
     "module": "ESNext",
     "baseUrl": ".",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
       "@/*": ["_scripts/*"]

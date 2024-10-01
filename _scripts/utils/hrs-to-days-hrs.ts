@@ -1,4 +1,4 @@
-export default function hrsToDaysHrs(hours: number) {
+export default function hrsToDaysHrs(hours: number): string {
   const days = Math.floor(hours / 24)
   const daysDisplay = days > 0 ? days + (days == 1 ? " day" : " days") : null
 

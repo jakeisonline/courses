@@ -7,7 +7,7 @@ export default function getStats() {
     completed: 0,
     inProgress: 0,
     hours: 0,
-    humanizedDuration: 0,
+    humanizedDuration: "",
   }
 
   courses.forEach((course) => {
