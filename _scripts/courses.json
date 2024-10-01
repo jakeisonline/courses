@@ -1,0 +1,14 @@
+[
+  {
+    "name": "JavaScript",
+    "provider": "Udemy",
+    "duration": 60,
+    "completed": false
+  },
+  {
+    "name": "React",
+    "provider": "Udemy",
+    "duration": 120,
+    "completed": false
+  }
+]

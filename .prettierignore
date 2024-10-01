@@ -1,0 +1,2 @@
+# Ingore markdown files in scripts directory
+.scripts/*.md

@@ -1,0 +1,15 @@
+Hello world.
+
+Here are all of the courses I've taken so far,
+
+| Course Name | Course Provider | Est. Time Spent |
+| ----------- | --------------- | --------------- |
+{{#courses}}
+| {{name}} | {{provider}} | {{duration}} |
+{{/courses}}
+
+Total: {{stats.total}}
+Completed: {{stats.completed}}
+In Progress: {{stats.inProgress}}
+Hours {{stats.hours}}
+Humanized Duration: {{stats.humanizedDuration}}
