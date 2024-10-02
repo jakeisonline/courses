@@ -29,4 +29,6 @@ I've covered a broad range of topics:
 | [JavaScript]() | Udemy | 🚧 In Progress | -- | [Source]()  | [Certificate]()  |
 | [React]() | Udemy | 🚧 In Progress | -- | [Source]()  |  -- |
 
-_this document is auto-generated_
+
+
+<sub>This document is auto-generated. It was last generated Wednesday, October 2, 2024 at 8:50 PM.</sub>
