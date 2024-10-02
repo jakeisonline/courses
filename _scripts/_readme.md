@@ -6,9 +6,9 @@ This repo is a collection of all outputs of courses I've taken to date. I use th
 
 I think it's fun to track how many courses I've taken, completed, and the total amount of time spent on them.
 
-| Total           | In Progress          | Completed           | Est. Hours[^1]     |
+| #️⃣ Total           | 🟠 Doing          | 🟢 Done           | ⏱️ Est. Hours[^1]     |
 | --------------- | -------------------- | ------------------- | --------------- |
-| 29 | 27 | 2 | 9 days, 19 hours (235 hrs total) |
+| 29 | 27 | 2 | 235 hrs (9 days, 19 hours) |
 
 [^1]: Time spent is an estimation. Where a course makes clear how long the playback is, that's what is recorded here. It's likely more based on the practical time spent solving challenges or tweaking projects as elective further work.
 
@@ -65,4 +65,4 @@ I've covered a broad range of topics:
 
 
 
-<sub>This document is auto-generated. It was last generated on Wednesday, October 2, 2024 at 9:44 PM.</sub>
+<sub>This document is auto-generated. It was last generated on Wednesday, October 2, 2024 at 9:53 PM.</sub>
