@@ -4,7 +4,7 @@
     "topics": ["JavaScript"],
     "provider": "Frontendmasters",
     "duration": 8,
-    "completed": true,
+    "completed": "2021-11-24T00:00:00.000Z",
     "urls": {
       "course": "https://frontendmasters.com/courses/archive/js-fundamentals-functional-v2/",
       "certificate": "https://static.frontendmasters.com/ud/c/f946fe8582/auBFpnJXxg/js-fundamentals-functional-v2.pdf"
@@ -15,7 +15,7 @@
     "topics": ["CSS", "Sass"],
     "provider": "Udemy",
     "duration": 28,
-    "completed": true,
+    "completed": "2020-06-22T00:00:00.000Z",
     "urls": {
       "course": "https://www.udemy.com/course/advanced-css-and-sass/",
       "source": "/udemy/advanced-css/",
