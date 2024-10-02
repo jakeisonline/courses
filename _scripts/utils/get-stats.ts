@@ -1,5 +1,6 @@
 import courses from "@/courses.json"
 import hrsToDaysHrs from "@/utils/hrs-to-days-hrs"
+import getTopics from "./get-topics"
 
 export default function getStats() {
   const stats = {
@@ -8,6 +9,7 @@ export default function getStats() {
     inProgress: 0,
     hours: 0,
     humanizedDuration: "",
+    topics: [],
   }
 
   courses.forEach((course) => {
@@ -23,6 +25,7 @@ export default function getStats() {
   })
 
   stats.humanizedDuration = hrsToDaysHrs(stats.hours)
+  stats.topics = getTopics(courses)
 
   return stats
 }
