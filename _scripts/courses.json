@@ -1,5 +1,329 @@
 [
   {
+    "name": "Interactive SVG Animations",
+    "topics": ["SVG"],
+    "provider": "Nanda Syahrasyad",
+    "duration": 0,
+    "completed": "",
+    "urls": {
+      "course": "https://www.svg-animations.how/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Professional React & Next.js",
+    "topics": ["React", "Next.js"],
+    "provider": "ByteGrad",
+    "duration": 60,
+    "completed": "",
+    "urls": {
+      "course": "https://bytegrad.com/courses/professional-react-nextjs",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Intermediate Next.js",
+    "topics": ["Next.js"],
+    "provider": "Frontendmasters",
+    "duration": 3.5,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/intermediate-next-js/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Server-Side GraphQL in Next.js",
+    "topics": ["GraphQL"],
+    "provider": "Frontendmasters",
+    "duration": 3.5,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/server-graphql-nextjs/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Client-Side GraphQL with React, v2",
+    "topics": ["GraphQL"],
+    "provider": "Frontendmasters",
+    "duration": 3,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/client-graphql-react-v2/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "TypeScript 5+ Fundamentals, v4",
+    "topics": ["TypeScript"],
+    "provider": "Frontendmasters",
+    "duration": 5,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/typescript-v4/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Headless CMSs with Next.js",
+    "topics": ["Next.js", "Headless CMS"],
+    "provider": "Frontendmasters",
+    "duration": 3.5,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/headless-cms-nextjs/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "HTMX & Go",
+    "topics": ["HTMX"],
+    "provider": "Frontendmasters",
+    "duration": 2,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/htmx/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Cross-Platform Mobile Apps with Flutter",
+    "topics": ["Flutter"],
+    "provider": "Frontendmasters",
+    "duration": 5.5,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/flutter/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "CSS Animations and Transitions",
+    "topics": ["CSS"],
+    "provider": "Frontendmasters",
+    "duration": 4,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/css-animations/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Ultimate CSS Grid & Layout Techniques, v3",
+    "topics": ["CSS"],
+    "provider": "Frontendmasters",
+    "duration": 6.5,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/css-grid/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Vue 3 Fundamentals",
+    "topics": ["Vue"],
+    "provider": "Frontendmasters",
+    "duration": 7,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/vue-fundamentals/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Introduction to Node.js, v3",
+    "topics": ["Node.js"],
+    "provider": "Frontendmasters",
+    "duration": 4,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/node-js-v3/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Introduction to Next.js 13+, v3",
+    "topics": ["Next.js"],
+    "provider": "Frontendmasters",
+    "duration": 4.5,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/next-js-v3/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Vanilla JavaScript Projects",
+    "topics": ["JavaScript"],
+    "provider": "Frontendmasters",
+    "duration": 9,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/javascript-projects/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Basics of Go",
+    "topics": ["Go"],
+    "provider": "Frontendmasters",
+    "duration": 8,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/go-basics/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Functional JavaScript First Steps",
+    "topics": ["JavaScript"],
+    "provider": "Frontendmasters",
+    "duration": 4,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/functional-first-steps/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "The Hard Parts of UI Development",
+    "topics": ["JavaScript"],
+    "provider": "Frontendmasters",
+    "duration": 9.5,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/hard-parts-ui-dev/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Web Performance Fundamentals",
+    "topics": ["Web Performance"],
+    "provider": "Frontendmasters",
+    "duration": 4,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/web-perf/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Functional-Light JavaScript, v3",
+    "topics": ["JavaScript"],
+    "provider": "Frontendmasters",
+    "duration": 0,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/functional-javascript-v3/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Complete Intro to React, v8",
+    "topics": ["JavaScript", "React"],
+    "provider": "Frontendmasters",
+    "duration": 6,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/complete-react-v8/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "The Hard Parts of Asynchronous JavaScript",
+    "topics": ["JavaScript"],
+    "provider": "Frontendmasters",
+    "duration": 5,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/javascript-new-hard-parts/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "JavaScript: The Recent Parts",
+    "topics": ["JavaScript"],
+    "provider": "Frontendmasters",
+    "duration": 4,
+    "completed": "",
+    "urls": {
+      "course": "",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Deep JavaScript Foundations, v3",
+    "topics": ["JavaScript"],
+    "provider": "Frontendmasters",
+    "duration": 10.5,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/deep-javascript-v3/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "Vanilla JS: You Might Not Need a Framework",
+    "topics": ["JavaScript"],
+    "provider": "Frontendmasters",
+    "duration": 6,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/vanilla-js-apps/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "JavaScript: From First Steps to Professional",
+    "topics": ["JavaScript"],
+    "provider": "Frontendmasters",
+    "duration": 14.5,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/javascript-first-steps/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
+    "name": "JavaScript: The Hard Parts, v2",
+    "topics": ["JavaScript"],
+    "provider": "Frontendmasters",
+    "duration": 6.5,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/javascript-hard-parts-v2/",
+      "source": "",
+      "certificate": ""
+    }
+  },
+  {
     "name": "JavaScript: From Fundamentals to Functional JS, v2",
     "topics": ["JavaScript"],
     "provider": "Frontendmasters",
@@ -12,7 +336,7 @@
   },
   {
     "name": "Advanced CSS and Sass",
-    "topics": ["CSS", "Sass"],
+    "topics": ["CSS"],
     "provider": "Udemy",
     "duration": 28,
     "completed": "2020-06-22T00:00:00.000Z",
