@@ -6,7 +6,7 @@ This repo is a collection of all outputs of courses I've taken to date. I use th
 
 I think it's fun to track how many courses I've taken, completed, and the total amount of time spent on them.
 
-| Total           | In Progress          | Completed           | Time Spent[^1]     |
+| Total           | In Progress          | Completed           | Est. Hours[^1]     |
 | --------------- | -------------------- | ------------------- | --------------- |
 | {{stats.total}} | {{stats.inProgress}} | {{stats.completed}} | {{stats.humanizedDuration}} ({{stats.hours}} hrs total) |
 
@@ -20,10 +20,10 @@ I've covered a broad range of topics:
 
 # Courses
 
-| Course Name | Course Provider | Status | Est. Time Spent | Source | Certificate |
+| Course Name | Course Provider | Status | Est. Hours[^1] | Source | Certificate |
 | ----------- | --------------- | ------ | --------------- | ------ | ----------- |
 {{#courses}}
-| [{{name}}]({{urls.course | safe}}) | {{provider}} | {{#completed}}✅ Completed{{/completed}}{{^completed}}🚧 In Progress{{/completed}} | {{#completed}}{{duration}}{{/completed}}{{^completed}}--{{/completed}} | {{#urls.source}}[Source]({{urls.source | safe}}){{/urls.source}} {{^urls.source}}--{{/urls.source}} | {{#urls.certificate}}[Certificate]({{urls.certificate | safe}}){{/urls.certificate}} {{^urls.certificate}}--{{/urls.certificate}} |
+| [{{name}}]({{urls.course | safe}}) | {{provider}} | {{#completed}}🟢 Done{{/completed}}{{^completed}}🟠 Doing{{/completed}} | {{#completed}}{{duration}}{{/completed}}{{^completed}}--{{/completed}} | {{#urls.source}}[Source]({{urls.source | safe}}){{/urls.source}} {{^urls.source}}--{{/urls.source}} | {{#urls.certificate}}[Certificate]({{urls.certificate | safe}}){{/urls.certificate}} {{^urls.certificate}}--{{/urls.certificate}} |
 {{/courses}}
 
 

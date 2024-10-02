@@ -1,25 +1,25 @@
 [
   {
-    "name": "JavaScript",
-    "topics": ["JavaScript", "Node.js", "TypeScript", "React"],
-    "provider": "Udemy",
-    "duration": 60,
-    "completed": false,
+    "name": "JavaScript: From Fundamentals to Functional JS, v2",
+    "topics": ["JavaScript"],
+    "provider": "Frontendmasters",
+    "duration": 8,
+    "completed": true,
     "urls": {
-      "course": "https://www.udemy.com/course/",
-      "source": "https://github.com/udemy/course",
-      "certificate": "https://www.udemy.com/certificate/"
+      "course": "https://frontendmasters.com/courses/archive/js-fundamentals-functional-v2/",
+      "certificate": "https://static.frontendmasters.com/ud/c/f946fe8582/auBFpnJXxg/js-fundamentals-functional-v2.pdf"
     }
   },
   {
-    "name": "React",
-    "topics": ["React", "React Hooks", "React Router", "Redux"],
+    "name": "Advanced CSS and Sass",
+    "topics": ["CSS", "Sass"],
     "provider": "Udemy",
-    "duration": 120,
-    "completed": false,
+    "duration": 28,
+    "completed": true,
     "urls": {
-      "course": "https://www.udemy.com/course/",
-      "source": "https://github.com/udemy/course"
+      "course": "https://www.udemy.com/course/advanced-css-and-sass/",
+      "source": "/udemy/advanced-css/",
+      "certificate": "https://www.udemy.com/certificate/UC-e635f622-71ae-489a-a1d8-9d8040b1efa5/"
     }
   }
 ]

@@ -6,29 +6,25 @@ This repo is a collection of all outputs of courses I've taken to date. I use th
 
 I think it's fun to track how many courses I've taken, completed, and the total amount of time spent on them.
 
-| Total           | In Progress          | Completed           | Time Spent[^1]     |
+| Total           | In Progress          | Completed           | Est. Hours[^1]     |
 | --------------- | -------------------- | ------------------- | --------------- |
-| 2 | 2 | 0 | 7 days, 12 hours (180 hrs total) |
+| 2 | 0 | 2 | 1 day, 12 hours (36 hrs total) |
 
 [^1]: Time spent is an estimation. Where a course makes clear how long the playback is, that's what is recorded here. It's likely more based on the practical time spent solving challenges or tweaking projects as elective further work.
 
 I've covered a broad range of topics:
 
-* React (2)
 * JavaScript (1)
-* Node.js (1)
-* TypeScript (1)
-* React Hooks (1)
-* React Router (1)
-* Redux (1)
+* CSS (1)
+* Sass (1)
 
 # Courses
 
-| Course Name | Course Provider | Status | Est. Time Spent | Source | Certificate |
+| Course Name | Course Provider | Status | Est. Hours[^1] | Source | Certificate |
 | ----------- | --------------- | ------ | --------------- | ------ | ----------- |
-| [JavaScript]() | Udemy | 🚧 In Progress | -- | [Source]()  | [Certificate]()  |
-| [React]() | Udemy | 🚧 In Progress | -- | [Source]()  |  -- |
+| [JavaScript: From Fundamentals to Functional JS, v2]() | Frontendmasters | 🟢 Done | 8 |  -- | [Certificate]()  |
+| [Advanced CSS and Sass]() | Udemy | 🟢 Done | 28 | [Source]()  | [Certificate]()  |
 
 
 
-<sub>This document is auto-generated. It was last generated Wednesday, October 2, 2024 at 8:50 PM.</sub>
+<sub>This document is auto-generated. It was last generated on Wednesday, October 2, 2024 at 9:03 PM.</sub>
