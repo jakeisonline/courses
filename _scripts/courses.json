@@ -1,14 +1,24 @@
 [
   {
     "name": "JavaScript",
+    "topics": ["JavaScript", "Node.js", "TypeScript", "React"],
     "provider": "Udemy",
     "duration": 60,
-    "completed": false
+    "completed": false,
+    "urls": {
+      "course": "https://www.udemy.com/course/",
+      "source": "https://github.com/udemy/course"
+    }
   },
   {
     "name": "React",
+    "topics": ["React", "React Hooks", "React Router", "Redux"],
     "provider": "Udemy",
     "duration": 120,
-    "completed": false
+    "completed": false,
+    "urls": {
+      "course": "https://www.udemy.com/course/",
+      "source": "https://github.com/udemy/course"
+    }
   }
 ]
