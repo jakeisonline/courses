@@ -14,4 +14,4 @@ const context = {
 
 const output = mustache.render(readme, context)
 
-fs.writeFileSync("./_scripts/_readme.md", output)
+fs.writeFileSync("./README.preview.md", output)
