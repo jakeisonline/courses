@@ -5,7 +5,8 @@
   "main": "./.scripts/main.js",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch ./_scripts/update-readme.ts"
+    "dev": "tsx watch ./_scripts/update-readme.ts",
+    "build": "tsx ./_scripts/update-readme.ts --build"
   },
   "keywords": [],
   "author": "",

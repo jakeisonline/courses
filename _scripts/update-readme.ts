@@ -14,4 +14,8 @@ const context = {
 
 const output = mustache.render(readme, context)
 
-fs.writeFileSync("./README.preview.md", output)
+const filename = process.argv.includes("--build")
+  ? "./README.md"
+  : "./README.preview.md"
+
+fs.writeFileSync(filename, output)
