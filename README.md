@@ -26,7 +26,7 @@ Of the courses I've completed, the following topics have been covered:
 
 # Courses
 
-| Course Name | Course Provider | Status | Est. Hours[^1] | Files | Certificate |
+| Course Name | Course Provider | Status | Hrs[^1] | Files | Certificate |
 | ----------- | --------------- | ------ | --------------- | ------ | ----------- |
 | [Vue 3 Fundamentals](https://frontendmasters.com/courses/vue-fundamentals/) | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
 | [Ultimate CSS Grid &amp; Layout Techniques, v3](https://frontendmasters.com/courses/css-grid/) | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
@@ -58,6 +58,6 @@ Of the courses I've completed, the following topics have been covered:
 | [JavaScript: From Fundamentals to Functional JS, v2](https://frontendmasters.com/courses/archive/js-fundamentals-functional-v2/) | Frontendmasters | 🟢 Done | 8 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/auBFpnJXxg/js-fundamentals-functional-v2.pdf)  |
 | [Advanced CSS and Sass](https://www.udemy.com/course/advanced-css-and-sass/) | Udemy | 🟢 Done | 28 | [Files](/udemy/advanced-css/)  | [Certificate](https://www.udemy.com/certificate/UC-e635f622-71ae-489a-a1d8-9d8040b1efa5/)  |
 
-<sub>This document is auto-generated. It was last generated on Thursday, October 3, 2024 at 8:40 PM.</sub>
+<sub>This document is auto-generated. It was last generated on Thursday, October 3, 2024 at 8:41 PM.</sub>
 
 [^1]: Time spent is an estimation of courses completed. Where a course makes clear how long the playback is, that's what is recorded here. It's likely more based on the practical time spent solving challenges or tweaking projects as elective further work.
