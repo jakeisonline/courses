@@ -26,13 +26,13 @@ Of the courses I've completed, the following topics have been covered:
 
 # Courses
 
-| Course Name | Course Provider | Status | Est. Hours[^1] | Source | Certificate |
+| Course Name | Course Provider | Status | Est. Hours[^1] | Files | Certificate |
 | ----------- | --------------- | ------ | --------------- | ------ | ----------- |
 | [Vue 3 Fundamentals](https://frontendmasters.com/courses/vue-fundamentals/) | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
 | [Ultimate CSS Grid &amp; Layout Techniques, v3](https://frontendmasters.com/courses/css-grid/) | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
 | [TypeScript 5+ Fundamentals, v4](https://frontendmasters.com/courses/typescript-v4/) | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Interactive SVG Animations](https://www.svg-animations.how/) | Nanda Syahrasyad | 🟠 Doing | -- | [Source](/nan.fyi/svg/)  |  -- |
-| [Professional React &amp; Next.js](https://bytegrad.com/courses/professional-react-nextjs) | ByteGrad | 🟢 Done | 60 | [Source](/bytegrad/professional-react-and-nextjs/)  |  -- |
+| [Interactive SVG Animations](https://www.svg-animations.how/) | Nanda Syahrasyad | 🟠 Doing | -- | [Files](/nan.fyi/svg/)  |  -- |
+| [Professional React &amp; Next.js](https://bytegrad.com/courses/professional-react-nextjs) | ByteGrad | 🟢 Done | 60 | [Files](/bytegrad/professional-react-and-nextjs/)  |  -- |
 | [Intermediate Next.js](https://frontendmasters.com/courses/intermediate-next-js/) | Frontendmasters | 🟢 Done | 3.5 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/CyZKLbetbW/intermediate-next-js.pdf)  |
 | [Server-Side GraphQL in Next.js](https://frontendmasters.com/courses/server-graphql-nextjs/) | Frontendmasters | 🟢 Done | 3.5 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/ShAxUxzfyH/server-graphql-nextjs.pdf)  |
 | [Client-Side GraphQL with React, v2](https://frontendmasters.com/courses/client-graphql-react-v2/) | Frontendmasters | 🟢 Done | 3 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/FcgEJhEpNX/client-graphql-react-v2.pdf)  |
@@ -56,8 +56,8 @@ Of the courses I've completed, the following topics have been covered:
 | [JavaScript: From First Steps to Professional](https://frontendmasters.com/courses/javascript-first-steps/) | Frontendmasters | 🟢 Done | 14.5 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/FFUQWovrnh/javascript-first-steps.pdf)  |
 | [JavaScript: The Hard Parts, v2](https://frontendmasters.com/courses/javascript-hard-parts-v2/) | Frontendmasters | 🟢 Done | 6.5 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/fjjCYVxYTO/javascript-hard-parts-v2.pdf)  |
 | [JavaScript: From Fundamentals to Functional JS, v2](https://frontendmasters.com/courses/archive/js-fundamentals-functional-v2/) | Frontendmasters | 🟢 Done | 8 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/auBFpnJXxg/js-fundamentals-functional-v2.pdf)  |
-| [Advanced CSS and Sass](https://www.udemy.com/course/advanced-css-and-sass/) | Udemy | 🟢 Done | 28 | [Source](/udemy/advanced-css/)  | [Certificate](https://www.udemy.com/certificate/UC-e635f622-71ae-489a-a1d8-9d8040b1efa5/)  |
+| [Advanced CSS and Sass](https://www.udemy.com/course/advanced-css-and-sass/) | Udemy | 🟢 Done | 28 | [Files](/udemy/advanced-css/)  | [Certificate](https://www.udemy.com/certificate/UC-e635f622-71ae-489a-a1d8-9d8040b1efa5/)  |
 
-<sub>This document is auto-generated. It was last generated on Thursday, October 3, 2024 at 8:38 PM.</sub>
+<sub>This document is auto-generated. It was last generated on Thursday, October 3, 2024 at 8:40 PM.</sub>
 
 [^1]: Time spent is an estimation of courses completed. Where a course makes clear how long the playback is, that's what is recorded here. It's likely more based on the practical time spent solving challenges or tweaking projects as elective further work.
