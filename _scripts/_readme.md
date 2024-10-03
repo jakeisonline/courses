@@ -8,7 +8,7 @@ I think it's fun to track how many courses I've taken, completed, and the total 
 
 | #️⃣ Total           | 🟠 Doing          | 🟢 Done           | ⏱️ Est. Hours[^1]     |
 | --------------- | -------------------- | ------------------- | --------------- |
-| 29 | 27 | 2 | 235 hrs (9 days, 19 hours) |
+| 29 | 26 | 3 | 235 hrs (9 days, 19 hours) |
 
 [^1]: Time spent is an estimation. Where a course makes clear how long the playback is, that's what is recorded here. It's likely more based on the practical time spent solving challenges or tweaking projects as elective further work.
 
@@ -33,36 +33,36 @@ I've covered a broad range of topics:
 
 | Course Name | Course Provider | Status | Est. Hours[^1] | Source | Certificate |
 | ----------- | --------------- | ------ | --------------- | ------ | ----------- |
-| [Interactive SVG Animations]() | Nanda Syahrasyad | 🟠 Doing | -- |  -- |  -- |
-| [Professional React &amp; Next.js]() | ByteGrad | 🟠 Doing | -- |  -- |  -- |
-| [Intermediate Next.js]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Server-Side GraphQL in Next.js]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Client-Side GraphQL with React, v2]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [TypeScript 5+ Fundamentals, v4]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Headless CMSs with Next.js]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [HTMX &amp; Go]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Cross-Platform Mobile Apps with Flutter]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [CSS Animations and Transitions]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Ultimate CSS Grid &amp; Layout Techniques, v3]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Vue 3 Fundamentals]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Introduction to Node.js, v3]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Introduction to Next.js 13+, v3]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Vanilla JavaScript Projects]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Basics of Go]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Functional JavaScript First Steps]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [The Hard Parts of UI Development]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Web Performance Fundamentals]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Functional-Light JavaScript, v3]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Complete Intro to React, v8]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [The Hard Parts of Asynchronous JavaScript]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [JavaScript: The Recent Parts]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Deep JavaScript Foundations, v3]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [Vanilla JS: You Might Not Need a Framework]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
-| [JavaScript: From First Steps to Professional]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
 | [JavaScript: The Hard Parts, v2]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [JavaScript: From First Steps to Professional]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Vanilla JS: You Might Not Need a Framework]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Deep JavaScript Foundations, v3]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [JavaScript: The Recent Parts]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [The Hard Parts of Asynchronous JavaScript]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Complete Intro to React, v8]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Functional-Light JavaScript, v3]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Web Performance Fundamentals]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [The Hard Parts of UI Development]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Functional JavaScript First Steps]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Basics of Go]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Vanilla JavaScript Projects]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Introduction to Next.js 13+, v3]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Introduction to Node.js, v3]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Vue 3 Fundamentals]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Ultimate CSS Grid &amp; Layout Techniques, v3]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [CSS Animations and Transitions]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Cross-Platform Mobile Apps with Flutter]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [HTMX &amp; Go]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Headless CMSs with Next.js]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [TypeScript 5+ Fundamentals, v4]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Client-Side GraphQL with React, v2]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Server-Side GraphQL in Next.js]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Intermediate Next.js]() | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
+| [Interactive SVG Animations]() | Nanda Syahrasyad | 🟠 Doing | -- |  -- |  -- |
+| [Professional React &amp; Next.js]() | ByteGrad | 🟢 Done | 60 |  -- |  -- |
 | [JavaScript: From Fundamentals to Functional JS, v2]() | Frontendmasters | 🟢 Done | 8 |  -- | [Certificate]()  |
 | [Advanced CSS and Sass]() | Udemy | 🟢 Done | 28 | [Source]()  | [Certificate]()  |
 
 
 
-<sub>This document is auto-generated. It was last generated on Wednesday, October 2, 2024 at 9:53 PM.</sub>
+<sub>This document is auto-generated. It was last generated on Thursday, October 3, 2024 at 8:24 AM.</sub>
