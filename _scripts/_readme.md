@@ -8,9 +8,9 @@ I think it's fun to track how many courses I've taken, completed, and the total 
 
 | #️⃣ Total           | 🟠 Doing          | 🟢 Done           | ⏱️ Est. Hours[^1]     |
 | --------------- | -------------------- | ------------------- | --------------- |
-| 29 | 4 | 25 | 216.5 hrs (9 days, 0.5 hours) |
+| 29 | 4 | 25 | 226.5 hrs (9 days, 10.5 hours) |
 
-Of the courses I've completed, I've covered the following topics:
+Of the courses I've completed, the following topics have been covered:
 
 * JavaScript (12)
 * Next.js (4)
@@ -47,7 +47,7 @@ Of the courses I've completed, I've covered the following topics:
 | [Functional JavaScript First Steps](https://frontendmasters.com/courses/functional-first-steps/) | Frontendmasters | 🟢 Done | 4 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/jIKTAxiZEg/functional-first-steps.pdf)  |
 | [The Hard Parts of UI Development](https://frontendmasters.com/courses/hard-parts-ui-dev/) | Frontendmasters | 🟢 Done | 9.5 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/DpFXiJTXXf/hard-parts-ui-dev.pdf)  |
 | [Web Performance Fundamentals](https://frontendmasters.com/courses/web-perf/) | Frontendmasters | 🟢 Done | 4 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/DDyjtRnlHY/web-perf.pdf)  |
-| [Functional-Light JavaScript, v3](https://frontendmasters.com/courses/functional-javascript-v3/) | Frontendmasters | 🟢 Done | 0 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/rQmLjQuRvc/functional-javascript-v3.pdf)  |
+| [Functional-Light JavaScript, v3](https://frontendmasters.com/courses/functional-javascript-v3/) | Frontendmasters | 🟢 Done | 10 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/rQmLjQuRvc/functional-javascript-v3.pdf)  |
 | [Complete Intro to React, v8](https://frontendmasters.com/courses/complete-react-v8/) | Frontendmasters | 🟢 Done | 6 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/BoYXCMJijv/complete-react-v8.pdf)  |
 | [The Hard Parts of Asynchronous JavaScript](https://frontendmasters.com/courses/javascript-new-hard-parts/) | Frontendmasters | 🟢 Done | 5 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/mKwIKFRvDi/javascript-new-hard-parts.pdf)  |
 | [JavaScript: The Recent Parts]() | Frontendmasters | 🟢 Done | 4 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/IgKwlZvgwG/js-recent-parts.pdf)  |
@@ -58,6 +58,6 @@ Of the courses I've completed, I've covered the following topics:
 | [JavaScript: From Fundamentals to Functional JS, v2](https://frontendmasters.com/courses/archive/js-fundamentals-functional-v2/) | Frontendmasters | 🟢 Done | 8 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/auBFpnJXxg/js-fundamentals-functional-v2.pdf)  |
 | [Advanced CSS and Sass](https://www.udemy.com/course/advanced-css-and-sass/) | Udemy | 🟢 Done | 28 | [Source](/udemy/advanced-css/)  | [Certificate](https://www.udemy.com/certificate/UC-e635f622-71ae-489a-a1d8-9d8040b1efa5/)  |
 
-<sub>This document is auto-generated. It was last generated on Thursday, October 3, 2024 at 8:31 PM.</sub>
+<sub>This document is auto-generated. It was last generated on Thursday, October 3, 2024 at 8:33 PM.</sub>
 
 [^1]: Time spent is an estimation of courses completed. Where a course makes clear how long the playback is, that's what is recorded here. It's likely more based on the practical time spent solving challenges or tweaking projects as elective further work.
