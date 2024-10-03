@@ -23,7 +23,7 @@ I've covered a broad range of topics:
 | Course Name | Course Provider | Status | Est. Hours[^1] | Source | Certificate |
 | ----------- | --------------- | ------ | --------------- | ------ | ----------- |
 {{#courses}}
-| [{{name}}]({{urls.course | safe}}) | {{provider}} | {{#completed}}🟢 Done{{/completed}}{{^completed}}🟠 Doing{{/completed}} | {{#completed}}{{duration}}{{/completed}}{{^completed}}--{{/completed}} | {{#urls.source}}[Source]({{urls.source | safe}}){{/urls.source}} {{^urls.source}}--{{/urls.source}} | {{#urls.certificate}}[Certificate]({{urls.certificate | safe}}){{/urls.certificate}} {{^urls.certificate}}--{{/urls.certificate}} |
+| [{{name}}]({{&urls.course}}) | {{provider}} | {{#completed}}🟢 Done{{/completed}}{{^completed}}🟠 Doing{{/completed}} | {{#completed}}{{duration}}{{/completed}}{{^completed}}--{{/completed}} | {{#urls.source}}[Source]({{&urls.source}}){{/urls.source}} {{^urls.source}}--{{/urls.source}} | {{#urls.certificate}}[Certificate]({{&urls.certificate}}){{/urls.certificate}} {{^urls.certificate}}--{{/urls.certificate}} |
 {{/courses}}
 
 
