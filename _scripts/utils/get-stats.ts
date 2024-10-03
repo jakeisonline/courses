@@ -19,7 +19,7 @@ export default function getStats() {
       stats.inProgress++
     }
 
-    stats.hours += course.duration
+    if (course.completed && course.duration) stats.hours += course.duration
 
     stats.total++
   })

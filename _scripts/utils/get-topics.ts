@@ -8,6 +8,8 @@ export default function getTopics(courses: any[]): TopicType[] {
 
   courses.forEach((course) => {
     course.topics.forEach((topic) => {
+      if (!course.completed) return
+
       const existingTopic = topics.find((t) => t.name === topic)
 
       if (existingTopic) {

@@ -8,23 +8,18 @@ I think it's fun to track how many courses I've taken, completed, and the total 
 
 | #️⃣ Total           | 🟠 Doing          | 🟢 Done           | ⏱️ Est. Hours[^1]     |
 | --------------- | -------------------- | ------------------- | --------------- |
-| 29 | 4 | 25 | 235 hrs (9 days, 19 hours) |
+| 29 | 4 | 25 | 216.5 hrs (9 days, 0.5 hours) |
 
-[^1]: Time spent is an estimation. Where a course makes clear how long the playback is, that's what is recorded here. It's likely more based on the practical time spent solving challenges or tweaking projects as elective further work.
-
-I've covered a broad range of topics:
+Of the courses I've completed, I've covered the following topics:
 
 * JavaScript (12)
 * Next.js (4)
-* CSS (3)
 * React (2)
 * GraphQL (2)
-* SVG (1)
-* TypeScript (1)
+* CSS (2)
 * Headless CMS (1)
 * HTMX (1)
 * Flutter (1)
-* Vue (1)
 * Node.js (1)
 * Go (1)
 * Web Performance (1)
@@ -63,6 +58,6 @@ I've covered a broad range of topics:
 | [JavaScript: From Fundamentals to Functional JS, v2](https://frontendmasters.com/courses/archive/js-fundamentals-functional-v2/) | Frontendmasters | 🟢 Done | 8 |  -- | [Certificate](https://static.frontendmasters.com/ud/c/f946fe8582/auBFpnJXxg/js-fundamentals-functional-v2.pdf)  |
 | [Advanced CSS and Sass](https://www.udemy.com/course/advanced-css-and-sass/) | Udemy | 🟢 Done | 28 | [Source](/udemy/advanced-css/)  | [Certificate](https://www.udemy.com/certificate/UC-e635f622-71ae-489a-a1d8-9d8040b1efa5/)  |
 
+<sub>This document is auto-generated. It was last generated on Thursday, October 3, 2024 at 8:31 PM.</sub>
 
-
-<sub>This document is auto-generated. It was last generated on Thursday, October 3, 2024 at 8:24 PM.</sub>
+[^1]: Time spent is an estimation of courses completed. Where a course makes clear how long the playback is, that's what is recorded here. It's likely more based on the practical time spent solving challenges or tweaking projects as elective further work.
