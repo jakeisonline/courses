@@ -8,7 +8,7 @@ I think it's fun to track how many courses I've taken, completed, and the total 
 
 | #️⃣ Total           | 🟠 Doing          | 🟢 Done           | ⏱️ Est. Hours[^1]     |
 | --------------- | -------------------- | ------------------- | --------------- |
-| 29 | 4 | 25 | 226.5 hrs (9 days, 10.5 hours) |
+| 30 | 5 | 25 | 226.5 hrs (9 days, 10.5 hours) |
 
 Of the courses I've completed, the following topics have been covered:
 
@@ -32,6 +32,7 @@ Of the courses I've completed, the following topics have been covered:
 | [Ultimate CSS Grid &amp; Layout Techniques, v3](https://frontendmasters.com/courses/css-grid/) | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
 | [TypeScript 5+ Fundamentals, v4](https://frontendmasters.com/courses/typescript-v4/) | Frontendmasters | 🟠 Doing | -- |  -- |  -- |
 | [Interactive SVG Animations](https://www.svg-animations.how/) | Nanda Syahrasyad | 🟠 Doing | -- | [Files](/nan.fyi/svg/)  |  -- |
+| [Build an AI Agent from Scratch](https://frontendmasters.com/courses/ai-agents) | Frontendmasters | 🟠 Doing | -- | [Files](/frontendmasters/ai-agents/)  |  -- |
 | [Professional React &amp; Next.js](https://bytegrad.com/courses/professional-react-nextjs) | ByteGrad | 🟢 Done | 60 | [Files](/bytegrad/professional-react-and-nextjs/)  |  -- |
 | [Intermediate Next.js](https://frontendmasters.com/courses/intermediate-next-js/) | Frontendmasters | 🟢 Done | 3.5 |  -- | [Cert](https://static.frontendmasters.com/ud/c/f946fe8582/CyZKLbetbW/intermediate-next-js.pdf)  |
 | [Server-Side GraphQL in Next.js](https://frontendmasters.com/courses/server-graphql-nextjs/) | Frontendmasters | 🟢 Done | 3.5 |  -- | [Cert](https://static.frontendmasters.com/ud/c/f946fe8582/ShAxUxzfyH/server-graphql-nextjs.pdf)  |
@@ -58,6 +59,6 @@ Of the courses I've completed, the following topics have been covered:
 | [JavaScript: From Fundamentals to Functional JS, v2](https://frontendmasters.com/courses/archive/js-fundamentals-functional-v2/) | Frontendmasters | 🟢 Done | 8 |  -- | [Cert](https://static.frontendmasters.com/ud/c/f946fe8582/auBFpnJXxg/js-fundamentals-functional-v2.pdf)  |
 | [Advanced CSS and Sass](https://www.udemy.com/course/advanced-css-and-sass/) | Udemy | 🟢 Done | 28 | [Files](/udemy/advanced-css/)  | [Cert](https://www.udemy.com/certificate/UC-e635f622-71ae-489a-a1d8-9d8040b1efa5/)  |
 
-<sub>This document is auto-generated. It was last generated on Thursday, October 3, 2024 at 8:44 PM.</sub>
+<sub>This document is auto-generated. It was last generated on Wednesday, April 9, 2025 at 9:40 PM.</sub>
 
 [^1]: Time spent is an estimation of courses completed. Where a course makes clear how long the playback is, that's what is recorded here. It's likely more based on the practical time spent solving challenges or tweaking projects as elective further work.

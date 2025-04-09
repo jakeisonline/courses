@@ -1,5 +1,17 @@
 [
   {
+    "name": "Build an AI Agent from Scratch",
+    "topics": ["Node.js", "AI"],
+    "provider": "Frontendmasters",
+    "duration": 4,
+    "completed": "",
+    "urls": {
+      "course": "https://frontendmasters.com/courses/ai-agents",
+      "source": "/frontendmasters/ai-agents/",
+      "certificate": ""
+    }
+  },
+  {
     "name": "Interactive SVG Animations",
     "topics": ["SVG"],
     "provider": "Nanda Syahrasyad",
@@ -16,7 +28,7 @@
     "topics": ["React", "Next.js"],
     "provider": "ByteGrad",
     "duration": 60,
-    "completed": "2021-05-27T00:00:00.000Z",
+    "completed": "2024-05-27T00:00:00.000Z",
     "urls": {
       "course": "https://bytegrad.com/courses/professional-react-nextjs",
       "source": "/bytegrad/professional-react-and-nextjs/",
