@@ -3,7 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "start": "npx tsx index.ts"
+    "start": "pnpm exec tsx index.ts"
   },
   "overrides": {
     "whatwg-url": "13.0.0"
@@ -21,5 +21,8 @@
     "tsx": "^4.19.2",
     "uuid": "^11.0.2",
     "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0"
   }
 }
