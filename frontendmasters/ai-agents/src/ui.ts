@@ -1,10 +1,10 @@
-import ora from 'ora'
-import type { AIMessage } from '../types'
+import ora from "ora"
+import type { AIMessage } from "@/types"
 
 export const showLoader = (text: string) => {
   const spinner = ora({
     text,
-    color: 'cyan',
+    color: "cyan",
   }).start()
 
   return {
@@ -17,30 +17,30 @@ export const showLoader = (text: string) => {
 
 export const logMessage = (message: AIMessage) => {
   const roleColors = {
-    user: '\x1b[36m', // cyan
-    assistant: '\x1b[32m', // green
+    user: "\x1b[36m", // cyan
+    assistant: "\x1b[32m", // green
   }
 
-  const reset = '\x1b[0m'
+  const reset = "\x1b[0m"
   const role = message.role
-  const color = roleColors[role as keyof typeof roleColors] || '\x1b[37m' // default to white
+  const color = roleColors[role as keyof typeof roleColors] || "\x1b[37m" // default to white
 
   // Don't log tool messages
-  if (role === 'tool') {
+  if (role === "tool") {
     return
   }
 
   // Log user messages (only have content)
-  if (role === 'user') {
+  if (role === "user") {
     console.log(`\n${color}[USER]${reset}`)
     console.log(`${message.content}\n`)
     return
   }
 
   // Log assistant messages
-  if (role === 'assistant') {
+  if (role === "assistant") {
     // If has tool_calls, log function name
-    if ('tool_calls' in message && message.tool_calls) {
+    if ("tool_calls" in message && message.tool_calls) {
       message.tool_calls.forEach((tool) => {
         console.log(`\n${color}[ASSISTANT]${reset}`)
         console.log(`${tool.function.name}\n`)
