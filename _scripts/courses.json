@@ -1,5 +1,17 @@
 [
   {
+    "name": "AI Agent: From Prototype to Production",
+    "topics": ["Node.js", "AI"],
+    "provider": "Frontendmasters",
+    "duration": 4,
+    "completed": null,
+    "urls": {
+      "course": "https://frontendmasters.com/courses/production-ai",
+      "source": "/frontendmasters/production-ai/",
+      "certificate": null
+    }
+  },
+  {
     "name": "Build an AI Agent from Scratch",
     "topics": ["Node.js", "AI"],
     "provider": "Frontendmasters",
