@@ -1,6 +1,7 @@
-import { JSONFilePreset } from 'lowdb/node'
-import type { AIMessage } from '../types'
-import { v4 as uuidv4 } from 'uuid'
+import { JSONFilePreset } from "lowdb/node"
+import type { AIMessage } from "../types"
+import { v4 as uuidv4 } from "uuid"
+import { summarizeMessages } from "./llm"
 
 export type MessageWithMetadata = AIMessage & {
   id: string
@@ -9,6 +10,7 @@ export type MessageWithMetadata = AIMessage & {
 
 type Data = {
   messages: MessageWithMetadata[]
+  summary: string
 }
 
 export const addMetadata = (message: AIMessage) => {
@@ -26,10 +28,11 @@ export const removeMetadata = (message: MessageWithMetadata) => {
 
 const defaultData: Data = {
   messages: [],
+  summary: "",
 }
 
 export const getDb = async () => {
-  const db = await JSONFilePreset<Data>('db.json', defaultData)
+  const db = await JSONFilePreset<Data>("db.json", defaultData)
   return db
 }
 
@@ -37,23 +40,45 @@ export const addMessages = async (messages: AIMessage[]) => {
   const db = await getDb()
   db.data.messages.push(...messages.map(addMetadata))
 
+  if (db.data.messages.length >= 10) {
+    const oldestMessages = db.data.messages.slice(0, 5).map(removeMetadata)
+
+    const summary = await summarizeMessages(oldestMessages)
+    db.data.summary = summary
+  }
+
   await db.write()
 }
 
 export const getMessages = async () => {
   const db = await getDb()
-  return db.data.messages.map(removeMetadata)
+  const messages = db.data.messages.map(removeMetadata)
+  const lastMessages = messages.slice(-5)
+
+  if (lastMessages[0]?.role === "tool") {
+    const extraMessage = messages[messages.length - 6]
+    if (extraMessage) {
+      return [extraMessage, ...lastMessages]
+    }
+  }
+
+  return lastMessages
 }
 
 export const saveToolResponse = async (
   toolCallId: string,
-  toolResponse: string
+  toolResponse: string,
 ) => {
   return addMessages([
     {
-      role: 'tool',
+      role: "tool",
       content: toolResponse,
       tool_call_id: toolCallId,
     },
   ])
+}
+
+export const getSummary = async () => {
+  const db = await getDb()
+  return db.data.summary
 }
