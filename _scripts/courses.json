@@ -1,14 +1,14 @@
 [
   {
     "name": "AI Agent: From Prototype to Production",
-    "topics": ["Node.js", "AI"],
+    "topics": ["Node.js", "AI", "RAG"],
     "provider": "Frontendmasters",
     "duration": 4,
-    "completed": null,
+    "completed": "2025-04-13T00:00:00.000Z",
     "urls": {
       "course": "https://frontendmasters.com/courses/production-ai",
       "source": "/frontendmasters/production-ai/",
-      "certificate": null
+      "certificate": "https://static.frontendmasters.com/ud/c/f946fe8582/NKUwJieTvI/production-ai.pdf"
     }
   },
   {
