@@ -9,18 +9,10 @@
   "arrowParens": "always",
   "printWidth": 80,
   "plugins": [
+    "prettier-plugin-html-template-literals",
     "prettier-plugin-tailwindcss",
     "prettier-plugin-astro",
-    "prettier-plugin-organize-imports",
-    "prettier-plugin-astro-organize-imports"
+    "prettier-plugin-organize-imports"
   ],
-  "tailwindFunctions": ["clsx", "cva", "cn", "twMerge", "tw"],
-  "overrides": [
-    {
-      "files": "*.astro",
-      "options": {
-        "parser": "astro"
-      }
-    }
-  ]
+  "tailwindFunctions": ["clsx", "cva", "cn", "twMerge", "tw"]
 }

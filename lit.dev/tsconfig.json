@@ -20,7 +20,18 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    "paths": {
+      "@/*": ["./src/*"],
+    },
+
+    "plugins": [
+      {
+        "name": "ts-lit-plugin",
+        "strict": true,
+      }
+    ]
   },
-  "include": ["src"]
+  "include": ["src", "lessons"]
 }
