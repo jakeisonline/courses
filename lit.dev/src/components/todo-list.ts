@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 import { TailwindElement } from "@/mixins/tailwind-element"
 import { LitElement, html } from "lit"
-import { customElement, query, state } from "lit/decorators.js"
+import { customElement, property, query, state } from "lit/decorators.js"
 
 @customElement("todo-list")
 export class TodoList extends TailwindElement(LitElement) {
@@ -10,6 +10,9 @@ export class TodoList extends TailwindElement(LitElement) {
     { text: "Start Lit tutorial", completed: true },
     { text: "Make to-do list", completed: false },
   ]
+
+  @property()
+  hideCompleted?: boolean = false
 
   @query("#newitem")
   input!: HTMLInputElement
@@ -23,6 +26,31 @@ export class TodoList extends TailwindElement(LitElement) {
     this.input.focus()
   }
 
+  toggleCompleted({ id }: { id: number }) {
+    const item = this._listItems[id]
+
+    if (!item) return
+
+    this._listItems = [
+      ...this._listItems.slice(0, id),
+      { ...item, completed: !item.completed },
+      ...this._listItems.slice(id + 1),
+    ]
+  }
+
+  toggleCompletedVisibility() {
+    this.hideCompleted = !this.hideCompleted
+  }
+
+  handleChange(e: Event) {
+    const target = e.currentTarget as HTMLInputElement
+    const itemId = target?.name
+
+    if (!itemId) return
+
+    this.toggleCompleted({ id: Number(itemId) })
+  }
+
   handleKeyDown(e: KeyboardEvent) {
     if (e.key === "Enter") {
       this.addTodo()
@@ -32,19 +60,40 @@ export class TodoList extends TailwindElement(LitElement) {
   render() {
     return html`
       <div class="card card-border w-100 p-4 shadow-sm">
-        <h2 class="card-title">To Do</h2>
-        <ul class="card-body p-0">
-          ${this._listItems.map(
-            (item) =>
-              html`<li
-                class=${cn(
-                  "px-0",
-                  item.completed && "line-through text-neutral",
-                )}
-              >
-                ${item.text}
-              </li>`,
-          )}
+        <h2 class="card-title flex justify-between">
+          To Do
+          <div class="mt-0.5">
+            <label class="label text-sm font-normal">
+              <input
+                type="checkbox"
+                class="checkbox checkbox-xs"
+                @change=${this.toggleCompletedVisibility}
+              />
+              Hide completed
+            </label>
+          </div>
+        </h2>
+        <ul class="card-body mt-4 p-0">
+          ${this._listItems.map((item, index) => {
+            if (this.hideCompleted && item.completed) return
+
+            return html`<li class="px-0">
+              <label class="label hover:cursor-pointer">
+                <input
+                  type="checkbox"
+                  name=${index}
+                  class="checkbox checkbox-xs"
+                  @change=${this.handleChange}
+                  ?checked=${item.completed}
+                />
+                <span
+                  class=${cn(item.completed && "line-through text-neutral")}
+                >
+                  ${item.text}
+                </span>
+              </label>
+            </li>`
+          })}
         </ul>
         <div class="card-actions mt-4">
           <input
