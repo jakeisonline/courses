@@ -1,29 +1,4 @@
-@import "tailwindcss"
-
+@import "tailwindcss";
 @plugin "daisyui" {
-  themes: lofi --default;
-}
-
-// @custom-variant dark (&:is(.dark *));
-
-@theme {
-  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-}
-
-@layer base {
-  * {
-  }
-  body {
-    font-size: 22px;
-  }
+  themes: nord --default;
 }

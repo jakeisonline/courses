@@ -24,21 +24,25 @@ export class MyElement extends LitElement {
 
   render() {
     return html`
-      <p>Hello ${this.name}</p>
-      <div class="flex flex-col">
-        <input
-          @input=${this.handleNameChange}
-          placeholder="Enter your name"
-          ?disabled=${!this.editEnabled}
-        />
-        <label>
+      <div class="card card-body card-border m-4 w-100 p-4 shadow-sm">
+        <p class="card-title">Hello ${this.name}</p>
+        <div class="card-actions flex flex-col">
           <input
-            type="checkbox"
-            @change=${this.handleEditToggle}
-            ?checked=${this.editEnabled}
+            class="input w-full"
+            @input=${this.handleNameChange}
+            placeholder="Enter your name"
+            ?disabled=${!this.editEnabled}
           />
-          Enable editing
-        </label>
+          <label class="label">
+            <input
+              type="checkbox"
+              class="checkbox"
+              @change=${this.handleEditToggle}
+              ?checked=${this.editEnabled}
+            />
+            Enable editing
+          </label>
+        </div>
       </div>
     `
   }
