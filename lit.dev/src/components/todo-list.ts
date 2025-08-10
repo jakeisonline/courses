@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils"
 import { TailwindElement } from "@/mixins/tailwind-element"
 import { LitElement, html } from "lit"
 import { customElement, query, state } from "lit/decorators.js"
@@ -34,7 +35,10 @@ export class TodoList extends TailwindElement(LitElement) {
         <h2 class="card-title">To Do</h2>
         <ul class="card-body p-0">
           ${this._listItems.map(
-            (item) => html`<li class="px-0">${item.text}</li>`,
+            (item) =>
+              html`<li class=${cn("px-0", item.completed && "line-through")}>
+                ${item.text}
+              </li>`,
           )}
         </ul>
         <div class="card-actions mt-4">
