@@ -36,7 +36,12 @@ export class TodoList extends TailwindElement(LitElement) {
         <ul class="card-body p-0">
           ${this._listItems.map(
             (item) =>
-              html`<li class=${cn("px-0", item.completed && "line-through")}>
+              html`<li
+                class=${cn(
+                  "px-0",
+                  item.completed && "line-through text-neutral",
+                )}
+              >
                 ${item.text}
               </li>`,
           )}
@@ -48,6 +53,7 @@ export class TodoList extends TailwindElement(LitElement) {
             @keydown=${this.handleKeyDown}
             class="input w-full"
             aria-label="New item"
+            autocomplete="off"
           />
           <button class="btn w-full" @click=${this.addTodo}>Add</button>
         </div>
