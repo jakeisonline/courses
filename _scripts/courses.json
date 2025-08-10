@@ -1,5 +1,16 @@
 [
   {
+    "name": "Intro to Lit",
+    "topics": ["JavaScript", "Lit"],
+    "provider": "Lit.dev",
+    "duration": 2,
+    "completed": "2025-08-10T00:00:00.000Z",
+    "urls": {
+      "course": "https://lit.dev/tutorials/intro-to-lit/",
+      "source": "/lit.dev/"
+    }
+  },
+  {
     "name": "AI Agent: From Prototype to Production",
     "topics": ["Node.js", "AI", "RAG"],
     "provider": "Frontendmasters",
