@@ -1,11 +1,9 @@
-import { LitElement, html, unsafeCSS } from "lit"
+import { TailwindElement } from "@/mixins/tailwind-element"
+import { LitElement, html } from "lit"
 import { customElement, property } from "lit/decorators.js"
-import style from "../index.css?inline"
 
 @customElement("my-element")
-export class MyElement extends LitElement {
-  static styles = [unsafeCSS(style)]
-
+export class MyElement extends TailwindElement(LitElement) {
   @property()
   name: string = "your name here"
   @property()
@@ -18,7 +16,6 @@ export class MyElement extends LitElement {
 
   handleEditToggle() {
     const newEditState = !this.editEnabled
-    console.log("newEditState", newEditState)
     this.editEnabled = newEditState
   }
 
