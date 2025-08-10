@@ -21,7 +21,7 @@ export class MyElement extends TailwindElement(LitElement) {
 
   render() {
     return html`
-      <div class="card card-body card-border m-4 w-100 p-4 shadow-sm">
+      <div class="card card-body card-border w-100 p-4 shadow-sm">
         <p class="card-title">Hello ${this.name}</p>
         <div class="card-actions flex flex-col">
           <input
