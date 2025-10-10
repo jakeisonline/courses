@@ -1,5 +1,16 @@
 [
   {
+    "name": "Whimsical Animations",
+    "topics": ["JavaScript", "CSS", "SVG", "Animation"],
+    "provider": "Josh W Comeau",
+    "duration": 10,
+    "completed": "",
+    "urls": {
+      "course": "https://whimsy.joshwcomeau.com/",
+      "source": ""
+    }
+  },
+  {
     "name": "Intro to Lit",
     "topics": ["JavaScript", "Lit"],
     "provider": "Lit.dev",
@@ -36,7 +47,7 @@
   },
   {
     "name": "Interactive SVG Animations",
-    "topics": ["SVG"],
+    "topics": ["SVG", "Animation"],
     "provider": "Nanda Syahrasyad",
     "duration": 0,
     "completed": "",
@@ -144,7 +155,7 @@
   },
   {
     "name": "CSS Animations and Transitions",
-    "topics": ["CSS"],
+    "topics": ["CSS", "Animation"],
     "provider": "Frontendmasters",
     "duration": 4,
     "completed": "2024-07-07T00:00:00.000Z",
